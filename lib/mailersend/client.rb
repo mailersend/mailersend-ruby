@@ -21,7 +21,7 @@ module Mailersend
     def http
       HTTP
         .timeout(connect: 15, read: 30)
-        .auth(@api_token)
+        .auth("Bearer #{@api_token}")
         .headers("User-Agent" => "MailerSend-client-ruby/1.0.0",
                  "Accept" => "application/json")
     end

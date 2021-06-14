@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/mailersend/mailersend-ruby"
-  spec.metadata["changelog_uri"] = "https://github.com/mailersend/mailersend-ruby/CHANGELOG.md"
+  spec.metadata["changelog_uri"] = "https://github.com/mailersend/mailersend-ruby/blob/main/CHANGELOG.md"
 
   spec.files = `git ls-files -z`.split("\x0")
   spec.executables = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
