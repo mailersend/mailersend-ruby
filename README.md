@@ -9,8 +9,12 @@ MailerSend Ruby SDK
 - [Usage](#usage)
   - [Email](#email)
     - [Send an email](#send-an-email)
-    - [Send and email with CC and BCC](#send-and-email-with-cc-and-bcc)
-    - [Send a templated email](#send-a-templated-email)
+    - [Add CC, BCC recipients](#add-cc-bcc-recipients)
+    - [Send a template-based email](#send-a-template-based-email)
+  - [Tokens](#tokens)
+    - [Create a token](#create-a-token)
+    - [Update a token](#update-a-token)
+    - [Delete a token](#delete-a-token)
     - [Advanced personalization](#advanced-personalization)
     - [Simple personalization](#simple-personalization)
     - [Send email with attachment](#send-email-with-attachment)
@@ -33,10 +37,6 @@ MailerSend Ruby SDK
     - [Get recipients](#get-recipients)
     - [Get a single recipient](#get-a-single-recipient)
     - [Delete a recipient](#delete-a-recipient)
-  - [Tokens](#tokens)
-    - [Create a token](#create-a-token)
-    - [Update a token](#update-a-token)
-    - [Delete a token](#delete-a-token)
   - [Webhooks](#webhooks)
     - [List webhooks](#list-webhooks)
     - [Get a webhook](#get-a-webhook)
@@ -81,7 +81,7 @@ ms_email.add_html("<b>Time is money, money is power, power is pizza, and pizza i
 ms_email.send
 ```
 
-### Send and email with CC and BCC
+### Add CC, BCC recipients
 
 ```ruby
 require "mailersend-ruby"
@@ -103,7 +103,7 @@ ms_email.add_html("<b>Time is money, money is power, power is pizza, and pizza i
 ms_email.send
 ```
 
-### Send a templated email
+### Send a template-based email
 
 ```ruby
 require "mailersend-ruby"
@@ -120,6 +120,32 @@ ms_email.add_template_id(12415125)
 
 # Send the email
 ms_email.send
+```
+
+## Tokens
+
+### Create a token
+```ruby
+require "mailersend-ruby"
+
+ms_tokens = Mailersend::Tokens.new
+ms_tokens.create(name: "Very nice token", scopes: %w[ email_full domains_read ])
+```
+
+### Update a token
+```ruby
+require "mailersend-ruby"
+
+ms_tokens = Mailersend::Tokens.new
+ms_tokens.update(token_id: "d2220fx04", name: "Very nice token", scopes: %w[ email_full domains_read activity_read ])
+```
+
+### Delete a token
+```ruby
+require "mailersend-ruby"
+
+ms_tokens = Mailersend::Tokens.new
+ms_tokens.delete(token_id: "d2220fx04")
 ```
 
 ### Advanced personalization
@@ -350,32 +376,6 @@ require "mailersend-ruby"
 
 ms_recipients = Mailersend::Recipients.new
 ms_recipients.delete(recipient_id: "id124")
-```
-
-## Tokens
-
-### Create a token
-```ruby
-require "mailersend-ruby"
-
-ms_tokens = Mailersend::Tokens.new
-ms_tokens.create(name: "Very nice token", scopes: %w[ email_full domains_read ])
-```
-
-### Update a token
-```ruby
-require "mailersend-ruby"
-
-ms_tokens = Mailersend::Tokens.new
-ms_tokens.update(token_id: "d2220fx04", name: "Very nice token", scopes: %w[ email_full domains_read activity_read ])
-```
-
-### Delete a token
-```ruby
-require "mailersend-ruby"
-
-ms_tokens = Mailersend::Tokens.new
-ms_tokens.delete(token_id: "d2220fx04")
 ```
 
 ## Webhooks
