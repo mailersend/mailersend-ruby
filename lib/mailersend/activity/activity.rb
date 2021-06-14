@@ -27,7 +27,7 @@ module Mailersend
         date_to: date_to
       }
 
-      response = client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: "/v1/analytics/#{domain_id}",
+      response = client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: "/v1/activity/#{domain_id}",
                                                   query: URI.encode_www_form(hash.compact)))
       puts response
     end

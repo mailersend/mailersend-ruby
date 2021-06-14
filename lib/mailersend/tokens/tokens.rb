@@ -34,8 +34,8 @@ module Mailersend
       puts response
     end
 
-    def delete(name:)
-      response = client.http.delete("#{API_URL}/token/#{name}")
+    def delete(token_id:)
+      response = client.http.delete("#{API_URL}/token/#{token_id}")
       puts response
     end
   end

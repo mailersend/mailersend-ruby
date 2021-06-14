@@ -137,7 +137,7 @@ ms_tokens.create(name: "Very nice token", scopes: %w[ email_full domains_read ])
 require "mailersend-ruby"
 
 ms_tokens = Mailersend::Tokens.new
-ms_tokens.update(token_id: "d2220fx04", name: "Very nice token", scopes: %w[ email_full domains_read activity_read ])
+ms_tokens.update(token_id: "d2220fx04", status: "paused")
 ```
 
 ### Delete a token
