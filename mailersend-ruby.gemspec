@@ -8,12 +8,12 @@ Gem::Specification.new do |spec|
   spec.name          = "mailersend-ruby"
   spec.version       = Mailersend::VERSION
   spec.authors       = ["Nikola Milojević"]
-  spec.email         = ["support@mailersend.com"]
+  spec.email         = ["info@mailersend.com"]
 
   spec.summary       = "MailerSend's official Ruby SDK"
   spec.description   = "MailerSend's official Ruby SDK. Interacts will all endpoints at MailerSend API."
   spec.homepage      = "https://www.mailersend.com"
-  spec.license       = "Apache-2.0"
+  spec.license       = "MIT"
   spec.required_ruby_version = ">= 2.5.0"
 
   spec.metadata["allowed_push_host"] = "https://rubygems.org"
