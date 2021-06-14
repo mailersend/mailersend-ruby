@@ -249,7 +249,7 @@ ms_activity.get(domain_id: "xxx2241ll", page: 3, limit: 5, date_from: 1620643567
 require "mailersend-ruby"
 
 ms_analytics = Mailersend::Analytics.new
-ms_analytics.date(date_from: 1620643567, date_to: 1623321967, events: %w[sent queued]))
+ms_analytics.date(date_from: 1620643567, date_to: 1623321967, events: %w[sent queued])
 ```
 
 ### Opens by country
