@@ -158,26 +158,15 @@ ms_email = Mailersend::Email.new
 
 # Add parameters
 ms_email.add_recipients("email" => "ron@parksandrec.com", "name" => "Ron")
-ms_email.add_recipients("email" => "leslie@parksandrec.com", "name" => "Leslie")
 ms_email.add_from("email" => "april@parksandrec.com", "name" => "April")
-ms_email.add_subject("Time")
-ms_email.add_text("Time is money, money is power, power is pizza, and pizza is knowledge. Let's go.")
-ms_email.add_html("<b>Time is money, money is power, power is pizza, and pizza is knowledge. Let's go.</b>")
+ms_email.add_subject("Time {{ test }}")
+ms_email.add_text("{{ test }}Time is money, money is power, power is pizza, and pizza is knowledge. Let's go.")
+ms_email.add_html("<b>{{ test }}Time is money, money is power, power is pizza, and pizza is knowledge. Let's go.</b>")
 
 personalization = {
-  "email": "test@test.com",
-  "data": {
-    "var": "value",
-    "boolean": true,
-    "object": {
-      "key": "object-value"
-    },
-    "number": 2,
-    "array": [
-      1,
-      2,
-      3
-    ]
+  email: 'ron@parksandrec.com',
+  data: {
+    test: 'Test Value'
   }
 }
 
@@ -196,18 +185,17 @@ ms_email = Mailersend::Email.new
 
 # Add parameters
 ms_email.add_recipients("email" => "ron@parksandrec.com", "name" => "Ron")
-ms_email.add_recipients("email" => "leslie@parksandrec.com", "name" => "Leslie")
 ms_email.add_from("email" => "april@parksandrec.com", "name" => "April")
-ms_email.add_subject("Time")
-ms_email.add_text("Time is money, money is power, power is pizza, and pizza is knowledge. Let's go.")
-ms_email.add_html("<b>Time is money, money is power, power is pizza, and pizza is knowledge. Let's go.</b>")
+ms_email.add_subject("Time {$test}")
+ms_email.add_text("{$test} Time is money, money is power, power is pizza, and pizza is knowledge. Let's go.")
+ms_email.add_html("<b>{$test} Time is money, money is power, power is pizza, and pizza is knowledge. Let's go.</b>")
 
 variables = {
-  "email": "test@test.com",
-  "substitutions": [
+  email: 'ron@parksandrec.com',
+  substitutions: [
     {
-      "var": "test",
-      "value": "test"
+      var: 'test',
+      value: 'Test Value'
     }
   ]
 }
