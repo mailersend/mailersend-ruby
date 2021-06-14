@@ -28,7 +28,7 @@ module Mailersend
 
     def update(token_id:, status:)
       status = {
-        "status": status
+        status: status
       }
       response = client.http.put("#{API_URL}/token/#{token_id}/settings", json: status)
       puts response

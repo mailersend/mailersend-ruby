@@ -8,5 +8,5 @@
 /tmp/
 .env
 .idea
-.Gemfile.lock
+Gemfile.lock
 .DS_Store
