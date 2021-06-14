@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["info@mailersend.com"]
 
   spec.summary       = "MailerSend's official Ruby SDK"
-  spec.description   = "MailerSend's official Ruby SDK. Interacts will all endpoints at MailerSend API."
+  spec.description   = "MailerSend's official Ruby SDK. Interacts with all endpoints at MailerSend API."
   spec.homepage      = "https://www.mailersend.com"
   spec.license       = "MIT"
   spec.required_ruby_version = ">= 2.5.0"
