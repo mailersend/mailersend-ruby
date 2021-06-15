@@ -1,5 +1,9 @@
 ## [Released]
 
+## [0.1.4] - 2021-06-15
+
+- Fixed Domains init
+
 ## [0.1.3] - 2021-06-14
 
 - Updated gem description

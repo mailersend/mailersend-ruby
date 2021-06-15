@@ -9,7 +9,7 @@ module Mailersend
                   :limit,
                   :verified
 
-    def initialize(client = Mailersend.client.new)
+    def initialize(client = Mailersend::Client.new)
       @client = client
       @domain_id = domain_id
       @page = page
