@@ -17,10 +17,11 @@ module Mailersend
       @status = {}
     end
 
-    def create(name:, scopes:)
+    def create(name:, scopes:, domain_id:)
       json = {
         "name" => name,
-        "scopes" => scopes
+        "scopes" => scopes,
+        "domain_id" => scopes
       }
       response = client.http.post("#{API_URL}/token", json: json)
       puts response

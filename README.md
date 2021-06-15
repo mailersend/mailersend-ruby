@@ -129,7 +129,7 @@ ms_email.send
 require "mailersend-ruby"
 
 ms_tokens = Mailersend::Tokens.new
-ms_tokens.create(name: "Very nice token", scopes: %w[ email_full domains_read ])
+ms_tokens.create(name: "Very nice token", scopes: %w[ email_full domains_read ], domain_id: "yourdomainid")
 ```
 
 ### Update a token
