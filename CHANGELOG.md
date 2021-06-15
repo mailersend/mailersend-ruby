@@ -1,5 +1,13 @@
 ## [Released]
 
+## [0.1.8] - 2021-06-15
+
+- Fixed unused parameter
+
+## [0.1.7] - 2021-06-15
+
+- Added required parameter for token creation
+-
 ## [0.1.6] - 2021-06-15
 
 - Fixed small issues in Domains
