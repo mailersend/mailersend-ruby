@@ -381,7 +381,7 @@ ms_webhooks.list(domain_id: "xxx2241ll")
 require "mailersend-ruby"
 
 ms_webhooks = Mailersend::Webhooks.new
-ms_webhooks.list(webhook_id: "zzz2241ll")
+ms_webhooks.single(webhook_id: "zzz2241ll")
 ```
 
 ### Create a webhook
