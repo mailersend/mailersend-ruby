@@ -21,7 +21,7 @@ module Mailersend
       json = {
         "name" => name,
         "scopes" => scopes,
-        "domain_id" => scopes
+        "domain_id" => domain_id
       }
       response = client.http.post("#{API_URL}/token", json: json)
       puts response
