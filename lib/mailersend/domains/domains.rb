@@ -17,7 +17,7 @@ module Mailersend
       @verified = verified
     end
 
-    def list
+    def list(domain_id:, page: nil, limit: nil, verified: nil)
       hash = {
         "page" => page,
         "limit" => limit,

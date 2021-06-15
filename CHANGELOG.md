@@ -1,5 +1,9 @@
 ## [Released]
 
+## [0.1.5] - 2021-06-15
+
+- Fixed arguments error in Domains list
+
 ## [0.1.4] - 2021-06-15
 
 - Fixed Domains init
