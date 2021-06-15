@@ -296,7 +296,7 @@ ms_domains.list
 require "mailersend-ruby"
 
 ms_domains = Mailersend::Domains.new
-ms_domains.list(domain_id: "idofdomain12412")
+ms_domains.single(domain_id: "idofdomain12412")
 ```
 
 ### Delete a domain
