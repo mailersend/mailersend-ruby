@@ -29,7 +29,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 2.2.15"
   spec.add_development_dependency "rake", "~> 13.0"
   spec.add_development_dependency "rubocop", "~> 1.7"
-  spec.add_dependency "dotenv-rails", "~> 2.7"
+  spec.add_dependency "dotenv", "~> 2.7"
   spec.add_dependency "http", "~> 5.0"
   spec.add_dependency "json", "~> 2.5"
   spec.add_dependency "uri", "~> 0.10.1"
