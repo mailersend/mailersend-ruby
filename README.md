@@ -42,6 +42,7 @@ MailerSend Ruby SDK
     - [Get a webhook](#get-a-webhook)
     - [Create a webhook](#create-a-webhook)
     - [Update a webhook](#update-a-webhook)
+    - [Delete a webhook](#delete-a-webhook)
 - [Support and Feedback](#support-and-feedback)
 - [License](#license)
 
@@ -398,6 +399,14 @@ require "mailersend-ruby"
 
 ms_webhooks = Mailersend::Webhooks.new
 ms_webhooks.update(webhook_id: "zzz2241ll", enabled: false)
+```
+
+### Delete a webhook
+```ruby
+require "mailersend-ruby"
+
+ms_webhooks = Mailersend::Webhooks.new
+ms_webhooks.delete(webhook_id: "zzz2241ll")
 ```
 
 # Support and Feedback
