@@ -43,6 +43,10 @@ MailerSend Ruby SDK
     - [Create a webhook](#create-a-webhook)
     - [Update a webhook](#update-a-webhook)
     - [Delete a webhook](#delete-a-webhook)
+  - [Templates](#templates)
+    - [Get templates](#get-templates)
+    - [Get a single template](#get-a-single-template)
+    - [Delete template](#delete-template)
 - [Support and Feedback](#support-and-feedback)
 - [License](#license)
 
@@ -407,6 +411,35 @@ require "mailersend-ruby"
 
 ms_webhooks = Mailersend::Webhooks.new
 ms_webhooks.delete(webhook_id: "zzz2241ll")
+```
+
+## Templates
+
+### Get templates
+
+```ruby
+require "mailersend-ruby"
+
+ms_templates = Mailersend::Templates.new
+ms_templates.list(domain_id: "aax455lll", page: 1, limit: 10)
+```
+
+### Get a single template
+
+```ruby
+require "mailersend-ruby"
+
+ms_templates = Mailersend::Templates.new
+ms_templates.single(template_id: "id124")
+```
+
+### Delete template
+
+```ruby
+require "mailersend-ruby"
+
+ms_templates = Mailersend::Templates.new
+ms_templates.delete(template_id: "id124")
 ```
 
 # Support and Feedback
