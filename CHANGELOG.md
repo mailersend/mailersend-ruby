@@ -1,5 +1,13 @@
 ## [Released]
 
+## [0.2.0] - 2021-07-01
+
+- Added Templates endpoint
+
+## [0.1.9] - 2021-06-30
+
+- Fixed docs
+
 ## [0.1.8] - 2021-06-15
 
 - Fixed unused parameter
