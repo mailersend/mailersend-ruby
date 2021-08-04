@@ -14,7 +14,7 @@ module Mailersend
 
   # Inits the client.
   class Client
-     def initialize(api_token = ENV['API_TOKEN'])
+    def initialize(api_token = ENV['API_TOKEN'])
       @api_token = api_token
     end
 
