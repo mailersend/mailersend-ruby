@@ -1,5 +1,9 @@
 ## [Released]
 
+## [0.2.0] - 2021-08-04
+
+- Fixed email class so that it omits empty values
+
 ## [0.2.0] - 2021-07-01
 
 - Added Templates endpoint

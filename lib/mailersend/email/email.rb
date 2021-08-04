@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "base64"
+require 'base64'
 
 module Mailersend
   # Send an email through MailerSend API
@@ -87,30 +87,31 @@ module Mailersend
     def add_attachment(content:, filename:)
       data = File.open(content.to_s).read
       encoded = Base64.strict_encode64(data)
-      attachments << {
-        "content" => encoded,
-        "filename" => filename
+      @attachments << {
+        'content' => encoded,
+        'filename' => filename
       }
     end
 
     def send
       message = {
-        "from" => from,
-        "to" => recipients,
-        "cc" => ccs,
-        "bcc" => bcc,
-        "reply_to" => reply_to,
-        "subject" => subject,
-        "text" => text,
-        "html" => html,
-        "variables" => variables,
-        "personalization" => personalization,
-        "template_id" => template_id,
-        "attachments" => attachments
+        'from' => @from,
+        'to' => @recipients,
+        'cc' => @ccs,
+        'bcc' => @bcc,
+        'reply_to' => @reply_to,
+        'subject' => @subject,
+        'text' => @text,
+        'html' => @html,
+        'variables' => @variables,
+        'personalization' => @personalization,
+        'template_id' => @template_id,
+        'attachments' => @attachments
       }
 
-      response = client.http.post("#{API_URL}/email", json: message.compact)
+      response = client.http.post("#{API_URL}/email", json: message.delete_if { |_, value| value.to_s.strip == '' || value == [] || value == {} })
       puts response
+      puts message
       puts response.status.code
     end
   end
