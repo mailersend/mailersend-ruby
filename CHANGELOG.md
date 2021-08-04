@@ -1,6 +1,10 @@
 ## [Released]
 
-## [0.2.0] - 2021-08-04
+## [0.2.2] - 2021-08-04
+
+- Removed leftover debugging stuff
+
+## [0.2.1] - 2021-08-04
 
 - Fixed email class so that it omits empty values
 
