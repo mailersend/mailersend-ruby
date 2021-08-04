@@ -17,12 +17,12 @@ module Mailersend
 
     def list(domain_id: nil, page: nil, limit: nil)
       hash = {
-        "domain_id" => domain_id,
-        "page" => page,
-        "limit" => limit
+        'domain_id' => domain_id,
+        'page' => page,
+        'limit' => limit
       }
 
-      response = client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: "/v1/templates",
+      response = client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: '/v1/templates',
                                                   query: URI.encode_www_form(hash)))
       puts response
     end

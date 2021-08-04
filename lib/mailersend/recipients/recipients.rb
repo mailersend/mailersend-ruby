@@ -17,11 +17,11 @@ module Mailersend
 
     def list(page: nil, limit: nil)
       hash = {
-        "page" => page,
-        "limit" => limit
+        'page' => page,
+        'limit' => limit
       }
 
-      response = client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: "/v1/recipients",
+      response = client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: '/v1/recipients',
                                                   query: URI.encode_www_form(hash)))
       puts response
     end

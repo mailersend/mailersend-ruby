@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require "http"
-require "dotenv/load"
+require 'http'
+require 'dotenv/load'
 
-API_URL = "https://api.mailersend.com/v1"
-API_BASE_HOST = "api.mailersend.com"
+API_URL = 'https://api.mailersend.com/v1'
+API_BASE_HOST = 'api.mailersend.com'
 
-Dotenv.require_keys("API_TOKEN")
+Dotenv.require_keys('API_TOKEN')
 
 # mailersend-ruby is a gem that integrates all endpoints from MailerSend API
 module Mailersend
@@ -14,7 +14,7 @@ module Mailersend
 
   # Inits the client.
   class Client
-    def initialize(api_token = ENV["API_TOKEN"])
+     def initialize(api_token = ENV['API_TOKEN'])
       @api_token = api_token
     end
 
@@ -22,8 +22,8 @@ module Mailersend
       HTTP
         .timeout(connect: 15, read: 30)
         .auth("Bearer #{@api_token}")
-        .headers("User-Agent" => "MailerSend-client-ruby/1.0.0",
-                 "Accept" => "application/json")
+        .headers('User-Agent' => 'MailerSend-client-ruby/1.0.0',
+                 'Accept' => 'application/json')
     end
   end
 end

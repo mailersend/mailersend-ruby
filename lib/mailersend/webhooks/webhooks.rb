@@ -22,9 +22,9 @@ module Mailersend
 
     def list(domain_id:)
       hash = {
-        "domain_id" => domain_id
+        'domain_id' => domain_id
       }
-      response = client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: "/v1/webhooks",
+      response = client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: '/v1/webhooks',
                                                   query: URI.encode_www_form(hash)))
       puts response
     end
@@ -36,11 +36,11 @@ module Mailersend
 
     def create(url:, name:, events:, domain_id:, enabled: nil)
       hash = {
-        "url" => url,
-        "name" => name,
-        "events" => events,
-        "domain_id" => domain_id,
-        "enabled" => enabled.to_s == "true"
+        'url' => url,
+        'name' => name,
+        'events' => events,
+        'domain_id' => domain_id,
+        'enabled' => enabled.to_s == 'true'
       }
 
       response = client.http.post("#{API_URL}/webhooks", json: hash.compact)
@@ -49,10 +49,10 @@ module Mailersend
 
     def update(webhook_id:, url: nil, name: nil, events: nil, enabled: nil)
       hash = {
-        "url" => url,
-        "name" => name,
-        "events" => events,
-        "enabled" => enabled.to_s == "true"
+        'url' => url,
+        'name' => name,
+        'events' => events,
+        'enabled' => enabled.to_s == 'true'
       }
       response = client.http.put("#{API_URL}/webhooks/#{webhook_id}", json: hash.compact)
       puts response

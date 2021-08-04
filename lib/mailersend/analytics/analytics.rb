@@ -14,27 +14,27 @@ module Mailersend
 
     def initialize(client = Mailersend::Client.new)
       @client = client
-      @date_from = ""
-      @date_to = ""
+      @date_from = ''
+      @date_to = ''
       @events = []
-      @domain_id = ""
-      @recipient_id = ""
-      @group_by = ""
+      @domain_id = ''
+      @recipient_id = ''
+      @group_by = ''
       @tags = []
     end
 
     def date(date_from:, date_to:, events:, domain_id: nil, recipient_id: nil, group_by: nil, tags: nil)
       hash = {
-        "date_from" => date_from,
-        "date_to" => date_to,
-        "event[]" => events,
-        "domain_id" => domain_id,
-        "recipient_id" => recipient_id,
-        "group_by" => group_by,
-        "tags[]" => tags
+        'date_from' => date_from,
+        'date_to' => date_to,
+        'event[]' => events,
+        'domain_id' => domain_id,
+        'recipient_id' => recipient_id,
+        'group_by' => group_by,
+        'tags[]' => tags
       }
 
-      response = client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: "/v1/analytics/date",
+      response = client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: '/v1/analytics/date',
                                                   query: URI.encode_www_form(hash.compact)))
       puts response
     end
@@ -45,10 +45,10 @@ module Mailersend
         recipient_id: recipient_id,
         date_from: date_from,
         date_to: date_to,
-        "tags[]": tags
+        'tags[]': tags
       }
 
-      response = client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: "/v1/analytics/country",
+      response = client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: '/v1/analytics/country',
                                                   query: URI.encode_www_form(hash.compact)))
       puts response
     end
@@ -59,10 +59,10 @@ module Mailersend
         recipient_id: recipient_id,
         date_from: date_from,
         date_to: date_to,
-        "tags[]": tags
+        'tags[]': tags
       }
 
-      response = client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: "/v1/analytics/ua-name",
+      response = client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: '/v1/analytics/ua-name',
                                                   query: URI.encode_www_form(hash.compact)))
       puts response
     end
@@ -73,10 +73,10 @@ module Mailersend
         recipient_id: recipient_id,
         date_from: date_from,
         date_to: date_to,
-        "tags[]": tags
+        'tags[]': tags
       }
 
-      response = client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: "/v1/analytics/ua-type",
+      response = client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: '/v1/analytics/ua-type',
                                                   query: URI.encode_www_form(hash.compact)))
       puts response
     end
