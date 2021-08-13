@@ -11,12 +11,12 @@ MailerSend Ruby SDK
     - [Send an email](#send-an-email)
     - [Add CC, BCC recipients](#add-cc-bcc-recipients)
     - [Send a template-based email](#send-a-template-based-email)
+    - [Advanced personalization](#advanced-personalization)
+    - [Simple personalization](#simple-personalization)
   - [Tokens](#tokens)
     - [Create a token](#create-a-token)
     - [Update a token](#update-a-token)
     - [Delete a token](#delete-a-token)
-    - [Advanced personalization](#advanced-personalization)
-    - [Simple personalization](#simple-personalization)
     - [Send email with attachment](#send-email-with-attachment)
   - [Activity](#activity)
     - [Get a list of activities](#get-a-list-of-activities)
@@ -29,6 +29,7 @@ MailerSend Ruby SDK
     - [Get a list of domains](#get-a-list-of-domains)
     - [Get a single domain](#get-a-single-domain)
     - [Delete a domain](#delete-a-domain)
+    - [Get recipients for a domain](#get-recipients-for-a-domain)
     - [Update domain settings](#update-domain-settings)
   - [Messages](#messages)
     - [Get a list of messages](#get-a-list-of-messages)
@@ -127,32 +128,6 @@ ms_email.add_template_id(12415125)
 ms_email.send
 ```
 
-## Tokens
-
-### Create a token
-```ruby
-require "mailersend-ruby"
-
-ms_tokens = Mailersend::Tokens.new
-ms_tokens.create(name: "Very nice token", scopes: %w[ email_full domains_read ], domain_id: "yourdomainid")
-```
-
-### Update a token
-```ruby
-require "mailersend-ruby"
-
-ms_tokens = Mailersend::Tokens.new
-ms_tokens.update(token_id: "d2220fx04", status: "paused")
-```
-
-### Delete a token
-```ruby
-require "mailersend-ruby"
-
-ms_tokens = Mailersend::Tokens.new
-ms_tokens.delete(token_id: "d2220fx04")
-```
-
 ### Advanced personalization
 
 ```ruby
@@ -208,6 +183,32 @@ variables = {
 ms_email.add_variables(variables)
 
 ms_email.send
+```
+
+## Tokens
+
+### Create a token
+```ruby
+require "mailersend-ruby"
+
+ms_tokens = Mailersend::Tokens.new
+ms_tokens.create(name: "Very nice token", scopes: %w[ email_full domains_read ], domain_id: "yourdomainid")
+```
+
+### Update a token
+```ruby
+require "mailersend-ruby"
+
+ms_tokens = Mailersend::Tokens.new
+ms_tokens.update(token_id: "d2220fx04", status: "paused")
+```
+
+### Delete a token
+```ruby
+require "mailersend-ruby"
+
+ms_tokens = Mailersend::Tokens.new
+ms_tokens.delete(token_id: "d2220fx04")
 ```
 
 ### Send email with attachment
@@ -311,6 +312,15 @@ require "mailersend-ruby"
 
 ms_domains = Mailersend::Domains.new
 ms_domains.delete(domain_id: "idofdomain12412")
+```
+
+### Get recipients for a domain
+
+```ruby
+require "mailersend-ruby"
+
+ms_domains = Mailersend::Domains.new
+ms_domains.recipients(domain_id: "idofdomain12412")
 ```
 
 ### Update domain settings
