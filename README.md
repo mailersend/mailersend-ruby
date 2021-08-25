@@ -38,6 +38,10 @@ MailerSend Ruby SDK
     - [Get recipients](#get-recipients)
     - [Get a single recipient](#get-a-single-recipient)
     - [Delete a recipient](#delete-a-recipient)
+  - [Suppressions](#suppressions)
+    - [Get recipients from a suppression list](#get-recipients-from-a-suppression-list)
+    - [Add recipients to a suppression list](#add-recipients-to-a-suppression-list)
+    - [Delete recipients from a suppression list](#delete-recipients-from-a-suppression-list)
   - [Webhooks](#webhooks)
     - [List webhooks](#list-webhooks)
     - [Get a webhook](#get-a-webhook)
@@ -379,6 +383,71 @@ require "mailersend-ruby"
 
 ms_recipients = Mailersend::Recipients.new
 ms_recipients.delete(recipient_id: "id124")
+```
+
+## Suppressions
+
+### Get recipients from a suppression list
+
+```ruby
+require "mailersend-ruby"
+
+ms_suppressions = Mailersend::Suppressions.new
+
+// List from Blocklist 
+ms_suppressions.get_from_blocklist(domain_id: "xxx2241ll")
+
+// List from Hard Bounces
+ms_suppressions.get_hard_bounces(domain_id: "xxx2241ll")
+
+// List from Spam Complaints
+ms_suppressions.get_spam_complaints(domain_id: "xxx2241ll")
+
+// List from Unsubscribers
+ms_suppressions.get_unsubscribes(domain_id: "xxx2241ll")
+```
+
+### Add recipients to a suppression list
+
+```ruby
+require "mailersend-ruby"
+
+ms_suppressions = Mailersend::Suppressions.new
+
+// Add Recipient to Block List using recipients
+ms_suppressions.add_to_blocklist(domain_id: "xxx2241ll", recipients: ["blocked@client.com"])
+
+// Add Recipient to Block List using patterns
+ms_suppressions.add_to_blocklist(domain_id: "xxx2241ll", patterns: ["*@client.com"])
+
+// Add Recipient to Hard Bounces
+ms_suppressions.add_to_hard_bounces(domain_id: "xxx2241ll", recipients: ["bounced@client.com"])
+
+// Add Recipient to Spam Complaints
+ms_suppressions.add_to_spam_complaints(domain_id: "xxx2241ll", recipients: ["bounced@client.com"])
+
+// Add Recipient to Unsubscribes
+ms_suppressions.add_to_unsubscribers(domain_id: "xxx2241ll", recipients: ["bounced@client.com"])
+```
+
+### Delete recipients from a suppression list
+
+```ruby
+require "mailersend-ruby"
+
+ms_suppressions = Mailersend::Suppressions.new
+
+// Delete from Block List
+ms_suppressions.delete_from_blocklist(ids: ["xxx2241ll"])
+
+// Delete from Hard Bounces
+ms_suppressions.delete_from_hard_bounces(ids: ["xxx2241ll"])
+
+// Delete from Spam Complaints
+ms_suppressions.delete_from_spam_complaints(ids: ["xxx2241ll"])
+
+// Delete from Unsubscribes
+ms_suppressions.delete_from_unsubscribers(ids: ["xxx2241ll"])
 ```
 
 ## Webhooks
