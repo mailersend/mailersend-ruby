@@ -15,27 +15,27 @@ module Mailersend
       @recipient_id = recipient_id
     end
 
-    def get_from_blocklist(domain_id: nil)
+    def get_from_blocklist(*)
       response = client.http.get("#{API_URL}/suppressions/blocklist")
       puts response
     end
-  
-    def get_hard_bounces(domain_id: nil)
+
+    def get_hard_bounces(*)
       response = client.http.get("#{API_URL}/suppressions/hard-bounces")
       puts response
     end
-  
-    def get_spam_complaints(domain_id: nil)
+
+    def get_spam_complaints(*)
       response = client.http.get("#{API_URL}/suppressions/spam-complaints")
       puts response
     end
-  
-    def get_unsubscribes(domain_id: nil)
+
+    def get_unsubscribes(*)
       response = client.http.get("#{API_URL}/suppressions/unsubscribes")
       puts response
     end
-  
-    def add_to_blocklist(domain_id: nil, recipients: nil, patterns: nil)
+
+    def add_to_blocklist(recipients: nil, patterns: nil)
       hash = {
         'recipients' => recipients,
         'patterns' => patterns
@@ -43,7 +43,7 @@ module Mailersend
       response = client.http.post("#{API_URL}/suppressions/blocklist", json: hash.compact)
       puts response
     end
-  
+
     def delete_from_blocklist(ids: nil)
       hash = {
         'ids' => ids
@@ -51,7 +51,7 @@ module Mailersend
       response = client.http.delete("#{API_URL}/suppressions/blocklist", json: hash.compact)
       puts response
     end
-  
+
     def add_to_hard_bounces(domain_id: nil, recipients: nil)
       hash = {
         'domain_id' => domain_id,
@@ -60,7 +60,7 @@ module Mailersend
       response = client.http.post("#{API_URL}/suppressions/hard-bounces", json: hash.compact)
       puts response
     end
-  
+
     def delete_from_hard_bounces(ids: nil)
       hash = {
         'ids' => ids
@@ -68,7 +68,7 @@ module Mailersend
       response = client.http.delete("#{API_URL}/suppressions/hard-bounces", json: hash.compact)
       puts response
     end
-  
+
     def add_to_spam_complaints(domain_id: nil, recipients: nil)
       hash = {
         'domain_id' => domain_id,
@@ -77,7 +77,7 @@ module Mailersend
       response = client.http.post("#{API_URL}/suppressions/spam-complaints", json: hash.compact)
       puts response
     end
-  
+
     def delete_from_spam_complaints(ids: nil)
       hash = {
         'ids' => ids
@@ -85,7 +85,7 @@ module Mailersend
       response = client.http.delete("#{API_URL}/suppressions/spam-complaints", json: hash.compact)
       puts response
     end
-  
+
     def add_to_unsubscribers(domain_id: nil, recipients: nil)
       hash = {
         'domain_id' => domain_id,
@@ -94,7 +94,7 @@ module Mailersend
       response = client.http.post("#{API_URL}/suppressions/unsubscribes", json: hash.compact)
       puts response
     end
-  
+
     def delete_from_unsubscribers(ids: nil)
       hash = {
         'ids' => ids
