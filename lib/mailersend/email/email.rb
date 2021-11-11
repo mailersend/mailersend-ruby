@@ -52,8 +52,8 @@ module Mailersend
       @bcc << bcc
     end
 
-    def add_reply_to(_reply_to)
-      @reply_to = reply to
+    def add_reply_to(reply_to)
+      @reply_to = reply_to
     end
 
     def add_subject(subject)
