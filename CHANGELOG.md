@@ -1,5 +1,9 @@
 ## [Released]
 
+## [0.2.3] - 2021-11-11
+
+- Fixed typo for reply_to (thanks @JohnGoodman)
+
 ## [0.2.2] - 2021-08-04
 
 - Removed leftover debugging stuff
