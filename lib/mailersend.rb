@@ -3,6 +3,7 @@
 require_relative 'mailersend/client'
 require_relative 'mailersend/activity/activity'
 require_relative 'mailersend/analytics/analytics'
+require_relative 'mailersend/bulk_email/bulk_email'
 require_relative 'mailersend/domains/domains'
 require_relative 'mailersend/email/email'
 require_relative 'mailersend/messages/messages'

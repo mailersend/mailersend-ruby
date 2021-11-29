@@ -13,6 +13,9 @@ MailerSend Ruby SDK
     - [Send a template-based email](#send-a-template-based-email)
     - [Advanced personalization](#advanced-personalization)
     - [Simple personalization](#simple-personalization)
+  - [Bulk Email](#bulk-email)
+    - [Send bulk email](#send-bulk-email)
+    - [Get bulk email status](#get-bulk-email-status)
   - [Tokens](#tokens)
     - [Create a token](#create-a-token)
     - [Update a token](#update-a-token)
@@ -187,6 +190,23 @@ variables = {
 ms_email.add_variables(variables)
 
 ms_email.send
+```
+
+## Bulk Email
+
+### Send bulk email
+```ruby
+require "mailersend-ruby"
+
+
+```
+
+### Get bulk email status
+```ruby
+require "mailersend-ruby"
+
+ms_bulk_email = Mailersend::BulkEmail.new
+ms_bulk_email.get_bulk_status(bulk_email_id: 'yourbulkemailid')
 ```
 
 ## Tokens
