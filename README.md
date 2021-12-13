@@ -13,6 +13,9 @@ MailerSend Ruby SDK
     - [Send a template-based email](#send-a-template-based-email)
     - [Advanced personalization](#advanced-personalization)
     - [Simple personalization](#simple-personalization)
+  - [Bulk Email](#bulk-email)
+    - [Send bulk email](#send-bulk-email)
+    - [Get bulk email status](#get-bulk-email-status)
   - [Tokens](#tokens)
     - [Create a token](#create-a-token)
     - [Update a token](#update-a-token)
@@ -187,6 +190,42 @@ variables = {
 ms_email.add_variables(variables)
 
 ms_email.send
+```
+
+## Bulk Email
+
+### Send bulk email
+```ruby
+require "mailersend-ruby"
+
+ms_bulk_email = Mailersend::BulkEmail.new
+
+ms_bulk_email.messages = [
+    {
+        'from' => {"email" => "april@parksandrec.com", "name" => "April"},
+        'to' => [{"email" => "ron@parksandrec.com", "name" => "Ron"}],
+        'subject' => "Time",
+        'text' => "Time is money, money is power, power is pizza, and pizza is knowledge. Let's go.",
+        'html' => "<b>Time is money, money is power, power is pizza, and pizza is knowledge. Let's go.</b>",
+      },
+      {
+        'from' => {"email" => "april@parksandrec.com", "name" => "April"},
+        'to' => [{"email" => "leslie@parksandrec.com", "name" => "Leslie"}],
+        'subject' => "Lorem Ipsum",
+        'text' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        'html' => "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
+      }
+]
+
+ms_bulk_email.send
+```
+
+### Get bulk email status
+```ruby
+require "mailersend-ruby"
+
+ms_bulk_email = Mailersend::BulkEmail.new
+ms_bulk_email.get_bulk_status(bulk_email_id: 'yourbulkemailid')
 ```
 
 ## Tokens
