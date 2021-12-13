@@ -394,7 +394,7 @@ require "mailersend-ruby"
 
 ms_suppressions = Mailersend::Suppressions.new
 
-// List from Blocklist 
+// List from Blocklist
 ms_suppressions.get_from_blocklist(domain_id: "xxx2241ll")
 
 // List from Hard Bounces
