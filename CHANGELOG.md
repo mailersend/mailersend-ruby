@@ -1,6 +1,10 @@
 ## [Released]
 
-## [0.2.3] - 2021-11-11
+## [0.2.4] - 2021-12-13
+
+- Added bulk email endpoint
+
+# [0.2.3] - 2021-11-11
 
 - Fixed typo for reply_to (thanks @JohnGoodman)
 
