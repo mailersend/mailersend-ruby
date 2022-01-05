@@ -477,16 +477,16 @@ require "mailersend-ruby"
 ms_suppressions = Mailersend::Suppressions.new
 
 // Delete from Block List
-ms_suppressions.delete_from_blocklist(domain_id: 'idofdomain12412', ids: ["xxx2241ll"])
+ms_suppressions.delete_from_blocklist(domain_id: 'yourdomainid', ids: ["xxx2241ll"])
 
 // Delete from Hard Bounces
-ms_suppressions.delete_from_hard_bounces(domain_id: 'idofdomain12412', ids: ["xxx2241ll"])
+ms_suppressions.delete_from_hard_bounces(domain_id: 'yourdomainid', ids: ["xxx2241ll"])
 
 // Delete from Spam Complaints
-ms_suppressions.delete_from_spam_complaints(domain_id: 'idofdomain12412', ids: ["xxx2241ll"])
+ms_suppressions.delete_from_spam_complaints(domain_id: 'yourdomainid', ids: ["xxx2241ll"])
 
 // Delete from Unsubscribes
-ms_suppressions.delete_from_unsubscribers(domain_id: 'idofdomain12412', ids: ["xxx2241ll"])
+ms_suppressions.delete_from_unsubscribers(domain_id: 'yourdomainid', ids: ["xxx2241ll"])
 ```
 
 ## Webhooks
