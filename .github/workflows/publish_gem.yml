@@ -15,7 +15,7 @@ jobs:
         if: contains(github.ref, 'refs/tags/v')
         uses: cadwallion/publish-rubygems-action@master
         env:
-          GITHUB_TOKEN: ${{secrets.TOKEN}}
+          GITHUB_TOKEN: ${{secrets.GITHUBTOKEN}}
           RUBYGEMS_API_KEY: ${{secrets.RUBYGEMS_API_KEY}}
           RELEASE_COMMAND: rake release
           
