@@ -44,8 +44,9 @@ module Mailersend
       puts response
     end
 
-    def delete_from_blocklist(ids: nil, all: nil)
+    def delete_from_blocklist(domain_id: nil, ids: nil, all: nil)
       hash = {
+        'domain_id' => domain_id,
         'ids' => ids,
         'all' => all
       }
@@ -62,8 +63,9 @@ module Mailersend
       puts response
     end
 
-    def delete_from_hard_bounces(ids: nil, all: nil)
+    def delete_from_hard_bounces(domain_id: nil, ids: nil, all: nil)
       hash = {
+        'domain_id' => domain_id,
         'ids' => ids,
         'all' => all
       }
@@ -80,8 +82,9 @@ module Mailersend
       puts response
     end
 
-    def delete_from_spam_complaints(ids: nil, all: nil)
+    def delete_from_spam_complaints(domain_id: nil, ids: nil, all: nil)
       hash = {
+        'domain_id' => domain_id,
         'ids' => ids,
         'all' => all
       }
@@ -98,8 +101,9 @@ module Mailersend
       puts response
     end
 
-    def delete_from_unsubscribers(ids: nil, all: nil)
+    def delete_from_unsubscribers(domain_id: nil, ids: nil, all: nil)
       hash = {
+        'domain_id' => domain_id,
         'ids' => ids,
         'all' => all
       }
