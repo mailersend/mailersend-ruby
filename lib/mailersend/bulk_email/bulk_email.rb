@@ -14,7 +14,7 @@ module Mailersend
     end
 
     def add_attachment(content:, filename:)
-      data = File.open(content.to_s).read
+      data = File.read(content.to_s)
       encoded = Base64.strict_encode64(data)
       @attachments << {
         'content' => encoded,
