@@ -70,7 +70,7 @@ You will have to initalize it in your Ruby file with `require "mailersend-ruby"`
 
 # Usage
 
-This SDK requires that you either have `.env` file with `API_TOKEN` env variable or that your variable is enabled system wide (useful for Docker/Kubernetes). The example of how `API_TOKEN` should look like is in `.env.example`.
+This SDK requires that you either have `.env` file with `MAILERSEND_API_TOKEN` env variable or that your variable is enabled system wide (useful for Docker/Kubernetes). The example of how `MAILERSEND_API_TOKEN` should look like is in `.env.example`.
 
 ## Email
 
