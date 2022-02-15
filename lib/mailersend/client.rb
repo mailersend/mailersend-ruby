@@ -6,7 +6,7 @@ require 'dotenv/load'
 API_URL = 'https://api.mailersend.com/v1'
 API_BASE_HOST = 'api.mailersend.com'
 
-Dotenv.require_keys('API_TOKEN')
+Dotenv.require_keys('MAILERSEND_API_TOKEN')
 
 # mailersend-ruby is a gem that integrates all endpoints from MailerSend API
 module Mailersend
@@ -14,7 +14,7 @@ module Mailersend
 
   # Inits the client.
   class Client
-    def initialize(api_token = ENV['API_TOKEN'])
+    def initialize(api_token = ENV['MAILERSEND_API_TOKEN'])
       @api_token = api_token
     end
 
