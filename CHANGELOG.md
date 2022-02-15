@@ -1,5 +1,9 @@
 ## [Released]
 
+## [1.0.0] - 2022-02-15
+
+- BREAKING CHANGE: Renamed `API_TOKEN` variable to `MAILERSEND_API_TOKEN`
+
 ## [0.2.4] - 2021-12-13
 
 - Added bulk email endpoint
@@ -32,6 +36,7 @@
 
 - Added required parameter for token creation
 -
+
 ## [0.1.6] - 2021-06-15
 
 - Fixed small issues in Domains
