@@ -112,8 +112,6 @@ module Mailersend
       response = client.http.post("#{API_URL}/email", json: message.delete_if { |_, value| value.to_s.strip == '' || value == [] || value == {} })
       puts response
       puts response.status.code
-      # Return the actual response here for users to perform in-app error handling
-      return response
     end
   end
 end
