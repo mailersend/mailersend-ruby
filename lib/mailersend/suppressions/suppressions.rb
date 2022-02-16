@@ -16,23 +16,19 @@ module Mailersend
     end
 
     def get_from_blocklist(*)
-      response = client.http.get("#{API_URL}/suppressions/blocklist")
-      puts response
+      client.http.get("#{API_URL}/suppressions/blocklist")
     end
 
     def get_hard_bounces(*)
-      response = client.http.get("#{API_URL}/suppressions/hard-bounces")
-      puts response
+      client.http.get("#{API_URL}/suppressions/hard-bounces")
     end
 
     def get_spam_complaints(*)
-      response = client.http.get("#{API_URL}/suppressions/spam-complaints")
-      puts response
+      client.http.get("#{API_URL}/suppressions/spam-complaints")
     end
 
     def get_unsubscribes(*)
-      response = client.http.get("#{API_URL}/suppressions/unsubscribes")
-      puts response
+      client.http.get("#{API_URL}/suppressions/unsubscribes")
     end
 
     def add_to_blocklist(recipients: nil, patterns: nil)
@@ -40,8 +36,7 @@ module Mailersend
         'recipients' => recipients,
         'patterns' => patterns
       }
-      response = client.http.post("#{API_URL}/suppressions/blocklist", json: hash.compact)
-      puts response
+      client.http.post("#{API_URL}/suppressions/blocklist", json: hash.compact)
     end
 
     def delete_from_blocklist(domain_id: nil, ids: nil, all: nil)
@@ -50,8 +45,7 @@ module Mailersend
         'ids' => ids,
         'all' => all
       }
-      response = client.http.delete("#{API_URL}/suppressions/blocklist", json: hash.compact)
-      puts response
+      client.http.delete("#{API_URL}/suppressions/blocklist", json: hash.compact)
     end
 
     def add_to_hard_bounces(domain_id: nil, recipients: nil)
@@ -59,8 +53,7 @@ module Mailersend
         'domain_id' => domain_id,
         'recipients' => recipients
       }
-      response = client.http.post("#{API_URL}/suppressions/hard-bounces", json: hash.compact)
-      puts response
+      client.http.post("#{API_URL}/suppressions/hard-bounces", json: hash.compact)
     end
 
     def delete_from_hard_bounces(domain_id: nil, ids: nil, all: nil)
@@ -69,8 +62,7 @@ module Mailersend
         'ids' => ids,
         'all' => all
       }
-      response = client.http.delete("#{API_URL}/suppressions/hard-bounces", json: hash.compact)
-      puts response
+      client.http.delete("#{API_URL}/suppressions/hard-bounces", json: hash.compact)
     end
 
     def add_to_spam_complaints(domain_id: nil, recipients: nil)
@@ -78,8 +70,7 @@ module Mailersend
         'domain_id' => domain_id,
         'recipients' => recipients
       }
-      response = client.http.post("#{API_URL}/suppressions/spam-complaints", json: hash.compact)
-      puts response
+      client.http.post("#{API_URL}/suppressions/spam-complaints", json: hash.compact)
     end
 
     def delete_from_spam_complaints(domain_id: nil, ids: nil, all: nil)
@@ -88,8 +79,7 @@ module Mailersend
         'ids' => ids,
         'all' => all
       }
-      response = client.http.delete("#{API_URL}/suppressions/spam-complaints", json: hash.compact)
-      puts response
+      client.http.delete("#{API_URL}/suppressions/spam-complaints", json: hash.compact)
     end
 
     def add_to_unsubscribers(domain_id: nil, recipients: nil)
@@ -97,8 +87,7 @@ module Mailersend
         'domain_id' => domain_id,
         'recipients' => recipients
       }
-      response = client.http.post("#{API_URL}/suppressions/unsubscribes", json: hash.compact)
-      puts response
+      client.http.post("#{API_URL}/suppressions/unsubscribes", json: hash.compact)
     end
 
     def delete_from_unsubscribers(domain_id: nil, ids: nil, all: nil)
@@ -107,8 +96,7 @@ module Mailersend
         'ids' => ids,
         'all' => all
       }
-      response = client.http.delete("#{API_URL}/suppressions/unsubscribes", json: hash.compact)
-      puts response
+      client.http.delete("#{API_URL}/suppressions/unsubscribes", json: hash.compact)
     end
   end
 end

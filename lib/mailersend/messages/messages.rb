@@ -21,14 +21,12 @@ module Mailersend
         'limit' => limit
       }
 
-      response = client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: '/v1/messages',
-                                                  query: URI.encode_www_form(hash)))
-      puts response
+      client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: '/v1/messages',
+                                       query: URI.encode_www_form(hash)))
     end
 
     def single(message_id:)
-      response = client.http.get("#{API_URL}/messages/#{message_id}")
-      puts response
+      client.http.get("#{API_URL}/messages/#{message_id}")
     end
   end
 end
