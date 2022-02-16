@@ -22,7 +22,7 @@ module Mailersend
       HTTP
         .timeout(connect: 15, read: 30)
         .auth("Bearer #{@api_token}")
-        .headers('User-Agent' => 'MailerSend-client-ruby/1.0.0',
+        .headers('User-Agent' => "MailerSend-client-ruby/#{Mailersend::VERSION}",
                  'Accept' => 'application/json')
     end
   end

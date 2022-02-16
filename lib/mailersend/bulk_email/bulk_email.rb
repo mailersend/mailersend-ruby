@@ -23,14 +23,11 @@ module Mailersend
     end
 
     def send
-      response = client.http.post("#{API_URL}/bulk-email", json: @messages)
-      puts response
-      puts response.status.code
+      client.http.post("#{API_URL}/bulk-email", json: @messages)
     end
 
     def get_bulk_status(bulk_email_id:)
-      response = client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: "/v1/bulk-email/#{bulk_email_id}"))
-      puts response
+      client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: "/v1/bulk-email/#{bulk_email_id}"))
     end
   end
 end

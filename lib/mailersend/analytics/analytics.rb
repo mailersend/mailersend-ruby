@@ -34,9 +34,8 @@ module Mailersend
         'tags[]' => tags
       }
 
-      response = client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: '/v1/analytics/date',
-                                                  query: URI.encode_www_form(hash.compact)))
-      puts response
+      client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: '/v1/analytics/date',
+                                       query: URI.encode_www_form(hash.compact)))
     end
 
     def country(date_from:, date_to:, domain_id: nil, recipient_id: nil, tags: nil)
@@ -48,9 +47,8 @@ module Mailersend
         'tags[]': tags
       }
 
-      response = client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: '/v1/analytics/country',
-                                                  query: URI.encode_www_form(hash.compact)))
-      puts response
+      client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: '/v1/analytics/country',
+                                       query: URI.encode_www_form(hash.compact)))
     end
 
     def ua_name(date_from:, date_to:, domain_id: nil, recipient_id: nil, tags: nil)
@@ -62,9 +60,8 @@ module Mailersend
         'tags[]': tags
       }
 
-      response = client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: '/v1/analytics/ua-name',
-                                                  query: URI.encode_www_form(hash.compact)))
-      puts response
+      client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: '/v1/analytics/ua-name',
+                                       query: URI.encode_www_form(hash.compact)))
     end
 
     def ua_type(date_from:, date_to:, domain_id: nil, recipient_id: nil, tags: nil)
@@ -76,9 +73,8 @@ module Mailersend
         'tags[]': tags
       }
 
-      response = client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: '/v1/analytics/ua-type',
-                                                  query: URI.encode_www_form(hash.compact)))
-      puts response
+      client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: '/v1/analytics/ua-type',
+                                       query: URI.encode_www_form(hash.compact)))
     end
   end
 end

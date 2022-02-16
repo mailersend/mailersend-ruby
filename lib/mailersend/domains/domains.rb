@@ -23,9 +23,8 @@ module Mailersend
         'limit' => limit,
         'verified' => verified
       }
-      response = client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: '/v1/domains',
-                                                  query: URI.encode_www_form(hash.compact)))
-      puts response
+      client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: '/v1/domains',
+                                       query: URI.encode_www_form(hash.compact)))
     end
 
     def single(domain_id:, page: nil, limit: nil, verified: nil)
@@ -34,14 +33,12 @@ module Mailersend
         'limit' => limit,
         'verified' => verified
       }
-      response = client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: "/v1/domains/#{domain_id}",
-                                                  query: URI.encode_www_form(hash.compact)))
-      puts response
+      client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: "/v1/domains/#{domain_id}",
+                                       query: URI.encode_www_form(hash.compact)))
     end
 
     def delete(domain_id:)
-      response = client.http.delete(URI::HTTPS.build(host: API_BASE_HOST, path: "/v1/domains/#{domain_id}"))
-      puts response
+      client.http.delete(URI::HTTPS.build(host: API_BASE_HOST, path: "/v1/domains/#{domain_id}"))
     end
 
     def recipients(domain_id:)
@@ -49,9 +46,8 @@ module Mailersend
         'page' => page,
         'limit' => limit
       }
-      response = client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: "/v1/domains/#{domain_id}/recipients",
-                                                  query: URI.encode_www_form(hash.compact)))
-      puts response
+      client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: "/v1/domains/#{domain_id}/recipients",
+                                       query: URI.encode_www_form(hash.compact)))
     end
 
     def settings(domain_id:, send_paused: nil, track_clicks: nil, track_opens: nil, track_unsubscribe: nil, track_unsubscribe_html: nil, track_unsubscribe_plain: nil, track_content: nil, custom_tracking_enabled: nil, custom_tracking_subdomain: nil)
@@ -66,8 +62,7 @@ module Mailersend
         'custom_tracking_enabled' => custom_tracking_enabled,
         'custom_tracking_subdomain' => custom_tracking_subdomain
       }
-      response = client.http.put("#{API_URL}/domains/#{domain_id}/settings", json: hash.compact)
-      puts response
+      client.http.put("#{API_URL}/domains/#{domain_id}/settings", json: hash.compact)
     end
   end
 end
