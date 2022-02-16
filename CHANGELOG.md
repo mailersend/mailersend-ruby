@@ -1,5 +1,10 @@
 ## [Released]
 
+## [1.0.1] - 2022-02-16
+
+- Removed puts from request response
+- Added dynamic User-Agent based on SDK version
+
 ## [1.0.0] - 2022-02-15
 
 - BREAKING CHANGE: Renamed `API_TOKEN` variable to `MAILERSEND_API_TOKEN`
