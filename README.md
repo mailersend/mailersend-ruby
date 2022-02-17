@@ -28,15 +28,27 @@ MailerSend Ruby SDK
     - [Opens by country](#opens-by-country)
     - [Opens by user-agent name](#opens-by-user-agent-name)
     - [Opens by reading environment](#opens-by-reading-environment)
+  - [Inbound Routes](#inbound-routes)
+    - [Get a list of inbound routes](#get-a-list-of-inbound-routes)
+    - [Get a single inbound route](#get-a-single-inbound-route)
+    - [Add an inbound route](#add-an-inbound-route)
+    - [Update an inbound route](#update-an-inbound-route)
+    - [Delete an inbound route](#delete-an-inbound-route)
   - [Domains](#domains)
     - [Get a list of domains](#get-a-list-of-domains)
     - [Get a single domain](#get-a-single-domain)
     - [Delete a domain](#delete-a-domain)
     - [Get recipients for a domain](#get-recipients-for-a-domain)
     - [Update domain settings](#update-domain-settings)
+    - [Get DNS Records](#get-dns-records)
+    - [Get verification status](#get-verification-status)
   - [Messages](#messages)
     - [Get a list of messages](#get-a-list-of-messages)
     - [Get info for a single message](#get-info-for-a-single-message)
+  - [Scheduled Messages](#scheduled-messages)
+    - [Get a list of scheduled messages](#get-a-list-of-scheduled-messages)
+    - [Get a single scheduled message](#get-a-single-scheduled-message)
+    - [Delete a scheduled message](#delete-a-scheduled-message)
   - [Recipients](#recipients)
     - [Get recipients](#get-recipients)
     - [Get a single recipient](#get-a-single-recipient)
@@ -328,6 +340,26 @@ ms_analytics = Mailersend::Analytics.new
 ms_analytics.ua_type(date_from: 1620643567, date_to: 1623321967)
 ```
 
+## Inbound Routes
+
+### Get a list of inbound routes
+
+```ruby
+require "mailersend-ruby"
+
+ms_inbound_routes = Mailersend::InboundRouting.new
+ms_inbound_routes.get_inbound_routes
+```
+
+### Get a single inbound route
+
+```ruby
+require "mailersend-ruby"
+
+ms_inbound_routes = Mailersend::InboundRouting.new
+ms_inbound_routes.get_single_route(inbound_id: 'idofroute12412')
+```
+
 ## Domains
 
 ### Get a list of domains
@@ -375,6 +407,24 @@ ms_domains = Mailersend::Domains.new
 ms_domains.settings(domain_id: "idofdomain12412", track_clicks: true, track_unsubscribe: false)
 ```
 
+### Get DNS Records
+
+```ruby
+require "mailersend-ruby"
+
+ms_domains = Mailersend::Domains.new
+ms_domains.dns(domain_id: "idofdomain12412")
+```
+
+### Get verification status
+
+```ruby
+require "mailersend-ruby"
+
+ms_domains = Mailersend::Domains.new
+ms_domains.verify(domain_id: "idofdomain12412")
+```
+
 ## Messages
 
 ### Get a list of messages
@@ -393,6 +443,35 @@ require "mailersend-ruby"
 
 ms_messages = Mailersend::Messages.new
 ms_messages.single(message_id: "mess11454")
+```
+
+## Scheduled Messages
+
+### Get a list of scheduled messages
+
+```ruby
+require "mailersend-ruby"
+
+ms_scheduled_messages = Mailersend::ScheduledMessages.new
+ms_scheduled_messages.get_list
+```
+
+### Get a single scheduled message
+
+```ruby
+require "mailersend-ruby"
+
+ms_scheduled_messages = Mailersend::ScheduledMessages.new
+ms_scheduled_messages.get_signle(message_id: 'mess11454')
+```
+
+### Delete a scheduled message
+
+```ruby
+require "mailersend-ruby"
+
+ms_scheduled_messages = Mailersend::ScheduledMessages.new
+ms_scheduled_messages.delete(message_id: 'mess11454')
 ```
 
 ## Recipients
