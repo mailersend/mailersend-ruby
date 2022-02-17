@@ -64,5 +64,13 @@ module Mailersend
       }
       client.http.put("#{API_URL}/domains/#{domain_id}/settings", json: hash.compact)
     end
+
+    def dns(domain_id:)
+      client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: "/v1/domains/#{domain_id}/dns-records"))
+    end
+
+    def verify(domain_id:)
+      client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: "/v1/domains/#{domain_id}/verify"))
+    end
   end
 end
