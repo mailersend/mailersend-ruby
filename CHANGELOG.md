@@ -1,5 +1,12 @@
 ## [Released]
 
+## [1.1.0] - 2022-02-18
+
+- Domains endpoint improvements
+- Added schedule an email parameter
+- Added inbound routes endpoint
+- Added scheduled messages endpoint
+
 ## [1.0.1] - 2022-02-16
 
 - Removed puts from request response

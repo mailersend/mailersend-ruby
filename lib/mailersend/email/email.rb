@@ -18,7 +18,8 @@ module Mailersend
                   :template_id,
                   :tags,
                   :variables,
-                  :personalization
+                  :personalization,
+                  :send_at
 
     def initialize(client = Mailersend::Client.new)
       @client = client
@@ -34,6 +35,7 @@ module Mailersend
       @personalization = []
       @attachments = []
       @tags = []
+      @send_at = send_at
     end
 
     def add_recipients(recipients)
@@ -93,6 +95,10 @@ module Mailersend
       }
     end
 
+    def add_send_at(send_at)
+      @send_at = send_at
+    end
+
     def send
       message = {
         'from' => @from,
@@ -106,7 +112,8 @@ module Mailersend
         'variables' => @variables,
         'personalization' => @personalization,
         'template_id' => @template_id,
-        'attachments' => @attachments
+        'attachments' => @attachments,
+        'send_at' => @send_at
       }
 
       client.http.post("#{API_URL}/email", json: message.delete_if { |_, value| value.to_s.strip == '' || value == [] || value == {} })
