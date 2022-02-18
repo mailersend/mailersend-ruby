@@ -7,7 +7,8 @@ module Mailersend
                   :domain_id,
                   :page,
                   :limit,
-                  :inbound_id
+                  :inbound_id,
+                  :settings
 
     def initialize(client = Mailersend::Client.new)
       @client = client
@@ -15,6 +16,7 @@ module Mailersend
       @page = page
       @limit = limit
       @inbound_id = inbound_id
+      @settings = []
     end
 
     def get_inbound_routes(*)
@@ -23,6 +25,14 @@ module Mailersend
 
     def get_single_route(inbound_id:)
       client.http.get("#{API_URL}/inbound/#{inbound_id}")
+    end
+
+    def add_inbound_route
+      client.http.post("#{API_URL}/inbound", json: @settings)
+    end
+
+    def update_inbound_route(inbound_id:)
+      client.http.put("#{API_URL}/inbound/#{inbound_id}", json: @settings)
     end
 
     def delete_route(inbound_id:)

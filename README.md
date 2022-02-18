@@ -360,6 +360,49 @@ ms_inbound_routes = Mailersend::InboundRouting.new
 ms_inbound_routes.get_single_route(inbound_id: 'idofroute12412')
 ```
 
+### Add an inbound route
+
+```ruby
+require "mailersend-ruby"
+
+ms_inbound_routes = Mailersend::InboundRouting.new
+ms_inbound_routes.settings =
+  {
+    'domain_id' => 'yourdomainid',
+    'name' => 'inbound_name',
+    'domain_enabled' => false,
+    'match_filter' => { 'type' => 'match_all' },
+    'forwards' => [{ 'type' => 'webhook', 'value' => 'https://example.com' }]
+  }
+puts ms_inbound_routes.add_inbound_route
+```
+
+### Update an inbound route
+
+```ruby
+require "mailersend-ruby"
+
+ms_inbound_routes = Mailersend::InboundRouting.new
+ms_inbound_routes.settings =
+  {
+    'domain_id' => 'yourdomainid',
+    'name' => 'inbound_updated',
+    'domain_enabled' => false,
+    'match_filter' => { 'type' => 'match_all' },
+    'forwards' => [{ 'type' => 'webhook', 'value' => 'https://example.com' }]
+  }
+puts ms_inbound_routes.update_inbound_route(inbound_id: 'idofroute12412')
+```
+
+### Delete an inbound route
+
+```ruby
+require "mailersend-ruby"
+
+ms_inbound_routes = Mailersend::InboundRouting.new
+ms_inbound_routes.delete_route(inbound_id: 'idofroute12412')
+```
+
 ## Domains
 
 ### Get a list of domains
