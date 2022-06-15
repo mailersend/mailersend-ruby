@@ -67,6 +67,19 @@ MailerSend Ruby SDK
     - [Get templates](#get-templates)
     - [Get a single template](#get-a-single-template)
     - [Delete template](#delete-template)
+  - [SMS](#sms)
+    - [Send an SMS](#send-an-sms)
+  - [SMS Activity](#sms-activity)
+    - [Get a list of activities](#get-a-list-of-sms-activities)
+  - [SMS Phone Numbers](#sms-phone-numbers)
+    - [Get a list of SMS phone numbers](#get-a-list-of-sms-phone-numbers)
+    - [Get an SMS phone number](#get-an-sms-phone-number)
+    - [Update a single SMS phone number](#update-a-single-sms-phone-number)
+    - [Delete an SMS phone number](#delete-an-sms-phone-number)
+  - [SMS Recipients](#sms-recipients)
+    - [Get a list of SMS recipients](#get-a-list-of-sms-recipients)
+    - [Get an SMS recipient](#get-an-sms-recipient)
+    - [Update a single SMS recipient](#update-a-single-sms-recipient)
 - [Support and Feedback](#support-and-feedback)
 - [License](#license)
 
@@ -680,6 +693,127 @@ require "mailersend-ruby"
 
 ms_templates = Mailersend::Templates.new
 ms_templates.delete(template_id: "id124")
+```
+
+## SMS 
+
+### Send an SMS
+
+```ruby
+require "mailersend-ruby"
+
+# Intialize the SMS class
+ms_sms = Mailersend::SMS.new
+
+# Add parameters
+ms_sms.add_from('your-number')
+ms_sms.add_to('client-number')
+ms_sms.add_text('This is the message content')
+
+# Send the SMS
+ms_sms.send
+```
+
+## SMS Activity
+
+### Get a list of activities
+
+```ruby
+require "mailersend-ruby"
+
+# Intialize the SMS Recipient class
+ms_sms_activity = Mailersend::SMSActivity.new
+
+# Add parameters
+ms_sms_activity.list(page: 1, limit: 10)
+```
+
+## SMS phone numbers
+
+### Get a list of SMS phone numbers
+
+```ruby
+require "mailersend-ruby"
+
+# Intialize the SMS Recipient class
+ms_sms_number = Mailersend::SMSNumber.new
+
+# Add parameters
+ms_sms_number.list(page: 1, limit: 10)
+```
+
+### Get an SMS phone number
+
+```ruby
+require "mailersend-ruby"
+
+# Intialize the SMS Recipient class
+ms_sms_number = Mailersend::SMSNumber.new
+
+# Add parameters
+ms_sms_number.get(sms_number_id: 'your-sms-number-id')
+```
+
+### Update a single SMS phone number
+
+```ruby
+require "mailersend-ruby"
+
+# Intialize the SMS Recipient class
+ms_sms_number = Mailersend::SMSNumber.new
+
+# Add parameters
+ms_sms_number.update(sms_number_id: 'your-sms-number-id', paused: false)
+```
+
+### Delete an SMS phone number
+
+```ruby
+require "mailersend-ruby"
+
+# Intialize the SMS Recipient class
+ms_sms_number = Mailersend::SMSNumber.new
+
+# Add parameters
+ms_sms_number.delete(sms_number_id: 'your-sms-number-id')
+```
+
+## SMS recipients
+
+### Get a list of SMS recipients
+
+```ruby
+require "mailersend-ruby"
+
+# Intialize the SMS Recipient class
+ms_sms_recipient = Mailersend::SMSRecipient.new
+
+# Add parameters
+ms_sms_recipient.list(page: 1, limit: 10)
+```
+
+### Get an SMS recipient
+
+```ruby
+require "mailersend-ruby"
+
+# Intialize the SMS Recipient class
+ms_sms_recipient = Mailersend::SMSRecipient.new
+
+# Add parameters
+ms_sms_recipient.get(sms_recipient_id: 'your-sms-recipient-id')
+```
+
+### Update a single SMS recipient
+
+```ruby
+require "mailersend-ruby"
+
+# Intialize the SMS Recipient class
+ms_sms_recipient = Mailersend::SMSRecipient.new
+
+# Add parameters
+ms_sms_recipient.update(sms_recipient_id: 'your-sms-recipient-id', status: 'opt_out')
 ```
 
 # Support and Feedback
