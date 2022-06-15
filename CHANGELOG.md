@@ -1,5 +1,12 @@
 ## [Released]
 
+## [1.2.0] - 2022-06-15
+
+- SMS Sending
+- SMS Activity
+- SMS Phone Numbers
+- SMS Recipients
+
 ## [1.1.0] - 2022-02-18
 
 - Domains endpoint improvements
