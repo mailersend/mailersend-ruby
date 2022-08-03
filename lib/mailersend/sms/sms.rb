@@ -6,13 +6,15 @@ module Mailersend
     attr_accessor :client,
                   :from,
                   :to,
-                  :text
+                  :text,
+                  :personalization
 
     def initialize(client = Mailersend::Client.new)
       @client = client
       @from = {}
       @to = []
       @text = {}
+      @personalization = []
     end
 
     def add_from(from)
@@ -27,14 +29,20 @@ module Mailersend
       @text = text
     end
 
+    def add_personalization(personalization)
+      @personalization << personalization
+    end
+
     def send
       message = {
         'from' => @from,
         'to' => @to,
-        'text' => @text
+        'text' => @text,
+        'personalization' => @personalization
       }
 
-      client.http.post("#{API_URL}/sms", json: message.delete_if { |_, value| value.to_s.strip == '' || value == [] || value == {} })
+      response = client.http.post("#{API_URL}/sms", json: message.delete_if { |_, value| value.to_s.strip == '' || value == [] || value == {} })
+      puts response
     end
   end
 end
