@@ -1,5 +1,13 @@
 ## [Released]
 
+## [1.3.0] - 2022-08-03
+
+- SMS Personalization
+- SMS Messages
+- SMS Inbounds
+- SMS Webhooks
+- Email Verification
+
 ## [1.2.0] - 2022-06-15
 
 - SMS Sending

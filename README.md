@@ -67,10 +67,18 @@ MailerSend Ruby SDK
     - [Get templates](#get-templates)
     - [Get a single template](#get-a-single-template)
     - [Delete template](#delete-template)
+  - [Email Verification](#email-verification)
+    - [Get all email verification lists](#get-all-email-verification-lists)
+    - [Get an email verification list](#get-an-email-verification-list)
+    - [Create an email verification list](#create-an-email-verification-list)
+    - [Verify an email list](#verify-an-email-list)
+    - [Get email verification list results](#get-email-verification-list-results)
   - [SMS](#sms)
-    - [Send an SMS](#send-an-sms)
+  - [SMS Messages](#sms-messages)
+    - [Get a list of SMS messages](#get-a-list-of-sms-messages)
+    - [Get info on an SMS message](#get-info-on-an-sms-message)
   - [SMS Activity](#sms-activity)
-    - [Get a list of activities](#get-a-list-of-sms-activities)
+    - [Get a list of sms activities](#get-a-list-of-sms-activities)
   - [SMS Phone Numbers](#sms-phone-numbers)
     - [Get a list of SMS phone numbers](#get-a-list-of-sms-phone-numbers)
     - [Get an SMS phone number](#get-an-sms-phone-number)
@@ -80,6 +88,18 @@ MailerSend Ruby SDK
     - [Get a list of SMS recipients](#get-a-list-of-sms-recipients)
     - [Get an SMS recipient](#get-an-sms-recipient)
     - [Update a single SMS recipient](#update-a-single-sms-recipient)
+  - [SMS Inbounds](#sms-inbounds)
+    - [Get a list of SMS inbound routes](#get-a-list-of-sms-inbound-routes)
+    - [Get a single SMS inbound route](#get-a-single-sms-inbound-route)
+    - [Create an SMS inbound route](#create-an-sms-inbound-route)
+    - [Update an SMS inbound route](#update-an-sms-inbound-route)
+    - [Delete an SMS inbound route](#delete-an-sms-inbound-route)
+  - [SMS Webhooks](#sms-webhooks)
+    - [Get a list of SMS webhooks](#get-a-list-of-sms-webhooks)
+    - [Get an SMS webhook](#get-an-sms-webhook)
+    - [Create an SMS webhook](#create-an-sms-webhook)
+    - [Update an SMS webhook](#update-an-sms-webhook)
+    - [Delete an SMS webhook](#delete-an-sms-webhook)
 - [Support and Feedback](#support-and-feedback)
 - [License](#license)
 
@@ -695,6 +715,38 @@ ms_templates = Mailersend::Templates.new
 ms_templates.delete(template_id: "id124")
 ```
 
+## Email Verification
+
+### Get all email verification lists
+
+```ruby
+
+```
+
+### Get an email verification list
+
+```ruby
+
+```
+
+### Create an email verification list
+
+```ruby
+
+```
+
+### Verify an email list
+
+```ruby
+
+```
+
+### Get email verification list results
+
+```ruby
+
+```
+
 ## SMS 
 
 ### Send an SMS
@@ -709,14 +761,47 @@ ms_sms = Mailersend::SMS.new
 ms_sms.add_from('your-number')
 ms_sms.add_to('client-number')
 ms_sms.add_text('This is the message content')
+personalization = {
+  phone_number: 'client-number',
+  data: {
+    test: 'Test Value'
+  }
+}
+ms_sms.add_personalization(personalization)
 
 # Send the SMS
 ms_sms.send
 ```
 
+## SMS Messages
+
+### Get a list of SMS messages
+
+```ruby
+require "mailersend-ruby"
+
+# Intialize the SMS Messages class
+ms_sms_messages = Mailersend::SMSMessages.new
+
+# Add parameters
+ms_sms_messages.list(page: 1, limit: 10)
+```
+
+### Get info on an SMS message
+
+```ruby
+require "mailersend-ruby"
+
+# Intialize the SMS Messages class
+ms_sms_messages = Mailersend::SMSMessages.new
+
+# Add parameters
+ms_sms_messages.get_single_route(sms_message_id: 'your-sms-message-id')
+```
+
 ## SMS Activity
 
-### Get a list of activities
+### Get a list of sms activities
 
 ```ruby
 require "mailersend-ruby"
@@ -814,6 +899,157 @@ ms_sms_recipient = Mailersend::SMSRecipient.new
 
 # Add parameters
 ms_sms_recipient.update(sms_recipient_id: 'your-sms-recipient-id', status: 'opt_out')
+```
+
+## SMS Inbounds
+
+### Get a list of SMS inbound routes
+
+```ruby
+require "mailersend-ruby"
+
+# Intialize the SMS Inbounds class
+ms_sms_inbounds = Mailersend::SMSInbounds.new
+
+ms_sms_inbounds.list
+```
+
+### Get a single SMS inbound route
+
+```ruby
+require "mailersend-ruby"
+
+# Intialize the SMS Inbounds class
+ms_sms_inbounds = Mailersend::SMSInbounds.new
+
+# Add parameters
+ms_sms_inbounds.get_sms_inbound_route(sms_inbound_id: 'your-sms-inbound-id')
+```
+
+### Create an SMS inbound route
+
+```ruby
+require "mailersend-ruby"
+
+# Intialize the SMS Inbounds class
+ms_sms_inbounds = Mailersend::SMSInbounds.new
+
+# Add parameters
+ms_sms_inbounds.settings =
+  {
+    'forward_url' => 'https://your-forward-url',
+    'name' => 'name',
+    'events' => ['sms.sent', 'sms.delivered'],
+    'sms_number_id' => 'your-sms-number-id'
+  }
+puts ms_sms_inbounds.add_sms_inbound_route
+```
+
+### Update an SMS inbound route
+
+```ruby
+require "mailersend-ruby"
+
+# Intialize the SMS Inbounds class
+ms_sms_inbounds = Mailersend::SMSInbounds.new
+
+# Add parameters
+ms_sms_inbounds.settings =
+  {
+    'forward_url' => 'https://your-forward-url',
+    'name' => 'name',
+    'events' => ['sms.sent', 'sms.delivered'],
+    'sms_number_id' => 'your-sms-number-id'
+  }
+puts ms_sms_inbounds.update_sms_inbound_route(sms_inbound_id: 'your-sms-inbound-id')
+```
+
+### Delete an SMS inbound route
+
+```ruby
+require "mailersend-ruby"
+
+# Intialize the SMS Inbounds class
+ms_sms_inbounds = Mailersend::SMSInbounds.new
+
+# Add parameters
+ms_sms_inbounds.delete_sms_inbound_route(sms_inbound_id: 'your-sms-inbound-id')
+```
+
+## SMS Webhooks
+
+### Get a list of SMS webhooks
+
+```ruby
+require "mailersend-ruby"
+
+# Intialize the SMS Webhooks class
+ms_sms_webhooks = Mailersend::SMSWebhooks.new
+
+# Add parameters
+ms_sms_webhooks.list(sms_number_id: 'your-sms-number-id')
+```
+
+### Get an SMS webhook
+
+```ruby
+require "mailersend-ruby"
+
+# Intialize the SMS Webhooks class
+ms_sms_webhooks = Mailersend::SMSWebhooks.new
+
+# Add parameters
+ms_sms_webhooks.get_sms_webhook_route(sms_webhook_id: 'your-sms-webhook-id')
+```
+
+### Create an SMS webhook
+
+```ruby
+require "mailersend-ruby"
+
+# Intialize the SMS Webhooks class
+ms_sms_webhooks = Mailersend::SMSWebhooks.new
+
+# Add parameters
+ms_sms_webhooks.settings =
+  {
+    'sms_number_id' => 'your-sms-number-id',
+    'name' => 'your-name',
+    'url' => 'https://your-url.com',
+    'events' => ['sms.sent', 'sms.delivered']
+  }
+puts ms_sms_webhooks.add_sms_webhook_route
+```
+
+### Update an SMS webhook
+
+```ruby
+require "mailersend-ruby"
+
+# Intialize the SMS Webhooks class
+ms_sms_webhooks = Mailersend::SMSWebhooks.new
+
+# Add parameters
+ms_sms_webhooks.settings =
+  {
+    'sms_number_id' => 'your-sms-number-id',
+    'name' => 'your-name',
+    'url' => 'https://your-url.com',
+    'events' => ['sms.sent', 'sms.delivered']
+  }
+puts ms_sms_webhooks.update_sms_webhook_route(sms_webhook_id: 'your-sms-webhook-id')
+```
+
+### Delete an SMS webhook
+
+```ruby
+require "mailersend-ruby"
+
+# Intialize the SMS Webhooks class
+ms_sms_webhooks = Mailersend::SMSWebhooks.new
+
+# Add parameters
+ms_sms_webhooks.delete_sms_webhook_route(sms_webhook_id: 'your-sms-webhook-id')
 ```
 
 # Support and Feedback
