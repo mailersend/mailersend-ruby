@@ -720,31 +720,46 @@ ms_templates.delete(template_id: "id124")
 ### Get all email verification lists
 
 ```ruby
+require "mailersend-ruby"
 
+ms_email_verification = Mailersend::EmailVerification.new
+ms_email_verification.list(page: 1, limit: 10)
 ```
 
 ### Get an email verification list
 
 ```ruby
+require "mailersend-ruby"
 
+ms_email_verification = Mailersend::EmailVerification.new
+ms_email_verification.get_single_list(email_verification_id: 'your-email-verification-id')
 ```
 
 ### Create an email verification list
 
 ```ruby
+require "mailersend-ruby"
 
+ms_email_verification = Mailersend::EmailVerification.new
+ms_email_verification.create_a_list(name: "name-your-list", emails: ["example@email.com"])
 ```
 
 ### Verify an email list
 
 ```ruby
+require "mailersend-ruby"
 
+ms_email_verification = Mailersend::EmailVerification.new
+ms_email_verification.verify_a_list(email_verification_id: 'your-email-verification-id')
 ```
 
 ### Get email verification list results
 
 ```ruby
+require "mailersend-ruby"
 
+ms_email_verification = Mailersend::EmailVerification.new
+ms_email_verification.get_list_results(email_verification_id: 'your-email-verification-id')
 ```
 
 ## SMS 
