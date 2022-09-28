@@ -86,12 +86,13 @@ module Mailersend
       @tags << tags
     end
 
-    def add_attachment(content:, filename:)
+    def add_attachment(content:, filename:, disposition:)
       data = File.read(content.to_s)
       encoded = Base64.strict_encode64(data)
       @attachments << {
         'content' => encoded,
-        'filename' => filename
+        'filename' => filename,
+        'disposition' => disposition
       }
     end
 

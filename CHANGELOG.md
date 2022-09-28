@@ -1,5 +1,9 @@
 ## [Released]
 
+## [1.3.1] - 2022-09-28
+
+- Added attachment content disposition
+
 ## [1.3.0] - 2022-08-03
 
 - SMS Personalization
