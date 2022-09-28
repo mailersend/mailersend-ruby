@@ -318,8 +318,8 @@ ms_email.add_text("Time is money, money is power, power is pizza, and pizza is k
 ms_email.add_html("<b>Time is money, money is power, power is pizza, and pizza is knowledge. Let's go.</b>")
 
 # You can add one or multiple attachments
-ms.add_attachment(content: "/Users/Jerry/Desktop/doc.pdf", filename: "doc.pdf")
-ms.add_attachment(content: "/Users/Jerry/Desktop/pic.png", filename: "pic.png")
+ms.add_attachment(content: "/Users/Jerry/Desktop/doc.pdf", filename: "doc.pdf", disposition: "attachment")
+ms.add_attachment(content: "/Users/Jerry/Desktop/pic.png", filename: "pic.png", disposition: "attachment")
 
 ms_email.send
 ```
