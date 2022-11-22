@@ -114,7 +114,8 @@ module Mailersend
         'personalization' => @personalization,
         'template_id' => @template_id,
         'attachments' => @attachments,
-        'send_at' => @send_at
+        'send_at' => @send_at,
+        'tags' => @tags
       }
 
       client.http.post("#{API_URL}/email", json: message.delete_if { |_, value| value.to_s.strip == '' || value == [] || value == {} })
