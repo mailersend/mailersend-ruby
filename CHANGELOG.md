@@ -1,5 +1,9 @@
 ## [Released]
 
+## [1.3.2] - 2022-11-22
+
+- Fixes add_tags method in MailerSend::Email class
+
 ## [1.3.1] - 2022-09-28
 
 - Added attachment content disposition
