@@ -1,5 +1,9 @@
 ## [Released]
 
+## [1.4.0] - 2023-01-17
+
+- Sender Identities
+
 ## [1.3.2] - 2022-11-22
 
 - Fixes add_tags method in MailerSend::Email class

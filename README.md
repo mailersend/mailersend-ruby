@@ -42,6 +42,12 @@ MailerSend Ruby SDK
     - [Update domain settings](#update-domain-settings)
     - [Get DNS Records](#get-dns-records)
     - [Get verification status](#get-verification-status)
+  - [Sender Identities](#sender-identities)
+    - [Get a list of sender identities](#get-a-list-of-sender-identities)
+    - [Get a single sender identity](#get-a-single-sender-identity)
+    - [Add a sender identity](#add-a-sender-identity)
+    - [Update a sender identity](#update-a-sender-identity)
+    - [Delete a sender identity](#delete-a-sender-identity)
   - [Messages](#messages)
     - [Get a list of messages](#get-a-list-of-messages)
     - [Get info for a single message](#get-info-for-a-single-message)
@@ -499,6 +505,53 @@ require "mailersend-ruby"
 
 ms_domains = Mailersend::Domains.new
 ms_domains.verify(domain_id: "idofdomain12412")
+```
+
+## Sender Identities
+
+### Get a list of sender identities
+
+```ruby
+require "mailersend-ruby"
+
+ms_sender_identity = Mailersend::SenderIdentity.new
+ms_sender_identity.list
+```
+
+### Get a single sender identity
+
+```ruby
+require "mailersend-ruby"
+
+ms_sender_identity = Mailersend::SenderIdentity.new
+ms_sender_identity.single(identity_id: 'idofidentity123')
+```
+
+### Add a sender identity
+
+```ruby
+require "mailersend-ruby"
+
+ms_sender_identity = Mailersend::SenderIdentity.new
+ms_sender_identity.add(domain_id: 'idofdomain12412', name: 'yourname', email: 'youremail')
+```
+
+### Update a sender identity
+
+```ruby
+require "mailersend-ruby"
+
+ms_sender_identity = Mailersend::SenderIdentity.new
+ms_sender_identity.update(identity_id: 'idofidentity123', reply_to_email: 'replyemail', reply_to_name: 'replyname')
+```
+
+### Delete a sender identity
+
+```ruby
+require "mailersend-ruby"
+
+ms_sender_identity = Mailersend::SenderIdentity.new
+ms_sender_identity.delete(identity_id: 'idofidentity123')
 ```
 
 ## Messages
