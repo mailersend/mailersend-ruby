@@ -22,7 +22,7 @@ module Mailersend
       }
 
       client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: '/v1/sms-messages',
-                                                  query: URI.encode_www_form(hash)))
+                                       query: URI.encode_www_form(hash)))
     end
 
     def get(sms_message_id:)
