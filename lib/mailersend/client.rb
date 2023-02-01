@@ -11,7 +11,7 @@ module Mailersend
 
   # Inits the client.
   class Client
-    def initialize(api_token:)
+    def initialize(api_token: Rails.configuration.mailersend_api_token)
       @api_token = api_token
     end
 
