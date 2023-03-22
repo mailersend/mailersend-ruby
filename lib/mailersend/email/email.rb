@@ -87,10 +87,20 @@ module Mailersend
     end
 
     def add_attachment(content:, filename:, disposition:)
-      data = File.read(content.to_s)
-      encoded = Base64.strict_encode64(data)
+      # content: Can be one of the following:
+      # file_path(String) i.e. 'app/Sample-jpg-image-50kb.jpeg'
+      # Base64 encoded string (String)
+      # Supported types are: https://developers.mailersend.com/api/v1/email.html#supported-file-types
+
+      content_string = content.to_s
+      if File.readable?(content_string)
+        data = File.read(content_string)
+        base64_encoded = Base64.strict_encode64(data)
+      else
+        base64_encoded = content_string
+      end
       @attachments << {
-        'content' => encoded,
+        'content' => base64_encoded,
         'filename' => filename,
         'disposition' => disposition
       }
