@@ -1,5 +1,10 @@
 ## [Released]
 
+## [1.5.0] - 2023-05-08
+
+- API Quota
+- Single eMail Verification
+
 ## [1.4.0] - 2023-01-17
 
 - Sender Identities
