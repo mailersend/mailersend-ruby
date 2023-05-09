@@ -15,6 +15,13 @@ module Mailersend
       @email_verification_id = email_verification_id
     end
 
+    def verify_an_email(email: nil)
+      hash = {
+        'email' => email
+      }
+      client.http.post("#{API_URL}/email-verification/verify", json: hash.compact)
+    end
+
     def list(page: nil, limit: nil)
       hash = {
         'page' => page,

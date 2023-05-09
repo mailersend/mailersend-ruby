@@ -74,6 +74,7 @@ MailerSend Ruby SDK
     - [Get a single template](#get-a-single-template)
     - [Delete template](#delete-template)
   - [Email Verification](#email-verification)
+    - [Verify an email](#verify-an-email)
     - [Get all email verification lists](#get-all-email-verification-lists)
     - [Get an email verification list](#get-an-email-verification-list)
     - [Create an email verification list](#create-an-email-verification-list)
@@ -106,6 +107,8 @@ MailerSend Ruby SDK
     - [Create an SMS webhook](#create-an-sms-webhook)
     - [Update an SMS webhook](#update-an-sms-webhook)
     - [Delete an SMS webhook](#delete-an-sms-webhook)
+  - [Other endpoints](#other-endpoints)
+    - [Get API quota](#get-api-quota)
 - [Support and Feedback](#support-and-feedback)
 - [License](#license)
 
@@ -770,6 +773,15 @@ ms_templates.delete(template_id: "id124")
 
 ## Email Verification
 
+### Verify an email
+
+```ruby
+require "mailersend-ruby"
+
+ms_email_verification = Mailersend::EmailVerification.new
+ms_email_verification.verify_an_email(email: 'example@email.com')
+```
+
 ### Get all email verification lists
 
 ```ruby
@@ -1118,6 +1130,20 @@ ms_sms_webhooks = Mailersend::SMSWebhooks.new
 
 # Add parameters
 ms_sms_webhooks.delete_sms_webhook_route(sms_webhook_id: 'your-sms-webhook-id')
+```
+
+## Other endpoints
+
+### Get API quota
+
+```ruby
+require "mailersend-ruby"
+
+# Intialize the API Quota class
+ms_api_quota = Mailersend::APIQuota.new
+
+# Add parameters
+ms_api_quota.get_api_quota
 ```
 
 # Support and Feedback
