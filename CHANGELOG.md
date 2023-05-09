@@ -1,5 +1,9 @@
 ## [Released]
 
+## [1.5.1] - 2023-05-09
+
+- Added supports for base64 attachment
+
 ## [1.5.0] - 2023-05-08
 
 - API Quota
