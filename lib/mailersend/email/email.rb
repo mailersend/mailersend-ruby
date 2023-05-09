@@ -99,11 +99,7 @@ module Mailersend
       else
         base64_encoded = content_string
       end
-      @attachments << {
-        'content' => base64_encoded,
-        'filename' => filename,
-        'disposition' => disposition
-      }
+      @attachments << { 'content' => base64_encoded, 'filename' => filename, 'disposition' => disposition }
     end
 
     def add_send_at(send_at)
