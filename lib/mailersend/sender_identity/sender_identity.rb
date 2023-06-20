@@ -25,7 +25,6 @@ module Mailersend
       }
       client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: '/v1/identities',
                                        query: URI.encode_www_form(hash.compact)))
-      puts response
     end
 
     def single(identity_id:)
