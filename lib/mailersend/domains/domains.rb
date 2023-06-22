@@ -7,6 +7,7 @@ module Mailersend
                   :domain_id,
                   :page,
                   :limit,
+                  :name,
                   :verified
 
     def initialize(client = Mailersend::Client.new)
@@ -14,6 +15,7 @@ module Mailersend
       @domain_id = domain_id
       @page = page
       @limit = limit
+      @name = name
       @verified = verified
     end
 
@@ -37,6 +39,16 @@ module Mailersend
                                        query: URI.encode_www_form(hash.compact)))
     end
 
+    def add(name: nil, return_path_subdomain: nil, custom_tracking_subdomain: nil, inbound_routing_subdomain: nil)
+      hash = {
+        'name' => name,
+        'return_path_subdomain' => return_path_subdomain,
+        'custom_tracking_subdomain' => custom_tracking_subdomain,
+        'inbound_routing_subdomain' => inbound_routing_subdomain
+      }
+      client.http.post("#{API_URL}/domains", json: hash.compact)
+    end
+
     def delete(domain_id:)
       client.http.delete(URI::HTTPS.build(host: API_BASE_HOST, path: "/v1/domains/#{domain_id}"))
     end
@@ -50,7 +62,7 @@ module Mailersend
                                        query: URI.encode_www_form(hash.compact)))
     end
 
-    def settings(domain_id:, send_paused: nil, track_clicks: nil, track_opens: nil, track_unsubscribe: nil, track_unsubscribe_html: nil, track_unsubscribe_plain: nil, track_content: nil, custom_tracking_enabled: nil, custom_tracking_subdomain: nil)
+    def settings(domain_id:, send_paused: nil, track_clicks: nil, track_opens: nil, track_unsubscribe: nil, track_unsubscribe_html: nil, track_unsubscribe_plain: nil, track_content: nil, custom_tracking_enabled: nil, custom_tracking_subdomain: nil, precedence_bulk: nil)
       hash = {
         'send_paused' => send_paused,
         'track_clicks' => track_clicks,
@@ -60,7 +72,8 @@ module Mailersend
         'track_unsubscribe_plain' => track_unsubscribe_plain,
         'track_content' => track_content,
         'custom_tracking_enabled' => custom_tracking_enabled,
-        'custom_tracking_subdomain' => custom_tracking_subdomain
+        'custom_tracking_subdomain' => custom_tracking_subdomain,
+        'precedence_bulk' => precedence_bulk
       }
       client.http.put("#{API_URL}/domains/#{domain_id}/settings", json: hash.compact)
     end
