@@ -1,12 +1,15 @@
 # frozen_string_literal: true
 
 require 'http'
-require 'dotenv/load'
+
+begin
+  require 'dotenv'
+rescue LoadError
+  # Handle the case when dotenv is not installed - do nothing
+end
 
 API_URL = 'https://api.mailersend.com/v1'
 API_BASE_HOST = 'api.mailersend.com'
-
-Dotenv.require_keys('MAILERSEND_API_TOKEN')
 
 # mailersend-ruby is a gem that integrates all endpoints from MailerSend API
 module Mailersend

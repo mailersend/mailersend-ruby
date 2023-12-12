@@ -1,5 +1,9 @@
 ## [Released]
 
+## [1.7.0] - 2023-12-12
+
+- dotenv is now optional
+
 ## [1.6.0] - 2023-06-22
 
 - Sender identities by email
