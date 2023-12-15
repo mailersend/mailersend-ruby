@@ -2,12 +2,6 @@
 
 require 'http'
 
-begin
-  require 'dotenv'
-rescue LoadError
-  # Handle the case when dotenv is not installed - do nothing
-end
-
 API_URL = 'https://api.mailersend.com/v1'
 API_BASE_HOST = 'api.mailersend.com'
 
@@ -17,7 +11,9 @@ module Mailersend
 
   # Inits the client.
   class Client
-    def initialize(api_token = ENV['MAILERSEND_API_TOKEN'])
+    def initialize(api_token = ENV.fetch('MAILERSEND_API_TOKEN', nil))
+      raise ArgumentError, 'API token is not provided' if api_token.nil?
+
       @api_token = api_token
     end
 

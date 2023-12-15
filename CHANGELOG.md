@@ -1,8 +1,8 @@
 ## [Released]
 
-## [1.7.0] - 2023-12-12
+## [2.0.0] - 2023-12-15
 
-- dotenv is now optional
+- *BREAKING CHANGE* - Please check the README file, MailerSend API token is now defined inside your application.
 
 ## [1.6.0] - 2023-06-22
 
