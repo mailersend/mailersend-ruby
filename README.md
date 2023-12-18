@@ -126,10 +126,6 @@ gem install mailersend-ruby
 
 You will have to initalize it in your Ruby file with `require "mailersend-ruby"`.
 
-# Usage
-
-This SDK requires that you either have `.env` file with `MAILERSEND_API_TOKEN` env variable or that your variable is enabled system wide (useful for Docker/Kubernetes). The example of how `MAILERSEND_API_TOKEN` should look like is in `.env.example`.
-
 ## Email
 
 ### Send an email
@@ -137,8 +133,10 @@ This SDK requires that you either have `.env` file with `MAILERSEND_API_TOKEN` e
 ```ruby
 require "mailersend-ruby"
 
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
 # Intialize the email class
-ms_email = Mailersend::Email.new
+ms_email = Mailersend::Email.new(ms_client)
 
 # Add parameters
 ms_email.add_recipients("email" => "ron@parksandrec.com", "name" => "Ron")
@@ -157,8 +155,10 @@ ms_email.send
 ```ruby
 require "mailersend-ruby"
 
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
 # Intialize the email class
-ms_email = Mailersend::Email.new
+ms_email = Mailersend::Email.new(ms_client)
 
 # Add parameters
 ms_email.add_recipients("email" => "ron@parksandrec.com", "name" => "Ron")
@@ -179,8 +179,10 @@ ms_email.send
 ```ruby
 require "mailersend-ruby"
 
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
 # Intialize the email class
-ms_email = Mailersend::Email.new
+ms_email = Mailersend::Email.new(ms_client)
 
 # Add parameters
 ms_email.add_recipients("email" => "ron@parksandrec.com", "name" => "Ron")
@@ -198,8 +200,10 @@ ms_email.send
 ```ruby
 require "mailersend-ruby"
 
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
 # Intialize the email class
-ms_email = Mailersend::Email.new
+ms_email = Mailersend::Email.new(ms_client)
 
 # Add parameters
 ms_email.add_recipients("email" => "ron@parksandrec.com", "name" => "Ron")
@@ -225,8 +229,10 @@ ms_email.send
 ```ruby
 require "mailersend-ruby"
 
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
 # Intialize the email class
-ms_email = Mailersend::Email.new
+ms_email = Mailersend::Email.new(ms_client)
 
 # Add parameters
 ms_email.add_recipients("email" => "ron@parksandrec.com", "name" => "Ron")
@@ -256,7 +262,9 @@ ms_email.send
 ```ruby
 require "mailersend-ruby"
 
-ms_bulk_email = Mailersend::BulkEmail.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_bulk_email = Mailersend::BulkEmail.new(ms_client)
 
 ms_bulk_email.messages = [
     {
@@ -282,7 +290,9 @@ ms_bulk_email.send
 ```ruby
 require "mailersend-ruby"
 
-ms_bulk_email = Mailersend::BulkEmail.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_bulk_email = Mailersend::BulkEmail.new(ms_client)
 ms_bulk_email.get_bulk_status(bulk_email_id: 'yourbulkemailid')
 ```
 
@@ -292,7 +302,9 @@ ms_bulk_email.get_bulk_status(bulk_email_id: 'yourbulkemailid')
 ```ruby
 require "mailersend-ruby"
 
-ms_tokens = Mailersend::Tokens.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_tokens = Mailersend::Tokens.new(ms_client)
 ms_tokens.create(name: "Very nice token", scopes: %w[ email_full domains_read ], domain_id: "yourdomainid")
 ```
 
@@ -300,7 +312,9 @@ ms_tokens.create(name: "Very nice token", scopes: %w[ email_full domains_read ],
 ```ruby
 require "mailersend-ruby"
 
-ms_tokens = Mailersend::Tokens.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_tokens = Mailersend::Tokens.new(ms_client)
 ms_tokens.update(token_id: "d2220fx04", status: "paused")
 ```
 
@@ -308,7 +322,9 @@ ms_tokens.update(token_id: "d2220fx04", status: "paused")
 ```ruby
 require "mailersend-ruby"
 
-ms_tokens = Mailersend::Tokens.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_tokens = Mailersend::Tokens.new(ms_client)
 ms_tokens.delete(token_id: "d2220fx04")
 ```
 
@@ -317,8 +333,10 @@ ms_tokens.delete(token_id: "d2220fx04")
 ```ruby
 require "mailersend-ruby"
 
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
 # Intialize the email class
-ms_email = Mailersend::Email.new
+ms_email = Mailersend::Email.new(ms_client)
 
 # Add parameters
 ms_email.add_recipients("email" => "ron@parksandrec.com", "name" => "Ron")
@@ -344,7 +362,9 @@ ms_email.send
 ```ruby
 require "mailersend-ruby"
 
-ms_activity = Mailersend::Activity.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_activity = Mailersend::Activity.new(ms_client)
 ms_activity.get(domain_id: "xxx2241ll", page: 3, limit: 5, date_from: 1620643567, date_to: 1623321967)
 ```
 
@@ -355,7 +375,9 @@ ms_activity.get(domain_id: "xxx2241ll", page: 3, limit: 5, date_from: 1620643567
 ```ruby
 require "mailersend-ruby"
 
-ms_analytics = Mailersend::Analytics.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_analytics = Mailersend::Analytics.new(ms_client)
 ms_analytics.date(date_from: 1620643567, date_to: 1623321967, events: %w[sent queued])
 ```
 
@@ -364,7 +386,9 @@ ms_analytics.date(date_from: 1620643567, date_to: 1623321967, events: %w[sent qu
 ```ruby
 require "mailersend-ruby"
 
-ms_analytics = Mailersend::Analytics.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_analytics = Mailersend::Analytics.new(ms_client)
 ms_analytics.country(date_from: 1620643567, date_to: 1623321967)
 ```
 
@@ -373,7 +397,9 @@ ms_analytics.country(date_from: 1620643567, date_to: 1623321967)
 ```ruby
 require "mailersend-ruby"
 
-ms_analytics = Mailersend::Analytics.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_analytics = Mailersend::Analytics.new(ms_client)
 ms_analytics.ua_name(date_from: 1620643567, date_to: 1623321967)
 ```
 
@@ -382,7 +408,9 @@ ms_analytics.ua_name(date_from: 1620643567, date_to: 1623321967)
 ```ruby
 require "mailersend-ruby"
 
-ms_analytics = Mailersend::Analytics.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_analytics = Mailersend::Analytics.new(ms_client)
 ms_analytics.ua_type(date_from: 1620643567, date_to: 1623321967)
 ```
 
@@ -393,7 +421,9 @@ ms_analytics.ua_type(date_from: 1620643567, date_to: 1623321967)
 ```ruby
 require "mailersend-ruby"
 
-ms_inbound_routes = Mailersend::InboundRouting.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_inbound_routes = Mailersend::InboundRouting.new(ms_client)
 ms_inbound_routes.get_inbound_routes
 ```
 
@@ -402,7 +432,9 @@ ms_inbound_routes.get_inbound_routes
 ```ruby
 require "mailersend-ruby"
 
-ms_inbound_routes = Mailersend::InboundRouting.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_inbound_routes = Mailersend::InboundRouting.new(ms_client)
 ms_inbound_routes.get_single_route(inbound_id: 'idofroute12412')
 ```
 
@@ -411,7 +443,9 @@ ms_inbound_routes.get_single_route(inbound_id: 'idofroute12412')
 ```ruby
 require "mailersend-ruby"
 
-ms_inbound_routes = Mailersend::InboundRouting.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_inbound_routes = Mailersend::InboundRouting.new(ms_client)
 ms_inbound_routes.settings =
   {
     'domain_id' => 'yourdomainid',
@@ -428,7 +462,9 @@ puts ms_inbound_routes.add_inbound_route
 ```ruby
 require "mailersend-ruby"
 
-ms_inbound_routes = Mailersend::InboundRouting.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_inbound_routes = Mailersend::InboundRouting.new(ms_client)
 ms_inbound_routes.settings =
   {
     'domain_id' => 'yourdomainid',
@@ -445,7 +481,9 @@ puts ms_inbound_routes.update_inbound_route(inbound_id: 'idofroute12412')
 ```ruby
 require "mailersend-ruby"
 
-ms_inbound_routes = Mailersend::InboundRouting.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_inbound_routes = Mailersend::InboundRouting.new(ms_client)
 ms_inbound_routes.delete_route(inbound_id: 'idofroute12412')
 ```
 
@@ -456,7 +494,9 @@ ms_inbound_routes.delete_route(inbound_id: 'idofroute12412')
 ```ruby
 require "mailersend-ruby"
 
-ms_domains = Mailersend::Domains.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_domains = Mailersend::Domains.new(ms_client)
 ms_domains.list
 ```
 
@@ -465,7 +505,9 @@ ms_domains.list
 ```ruby
 require "mailersend-ruby"
 
-ms_domains = Mailersend::Domains.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_domains = Mailersend::Domains.new(ms_client)
 ms_domains.single(domain_id: "idofdomain12412")
 ```
 
@@ -474,7 +516,9 @@ ms_domains.single(domain_id: "idofdomain12412")
 ```ruby
 require "mailersend-ruby"
 
-ms_domains = Mailersend::Domains.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_domains = Mailersend::Domains.new(ms_client)
 ms_domains.add(name: 'yourdomain')
 ```
 
@@ -483,7 +527,9 @@ ms_domains.add(name: 'yourdomain')
 ```ruby
 require "mailersend-ruby"
 
-ms_domains = Mailersend::Domains.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_domains = Mailersend::Domains.new(ms_client)
 ms_domains.delete(domain_id: "idofdomain12412")
 ```
 
@@ -492,7 +538,9 @@ ms_domains.delete(domain_id: "idofdomain12412")
 ```ruby
 require "mailersend-ruby"
 
-ms_domains = Mailersend::Domains.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_domains = Mailersend::Domains.new(ms_client)
 ms_domains.recipients(domain_id: "idofdomain12412")
 ```
 
@@ -501,7 +549,9 @@ ms_domains.recipients(domain_id: "idofdomain12412")
 ```ruby
 require "mailersend-ruby"
 
-ms_domains = Mailersend::Domains.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_domains = Mailersend::Domains.new(ms_client)
 ms_domains.settings(domain_id: "idofdomain12412", track_clicks: true, track_unsubscribe: false)
 ```
 
@@ -510,7 +560,9 @@ ms_domains.settings(domain_id: "idofdomain12412", track_clicks: true, track_unsu
 ```ruby
 require "mailersend-ruby"
 
-ms_domains = Mailersend::Domains.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_domains = Mailersend::Domains.new(ms_client)
 ms_domains.dns(domain_id: "idofdomain12412")
 ```
 
@@ -519,7 +571,9 @@ ms_domains.dns(domain_id: "idofdomain12412")
 ```ruby
 require "mailersend-ruby"
 
-ms_domains = Mailersend::Domains.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_domains = Mailersend::Domains.new(ms_client)
 ms_domains.verify(domain_id: "idofdomain12412")
 ```
 
@@ -530,7 +584,9 @@ ms_domains.verify(domain_id: "idofdomain12412")
 ```ruby
 require "mailersend-ruby"
 
-ms_sender_identity = Mailersend::SenderIdentity.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_sender_identity = Mailersend::SenderIdentity.new(ms_client)
 ms_sender_identity.list
 ```
 
@@ -539,7 +595,9 @@ ms_sender_identity.list
 ```ruby
 require "mailersend-ruby"
 
-ms_sender_identity = Mailersend::SenderIdentity.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_sender_identity = Mailersend::SenderIdentity.new(ms_client)
 ms_sender_identity.single(identity_id: 'idofidentity123')
 ```
 
@@ -548,7 +606,9 @@ ms_sender_identity.single(identity_id: 'idofidentity123')
 ```ruby
 require "mailersend-ruby"
 
-ms_sender_identity = Mailersend::SenderIdentity.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_sender_identity = Mailersend::SenderIdentity.new(ms_client)
 ms_sender_identity.single_by_email(email: 'example@email.com')
 ```
 
@@ -557,7 +617,9 @@ ms_sender_identity.single_by_email(email: 'example@email.com')
 ```ruby
 require "mailersend-ruby"
 
-ms_sender_identity = Mailersend::SenderIdentity.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_sender_identity = Mailersend::SenderIdentity.new(ms_client)
 ms_sender_identity.add(domain_id: 'idofdomain12412', name: 'yourname', email: 'youremail')
 ```
 
@@ -566,7 +628,9 @@ ms_sender_identity.add(domain_id: 'idofdomain12412', name: 'yourname', email: 'y
 ```ruby
 require "mailersend-ruby"
 
-ms_sender_identity = Mailersend::SenderIdentity.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_sender_identity = Mailersend::SenderIdentity.new(ms_client)
 ms_sender_identity.update(identity_id: 'idofidentity123', reply_to_email: 'replyemail', reply_to_name: 'replyname')
 ```
 
@@ -575,7 +639,9 @@ ms_sender_identity.update(identity_id: 'idofidentity123', reply_to_email: 'reply
 ```ruby
 require "mailersend-ruby"
 
-ms_sender_identity = Mailersend::SenderIdentity.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_sender_identity = Mailersend::SenderIdentity.new(ms_client)
 ms_sender_identity.update_by_email(email: 'example@email.com', reply_to_email: 'replyemail', reply_to_name: 'replyname')
 ```
 
@@ -584,7 +650,9 @@ ms_sender_identity.update_by_email(email: 'example@email.com', reply_to_email: '
 ```ruby
 require "mailersend-ruby"
 
-ms_sender_identity = Mailersend::SenderIdentity.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_sender_identity = Mailersend::SenderIdentity.new(ms_client)
 ms_sender_identity.delete(identity_id: 'idofidentity123')
 ```
 
@@ -593,7 +661,9 @@ ms_sender_identity.delete(identity_id: 'idofidentity123')
 ```ruby
 require "mailersend-ruby"
 
-ms_sender_identity = Mailersend::SenderIdentity.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_sender_identity = Mailersend::SenderIdentity.new(ms_client)
 ms_sender_identity.delete_by_email(email: 'example@email.com')
 ```
 
@@ -604,7 +674,9 @@ ms_sender_identity.delete_by_email(email: 'example@email.com')
 ```ruby
 require "mailersend-ruby"
 
-ms_messages = Mailersend::Messages.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_messages = Mailersend::Messages.new(ms_client)
 ms_messages.list(page: 1, limit: 10)
 ```
 
@@ -613,7 +685,9 @@ ms_messages.list(page: 1, limit: 10)
 ```ruby
 require "mailersend-ruby"
 
-ms_messages = Mailersend::Messages.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_messages = Mailersend::Messages.new(ms_client)
 ms_messages.single(message_id: "mess11454")
 ```
 
@@ -624,7 +698,9 @@ ms_messages.single(message_id: "mess11454")
 ```ruby
 require "mailersend-ruby"
 
-ms_scheduled_messages = Mailersend::ScheduledMessages.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_scheduled_messages = Mailersend::ScheduledMessages.new(ms_client)
 ms_scheduled_messages.get_list
 ```
 
@@ -633,7 +709,9 @@ ms_scheduled_messages.get_list
 ```ruby
 require "mailersend-ruby"
 
-ms_scheduled_messages = Mailersend::ScheduledMessages.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_scheduled_messages = Mailersend::ScheduledMessages.new(ms_client)
 ms_scheduled_messages.get_signle(message_id: 'mess11454')
 ```
 
@@ -642,7 +720,9 @@ ms_scheduled_messages.get_signle(message_id: 'mess11454')
 ```ruby
 require "mailersend-ruby"
 
-ms_scheduled_messages = Mailersend::ScheduledMessages.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_scheduled_messages = Mailersend::ScheduledMessages.new(ms_client)
 ms_scheduled_messages.delete(message_id: 'mess11454')
 ```
 
@@ -653,7 +733,9 @@ ms_scheduled_messages.delete(message_id: 'mess11454')
 ```ruby
 require "mailersend-ruby"
 
-ms_recipients = Mailersend::Recipients.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_recipients = Mailersend::Recipients.new(ms_client)
 ms_recipients.list(page: 1, limit: 10)
 ```
 
@@ -662,7 +744,9 @@ ms_recipients.list(page: 1, limit: 10)
 ```ruby
 require "mailersend-ruby"
 
-ms_recipients = Mailersend::Recipients.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_recipients = Mailersend::Recipients.new(ms_client)
 ms_recipients.single(recipient_id: "id124")
 ```
 
@@ -671,7 +755,9 @@ ms_recipients.single(recipient_id: "id124")
 ```ruby
 require "mailersend-ruby"
 
-ms_recipients = Mailersend::Recipients.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_recipients = Mailersend::Recipients.new(ms_client)
 ms_recipients.delete(recipient_id: "id124")
 ```
 
@@ -682,7 +768,9 @@ ms_recipients.delete(recipient_id: "id124")
 ```ruby
 require "mailersend-ruby"
 
-ms_suppressions = Mailersend::Suppressions.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_suppressions = Mailersend::Suppressions.new(ms_client)
 
 // List from Blocklist 
 ms_suppressions.get_from_blocklist(domain_id: "xxx2241ll")
@@ -702,7 +790,9 @@ ms_suppressions.get_unsubscribes(domain_id: "xxx2241ll")
 ```ruby
 require "mailersend-ruby"
 
-ms_suppressions = Mailersend::Suppressions.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_suppressions = Mailersend::Suppressions.new(ms_client)
 
 // Add Recipient to Block List using recipients
 ms_suppressions.add_to_blocklist(domain_id: "xxx2241ll", recipients: ["blocked@client.com"])
@@ -725,7 +815,9 @@ ms_suppressions.add_to_unsubscribers(domain_id: "xxx2241ll", recipients: ["bounc
 ```ruby
 require "mailersend-ruby"
 
-ms_suppressions = Mailersend::Suppressions.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_suppressions = Mailersend::Suppressions.new(ms_client)
 
 // Delete from Block List
 ms_suppressions.delete_from_blocklist(domain_id: 'yourdomainid', ids: ["xxx2241ll"])
@@ -746,7 +838,9 @@ ms_suppressions.delete_from_unsubscribers(domain_id: 'yourdomainid', ids: ["xxx2
 ```ruby
 require "mailersend-ruby"
 
-ms_webhooks = Mailersend::Webhooks.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_webhooks = Mailersend::Webhooks.new(ms_client)
 ms_webhooks.list(domain_id: "xxx2241ll")
 ```
 
@@ -754,7 +848,9 @@ ms_webhooks.list(domain_id: "xxx2241ll")
 ```ruby
 require "mailersend-ruby"
 
-ms_webhooks = Mailersend::Webhooks.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_webhooks = Mailersend::Webhooks.new(ms_client)
 ms_webhooks.single(webhook_id: "zzz2241ll")
 ```
 
@@ -762,7 +858,9 @@ ms_webhooks.single(webhook_id: "zzz2241ll")
 ```ruby
 require "mailersend-ruby"
 
-ms_webhooks = Mailersend::Webhooks.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_webhooks = Mailersend::Webhooks.new(ms_client)
 ms_webhooks.create(domain_id: "xxx2241ll", url: "https://domain.com/hook", name: "Webhook", events: ["activity.sent", "activity.delivered"], enabled: true)
 ```
 
@@ -770,7 +868,9 @@ ms_webhooks.create(domain_id: "xxx2241ll", url: "https://domain.com/hook", name:
 ```ruby
 require "mailersend-ruby"
 
-ms_webhooks = Mailersend::Webhooks.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_webhooks = Mailersend::Webhooks.new(ms_client)
 ms_webhooks.update(webhook_id: "zzz2241ll", enabled: false)
 ```
 
@@ -778,7 +878,9 @@ ms_webhooks.update(webhook_id: "zzz2241ll", enabled: false)
 ```ruby
 require "mailersend-ruby"
 
-ms_webhooks = Mailersend::Webhooks.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_webhooks = Mailersend::Webhooks.new(ms_client)
 ms_webhooks.delete(webhook_id: "zzz2241ll")
 ```
 
@@ -789,7 +891,9 @@ ms_webhooks.delete(webhook_id: "zzz2241ll")
 ```ruby
 require "mailersend-ruby"
 
-ms_templates = Mailersend::Templates.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_templates = Mailersend::Templates.new(ms_client)
 ms_templates.list(domain_id: "aax455lll", page: 1, limit: 10)
 ```
 
@@ -798,7 +902,9 @@ ms_templates.list(domain_id: "aax455lll", page: 1, limit: 10)
 ```ruby
 require "mailersend-ruby"
 
-ms_templates = Mailersend::Templates.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_templates = Mailersend::Templates.new(ms_client)
 ms_templates.single(template_id: "id124")
 ```
 
@@ -807,7 +913,9 @@ ms_templates.single(template_id: "id124")
 ```ruby
 require "mailersend-ruby"
 
-ms_templates = Mailersend::Templates.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_templates = Mailersend::Templates.new(ms_client)
 ms_templates.delete(template_id: "id124")
 ```
 
@@ -818,7 +926,9 @@ ms_templates.delete(template_id: "id124")
 ```ruby
 require "mailersend-ruby"
 
-ms_email_verification = Mailersend::EmailVerification.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_email_verification = Mailersend::EmailVerification.new(ms_client)
 ms_email_verification.verify_an_email(email: 'example@email.com')
 ```
 
@@ -827,7 +937,9 @@ ms_email_verification.verify_an_email(email: 'example@email.com')
 ```ruby
 require "mailersend-ruby"
 
-ms_email_verification = Mailersend::EmailVerification.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_email_verification = Mailersend::EmailVerification.new(ms_client)
 ms_email_verification.list(page: 1, limit: 10)
 ```
 
@@ -836,7 +948,9 @@ ms_email_verification.list(page: 1, limit: 10)
 ```ruby
 require "mailersend-ruby"
 
-ms_email_verification = Mailersend::EmailVerification.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_email_verification = Mailersend::EmailVerification.new(ms_client)
 ms_email_verification.get_single_list(email_verification_id: 'your-email-verification-id')
 ```
 
@@ -845,7 +959,9 @@ ms_email_verification.get_single_list(email_verification_id: 'your-email-verific
 ```ruby
 require "mailersend-ruby"
 
-ms_email_verification = Mailersend::EmailVerification.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_email_verification = Mailersend::EmailVerification.new(ms_client)
 ms_email_verification.create_a_list(name: "name-your-list", emails: ["example@email.com"])
 ```
 
@@ -854,7 +970,9 @@ ms_email_verification.create_a_list(name: "name-your-list", emails: ["example@em
 ```ruby
 require "mailersend-ruby"
 
-ms_email_verification = Mailersend::EmailVerification.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_email_verification = Mailersend::EmailVerification.new(ms_client)
 ms_email_verification.verify_a_list(email_verification_id: 'your-email-verification-id')
 ```
 
@@ -863,7 +981,9 @@ ms_email_verification.verify_a_list(email_verification_id: 'your-email-verificat
 ```ruby
 require "mailersend-ruby"
 
-ms_email_verification = Mailersend::EmailVerification.new
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_email_verification = Mailersend::EmailVerification.new(ms_client)
 ms_email_verification.get_list_results(email_verification_id: 'your-email-verification-id')
 ```
 
@@ -874,8 +994,10 @@ ms_email_verification.get_list_results(email_verification_id: 'your-email-verifi
 ```ruby
 require "mailersend-ruby"
 
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
 # Intialize the SMS class
-ms_sms = Mailersend::SMS.new
+ms_sms = Mailersend::SMS.new(ms_client)
 
 # Add parameters
 ms_sms.add_from('your-number')
@@ -900,8 +1022,10 @@ ms_sms.send
 ```ruby
 require "mailersend-ruby"
 
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
 # Intialize the SMS Messages class
-ms_sms_messages = Mailersend::SMSMessages.new
+ms_sms_messages = Mailersend::SMSMessages.new(ms_client)
 
 # Add parameters
 ms_sms_messages.list(page: 1, limit: 10)
@@ -912,8 +1036,10 @@ ms_sms_messages.list(page: 1, limit: 10)
 ```ruby
 require "mailersend-ruby"
 
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
 # Intialize the SMS Messages class
-ms_sms_messages = Mailersend::SMSMessages.new
+ms_sms_messages = Mailersend::SMSMessages.new(ms_client)
 
 # Add parameters
 ms_sms_messages.get_single_route(sms_message_id: 'your-sms-message-id')
@@ -926,8 +1052,10 @@ ms_sms_messages.get_single_route(sms_message_id: 'your-sms-message-id')
 ```ruby
 require "mailersend-ruby"
 
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
 # Intialize the SMS Recipient class
-ms_sms_activity = Mailersend::SMSActivity.new
+ms_sms_activity = Mailersend::SMSActivity.new(ms_client)
 
 # Add parameters
 ms_sms_activity.list(page: 1, limit: 10)
@@ -940,8 +1068,10 @@ ms_sms_activity.list(page: 1, limit: 10)
 ```ruby
 require "mailersend-ruby"
 
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
 # Intialize the SMS Recipient class
-ms_sms_number = Mailersend::SMSNumber.new
+ms_sms_number = Mailersend::SMSNumber.new(ms_client)
 
 # Add parameters
 ms_sms_number.list(page: 1, limit: 10)
@@ -952,8 +1082,10 @@ ms_sms_number.list(page: 1, limit: 10)
 ```ruby
 require "mailersend-ruby"
 
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
 # Intialize the SMS Recipient class
-ms_sms_number = Mailersend::SMSNumber.new
+ms_sms_number = Mailersend::SMSNumber.new(ms_client)
 
 # Add parameters
 ms_sms_number.get(sms_number_id: 'your-sms-number-id')
@@ -964,8 +1096,10 @@ ms_sms_number.get(sms_number_id: 'your-sms-number-id')
 ```ruby
 require "mailersend-ruby"
 
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
 # Intialize the SMS Recipient class
-ms_sms_number = Mailersend::SMSNumber.new
+ms_sms_number = Mailersend::SMSNumber.new(ms_client)
 
 # Add parameters
 ms_sms_number.update(sms_number_id: 'your-sms-number-id', paused: false)
@@ -976,8 +1110,10 @@ ms_sms_number.update(sms_number_id: 'your-sms-number-id', paused: false)
 ```ruby
 require "mailersend-ruby"
 
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
 # Intialize the SMS Recipient class
-ms_sms_number = Mailersend::SMSNumber.new
+ms_sms_number = Mailersend::SMSNumber.new(ms_client)
 
 # Add parameters
 ms_sms_number.delete(sms_number_id: 'your-sms-number-id')
@@ -990,8 +1126,10 @@ ms_sms_number.delete(sms_number_id: 'your-sms-number-id')
 ```ruby
 require "mailersend-ruby"
 
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
 # Intialize the SMS Recipient class
-ms_sms_recipient = Mailersend::SMSRecipient.new
+ms_sms_recipient = Mailersend::SMSRecipient.new(ms_client)
 
 # Add parameters
 ms_sms_recipient.list(page: 1, limit: 10)
@@ -1002,8 +1140,10 @@ ms_sms_recipient.list(page: 1, limit: 10)
 ```ruby
 require "mailersend-ruby"
 
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
 # Intialize the SMS Recipient class
-ms_sms_recipient = Mailersend::SMSRecipient.new
+ms_sms_recipient = Mailersend::SMSRecipient.new(ms_client)
 
 # Add parameters
 ms_sms_recipient.get(sms_recipient_id: 'your-sms-recipient-id')
@@ -1014,8 +1154,10 @@ ms_sms_recipient.get(sms_recipient_id: 'your-sms-recipient-id')
 ```ruby
 require "mailersend-ruby"
 
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
 # Intialize the SMS Recipient class
-ms_sms_recipient = Mailersend::SMSRecipient.new
+ms_sms_recipient = Mailersend::SMSRecipient.new(ms_client)
 
 # Add parameters
 ms_sms_recipient.update(sms_recipient_id: 'your-sms-recipient-id', status: 'opt_out')
@@ -1028,8 +1170,10 @@ ms_sms_recipient.update(sms_recipient_id: 'your-sms-recipient-id', status: 'opt_
 ```ruby
 require "mailersend-ruby"
 
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
 # Intialize the SMS Inbounds class
-ms_sms_inbounds = Mailersend::SMSInbounds.new
+ms_sms_inbounds = Mailersend::SMSInbounds.new(ms_client)
 
 ms_sms_inbounds.list
 ```
@@ -1039,8 +1183,10 @@ ms_sms_inbounds.list
 ```ruby
 require "mailersend-ruby"
 
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
 # Intialize the SMS Inbounds class
-ms_sms_inbounds = Mailersend::SMSInbounds.new
+ms_sms_inbounds = Mailersend::SMSInbounds.new(ms_client)
 
 # Add parameters
 ms_sms_inbounds.get_sms_inbound_route(sms_inbound_id: 'your-sms-inbound-id')
@@ -1051,8 +1197,10 @@ ms_sms_inbounds.get_sms_inbound_route(sms_inbound_id: 'your-sms-inbound-id')
 ```ruby
 require "mailersend-ruby"
 
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
 # Intialize the SMS Inbounds class
-ms_sms_inbounds = Mailersend::SMSInbounds.new
+ms_sms_inbounds = Mailersend::SMSInbounds.new(ms_client)
 
 # Add parameters
 ms_sms_inbounds.settings =
@@ -1070,8 +1218,10 @@ puts ms_sms_inbounds.add_sms_inbound_route
 ```ruby
 require "mailersend-ruby"
 
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
 # Intialize the SMS Inbounds class
-ms_sms_inbounds = Mailersend::SMSInbounds.new
+ms_sms_inbounds = Mailersend::SMSInbounds.new(ms_client)
 
 # Add parameters
 ms_sms_inbounds.settings =
@@ -1089,8 +1239,10 @@ puts ms_sms_inbounds.update_sms_inbound_route(sms_inbound_id: 'your-sms-inbound-
 ```ruby
 require "mailersend-ruby"
 
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
 # Intialize the SMS Inbounds class
-ms_sms_inbounds = Mailersend::SMSInbounds.new
+ms_sms_inbounds = Mailersend::SMSInbounds.new(ms_client)
 
 # Add parameters
 ms_sms_inbounds.delete_sms_inbound_route(sms_inbound_id: 'your-sms-inbound-id')
@@ -1103,8 +1255,10 @@ ms_sms_inbounds.delete_sms_inbound_route(sms_inbound_id: 'your-sms-inbound-id')
 ```ruby
 require "mailersend-ruby"
 
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
 # Intialize the SMS Webhooks class
-ms_sms_webhooks = Mailersend::SMSWebhooks.new
+ms_sms_webhooks = Mailersend::SMSWebhooks.new(ms_client)
 
 # Add parameters
 ms_sms_webhooks.list(sms_number_id: 'your-sms-number-id')
@@ -1115,8 +1269,10 @@ ms_sms_webhooks.list(sms_number_id: 'your-sms-number-id')
 ```ruby
 require "mailersend-ruby"
 
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
 # Intialize the SMS Webhooks class
-ms_sms_webhooks = Mailersend::SMSWebhooks.new
+ms_sms_webhooks = Mailersend::SMSWebhooks.new(ms_client)
 
 # Add parameters
 ms_sms_webhooks.get_sms_webhook_route(sms_webhook_id: 'your-sms-webhook-id')
@@ -1127,8 +1283,10 @@ ms_sms_webhooks.get_sms_webhook_route(sms_webhook_id: 'your-sms-webhook-id')
 ```ruby
 require "mailersend-ruby"
 
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
 # Intialize the SMS Webhooks class
-ms_sms_webhooks = Mailersend::SMSWebhooks.new
+ms_sms_webhooks = Mailersend::SMSWebhooks.new(ms_client)
 
 # Add parameters
 ms_sms_webhooks.settings =
@@ -1146,8 +1304,10 @@ puts ms_sms_webhooks.add_sms_webhook_route
 ```ruby
 require "mailersend-ruby"
 
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
 # Intialize the SMS Webhooks class
-ms_sms_webhooks = Mailersend::SMSWebhooks.new
+ms_sms_webhooks = Mailersend::SMSWebhooks.new(ms_client)
 
 # Add parameters
 ms_sms_webhooks.settings =
@@ -1165,8 +1325,10 @@ puts ms_sms_webhooks.update_sms_webhook_route(sms_webhook_id: 'your-sms-webhook-
 ```ruby
 require "mailersend-ruby"
 
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
 # Intialize the SMS Webhooks class
-ms_sms_webhooks = Mailersend::SMSWebhooks.new
+ms_sms_webhooks = Mailersend::SMSWebhooks.new(ms_client)
 
 # Add parameters
 ms_sms_webhooks.delete_sms_webhook_route(sms_webhook_id: 'your-sms-webhook-id')
@@ -1179,8 +1341,10 @@ ms_sms_webhooks.delete_sms_webhook_route(sms_webhook_id: 'your-sms-webhook-id')
 ```ruby
 require "mailersend-ruby"
 
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
 # Intialize the API Quota class
-ms_api_quota = Mailersend::APIQuota.new
+ms_api_quota = Mailersend::APIQuota.new(ms_client)
 
 # Add parameters
 ms_api_quota.get_api_quota

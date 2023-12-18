@@ -1,5 +1,9 @@
 ## [Released]
 
+## [2.0.0] - 2023-12-18
+
+- *BREAKING CHANGE* - Please check the README file, MailerSend API token is now defined inside your application.
+
 ## [1.6.0] - 2023-06-22
 
 - Sender identities by email
