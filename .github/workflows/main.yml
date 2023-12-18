@@ -7,10 +7,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+
     - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
+      uses: actions/setup-ruby@v2
       with:
         ruby-version: 3.0
-        bundler-cache: true
+
+    - name: Install Bundler
+      run: gem install bundler -v 2.4.22
+
+    - name: Install dependencies
+      run: bundle _2.4.22_ install
+      
     - name: Run the default task
       run: bundle exec rake

@@ -11,6 +11,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Set up Ruby
+        uses: actions/setup-ruby@v2
+        with:
+          ruby-version: 3.0
+
       - name: Install Bundler
         run: gem install bundler -v 2.4.22
 
