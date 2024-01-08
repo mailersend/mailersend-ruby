@@ -1,5 +1,9 @@
 ## [Released]
 
+## [2.0.1] - 2023-01-08
+
+- Simple personalization removed
+
 ## [2.0.0] - 2023-12-18
 
 - *BREAKING CHANGE* - Please check the README file, MailerSend API token is now defined inside your application.
