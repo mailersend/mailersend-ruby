@@ -12,7 +12,6 @@ MailerSend Ruby SDK
     - [Add CC, BCC recipients](#add-cc-bcc-recipients)
     - [Send a template-based email](#send-a-template-based-email)
     - [Advanced personalization](#advanced-personalization)
-    - [Simple personalization](#simple-personalization)
   - [Bulk Email](#bulk-email)
     - [Send bulk email](#send-bulk-email)
     - [Get bulk email status](#get-bulk-email-status)
@@ -220,38 +219,6 @@ personalization = {
 }
 
 ms_email.add_personalization(personalization)
-
-ms_email.send
-```
-
-### Simple personalization
-
-```ruby
-require "mailersend-ruby"
-
-ms_client = Mailersend::Client.new('your_mailersend_token')
-
-# Intialize the email class
-ms_email = Mailersend::Email.new(ms_client)
-
-# Add parameters
-ms_email.add_recipients("email" => "ron@parksandrec.com", "name" => "Ron")
-ms_email.add_from("email" => "april@parksandrec.com", "name" => "April")
-ms_email.add_subject("Time {$test}")
-ms_email.add_text("{$test} Time is money, money is power, power is pizza, and pizza is knowledge. Let's go.")
-ms_email.add_html("<b>{$test} Time is money, money is power, power is pizza, and pizza is knowledge. Let's go.</b>")
-
-variables = {
-  email: 'ron@parksandrec.com',
-  substitutions: [
-    {
-      var: 'test',
-      value: 'Test Value'
-    }
-  ]
-}
-
-ms_email.add_variables(variables)
 
 ms_email.send
 ```
