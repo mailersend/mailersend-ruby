@@ -22,16 +22,16 @@ module Mailersend
         'limit' => limit
       }
 
-      client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: '/v1/templates',
+      client.http.get(URI::HTTPS.build(host: MAILERSEND_API_BASE_HOST, path: '/v1/templates',
                                        query: URI.encode_www_form(hash)))
     end
 
     def single(template_id:)
-      client.http.get("#{API_URL}/templates/#{template_id}")
+      client.http.get("#{MAILERSEND_API_URL}/templates/#{template_id}")
     end
 
     def delete(template_id:)
-      client.http.delete("#{API_URL}/templates/#{template_id}")
+      client.http.delete("#{MAILERSEND_API_URL}/templates/#{template_id}")
     end
   end
 end

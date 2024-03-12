@@ -20,15 +20,15 @@ module Mailersend
     end
 
     def get_list(*)
-      client.http.get("#{API_URL}/message-schedules")
+      client.http.get("#{MAILERSEND_API_URL}/message-schedules")
     end
 
     def get_signle(message_id:)
-      client.http.get("#{API_URL}/message-schedules/#{message_id}")
+      client.http.get("#{MAILERSEND_API_URL}/message-schedules/#{message_id}")
     end
 
     def delete(message_id:)
-      client.http.delete("#{API_URL}/message-schedules/#{message_id}")
+      client.http.delete("#{MAILERSEND_API_URL}/message-schedules/#{message_id}")
     end
   end
 end

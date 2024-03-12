@@ -19,7 +19,7 @@ module Mailersend
         'limit' => limit
       }
 
-      client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: '/v1/sms-activity',
+      client.http.get(URI::HTTPS.build(host: MAILERSEND_API_BASE_HOST, path: '/v1/sms-activity',
                                        query: URI.encode_www_form(hash)))
     end
   end

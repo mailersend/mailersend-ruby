@@ -10,7 +10,7 @@ module Mailersend
     end
 
     def get_api_quota(*)
-      client.http.get("#{API_URL}/api-quota")
+      client.http.get("#{MAILERSEND_API_URL}/api-quota")
     end
   end
 end

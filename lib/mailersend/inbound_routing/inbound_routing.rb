@@ -20,23 +20,23 @@ module Mailersend
     end
 
     def get_inbound_routes(*)
-      client.http.get("#{API_URL}/inbound")
+      client.http.get("#{MAILERSEND_API_URL}/inbound")
     end
 
     def get_single_route(inbound_id:)
-      client.http.get("#{API_URL}/inbound/#{inbound_id}")
+      client.http.get("#{MAILERSEND_API_URL}/inbound/#{inbound_id}")
     end
 
     def add_inbound_route
-      client.http.post("#{API_URL}/inbound", json: @settings)
+      client.http.post("#{MAILERSEND_API_URL}/inbound", json: @settings)
     end
 
     def update_inbound_route(inbound_id:)
-      client.http.put("#{API_URL}/inbound/#{inbound_id}", json: @settings)
+      client.http.put("#{MAILERSEND_API_URL}/inbound/#{inbound_id}", json: @settings)
     end
 
     def delete_route(inbound_id:)
-      client.http.delete("#{API_URL}/inbound/#{inbound_id}")
+      client.http.delete("#{MAILERSEND_API_URL}/inbound/#{inbound_id}")
     end
   end
 end

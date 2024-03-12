@@ -2,8 +2,8 @@
 
 require 'http'
 
-API_URL = 'https://api.mailersend.com/v1'
-API_BASE_HOST = 'api.mailersend.com'
+MAILERSEND_API_URL = 'https://api.mailersend.com/v1'
+MAILERSEND_API_BASE_HOST = 'api.mailersend.com'
 
 # mailersend-ruby is a gem that integrates all endpoints from MailerSend API
 module Mailersend
