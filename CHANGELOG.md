@@ -1,6 +1,6 @@
 ## [Released]
 
-## [2.0.2] - 2023-01-08
+## [2.0.2] - 2024-03-12
 
 - Update constant name
 
