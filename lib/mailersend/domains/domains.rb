@@ -25,7 +25,7 @@ module Mailersend
         'limit' => limit,
         'verified' => verified
       }
-      client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: '/v1/domains',
+      client.http.get(URI::HTTPS.build(host: MAILERSEND_API_BASE_HOST, path: '/v1/domains',
                                        query: URI.encode_www_form(hash.compact)))
     end
 
@@ -35,7 +35,7 @@ module Mailersend
         'limit' => limit,
         'verified' => verified
       }
-      client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: "/v1/domains/#{domain_id}",
+      client.http.get(URI::HTTPS.build(host: MAILERSEND_API_BASE_HOST, path: "/v1/domains/#{domain_id}",
                                        query: URI.encode_www_form(hash.compact)))
     end
 
@@ -46,11 +46,11 @@ module Mailersend
         'custom_tracking_subdomain' => custom_tracking_subdomain,
         'inbound_routing_subdomain' => inbound_routing_subdomain
       }
-      client.http.post("#{API_URL}/domains", json: hash.compact)
+      client.http.post("#{MAILERSEND_API_URL}/domains", json: hash.compact)
     end
 
     def delete(domain_id:)
-      client.http.delete(URI::HTTPS.build(host: API_BASE_HOST, path: "/v1/domains/#{domain_id}"))
+      client.http.delete(URI::HTTPS.build(host: MAILERSEND_API_BASE_HOST, path: "/v1/domains/#{domain_id}"))
     end
 
     def recipients(domain_id:)
@@ -58,7 +58,7 @@ module Mailersend
         'page' => page,
         'limit' => limit
       }
-      client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: "/v1/domains/#{domain_id}/recipients",
+      client.http.get(URI::HTTPS.build(host: MAILERSEND_API_BASE_HOST, path: "/v1/domains/#{domain_id}/recipients",
                                        query: URI.encode_www_form(hash.compact)))
     end
 
@@ -75,15 +75,15 @@ module Mailersend
         'custom_tracking_subdomain' => custom_tracking_subdomain,
         'precedence_bulk' => precedence_bulk
       }
-      client.http.put("#{API_URL}/domains/#{domain_id}/settings", json: hash.compact)
+      client.http.put("#{MAILERSEND_API_URL}/domains/#{domain_id}/settings", json: hash.compact)
     end
 
     def dns(domain_id:)
-      client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: "/v1/domains/#{domain_id}/dns-records"))
+      client.http.get(URI::HTTPS.build(host: MAILERSEND_API_BASE_HOST, path: "/v1/domains/#{domain_id}/dns-records"))
     end
 
     def verify(domain_id:)
-      client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: "/v1/domains/#{domain_id}/verify"))
+      client.http.get(URI::HTTPS.build(host: MAILERSEND_API_BASE_HOST, path: "/v1/domains/#{domain_id}/verify"))
     end
   end
 end

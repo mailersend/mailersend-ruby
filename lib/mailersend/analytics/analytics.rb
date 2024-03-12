@@ -34,7 +34,7 @@ module Mailersend
         'tags[]' => tags
       }
 
-      client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: '/v1/analytics/date',
+      client.http.get(URI::HTTPS.build(host: MAILERSEND_API_BASE_HOST, path: '/v1/analytics/date',
                                        query: URI.encode_www_form(hash.compact)))
     end
 
@@ -47,7 +47,7 @@ module Mailersend
         'tags[]': tags
       }
 
-      client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: '/v1/analytics/country',
+      client.http.get(URI::HTTPS.build(host: MAILERSEND_API_BASE_HOST, path: '/v1/analytics/country',
                                        query: URI.encode_www_form(hash.compact)))
     end
 
@@ -60,7 +60,7 @@ module Mailersend
         'tags[]': tags
       }
 
-      client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: '/v1/analytics/ua-name',
+      client.http.get(URI::HTTPS.build(host: MAILERSEND_API_BASE_HOST, path: '/v1/analytics/ua-name',
                                        query: URI.encode_www_form(hash.compact)))
     end
 
@@ -73,7 +73,7 @@ module Mailersend
         'tags[]': tags
       }
 
-      client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: '/v1/analytics/ua-type',
+      client.http.get(URI::HTTPS.build(host: MAILERSEND_API_BASE_HOST, path: '/v1/analytics/ua-type',
                                        query: URI.encode_www_form(hash.compact)))
     end
   end

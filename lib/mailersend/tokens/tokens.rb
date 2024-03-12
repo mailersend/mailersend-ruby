@@ -23,18 +23,18 @@ module Mailersend
         'scopes' => scopes,
         'domain_id' => domain_id
       }
-      client.http.post("#{API_URL}/token", json: json)
+      client.http.post("#{MAILERSEND_API_URL}/token", json: json)
     end
 
     def update(token_id:, status:)
       status = {
         status: status
       }
-      client.http.put("#{API_URL}/token/#{token_id}/settings", json: status)
+      client.http.put("#{MAILERSEND_API_URL}/token/#{token_id}/settings", json: status)
     end
 
     def delete(token_id:)
-      client.http.delete("#{API_URL}/token/#{token_id}")
+      client.http.delete("#{MAILERSEND_API_URL}/token/#{token_id}")
     end
   end
 end

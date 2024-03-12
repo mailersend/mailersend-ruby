@@ -25,24 +25,24 @@ module Mailersend
         'limit' => limit
       }
 
-      client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: '/v1/sms-inbounds',
+      client.http.get(URI::HTTPS.build(host: MAILERSEND_API_BASE_HOST, path: '/v1/sms-inbounds',
                                        query: URI.encode_www_form(hash)))
     end
 
     def get_sms_inbound_route(sms_inbound_id:)
-      client.http.get("#{API_URL}/sms-inbounds/#{sms_inbound_id}")
+      client.http.get("#{MAILERSEND_API_URL}/sms-inbounds/#{sms_inbound_id}")
     end
 
     def add_sms_inbound_route
-      client.http.post("#{API_URL}/sms-inbounds", json: @settings)
+      client.http.post("#{MAILERSEND_API_URL}/sms-inbounds", json: @settings)
     end
 
     def update_sms_inbound_route(sms_inbound_id:)
-      client.http.put("#{API_URL}/sms-inbounds/#{sms_inbound_id}", json: @settings)
+      client.http.put("#{MAILERSEND_API_URL}/sms-inbounds/#{sms_inbound_id}", json: @settings)
     end
 
     def delete_sms_inbound_route(sms_inbound_id:)
-      client.http.delete("#{API_URL}/sms-inbounds/#{sms_inbound_id}")
+      client.http.delete("#{MAILERSEND_API_URL}/sms-inbounds/#{sms_inbound_id}")
     end
   end
 end

@@ -23,23 +23,23 @@ module Mailersend
         'limit' => limit
       }
 
-      client.http.get(URI::HTTPS.build(host: API_BASE_HOST, path: '/v1/sms-numbers',
+      client.http.get(URI::HTTPS.build(host: MAILERSEND_API_BASE_HOST, path: '/v1/sms-numbers',
                                        query: URI.encode_www_form(hash)))
     end
 
     def get(sms_number_id:)
-      client.http.get("#{API_URL}/sms-numbers/#{sms_number_id}")
+      client.http.get("#{MAILERSEND_API_URL}/sms-numbers/#{sms_number_id}")
     end
 
     def update(sms_number_id:, paused: nil)
       hash = {
         'paused' => paused
       }
-      client.http.put("#{API_URL}/sms-numbers/#{sms_number_id}", json: hash.compact)
+      client.http.put("#{MAILERSEND_API_URL}/sms-numbers/#{sms_number_id}", json: hash.compact)
     end
 
     def delete(sms_number_id:)
-      client.http.delete("#{API_URL}/sms-numbers/#{sms_number_id}")
+      client.http.delete("#{MAILERSEND_API_URL}/sms-numbers/#{sms_number_id}")
     end
   end
 end
