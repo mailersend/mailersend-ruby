@@ -1,5 +1,9 @@
 ## [Released]
 
+## [2.0.3] - 2024-06-24
+
+- Advanced personalization is now personalization
+
 ## [2.0.2] - 2024-03-12
 
 - Update constant name
