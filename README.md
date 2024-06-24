@@ -11,7 +11,7 @@ MailerSend Ruby SDK
     - [Send an email](#send-an-email)
     - [Add CC, BCC recipients](#add-cc-bcc-recipients)
     - [Send a template-based email](#send-a-template-based-email)
-    - [Advanced personalization](#advanced-personalization)
+    - [Personalization](#personalization)
   - [Bulk Email](#bulk-email)
     - [Send bulk email](#send-bulk-email)
     - [Get bulk email status](#get-bulk-email-status)
@@ -194,7 +194,7 @@ ms_email.add_template_id(12415125)
 ms_email.send
 ```
 
-### Advanced personalization
+### Personalization
 
 ```ruby
 require "mailersend-ruby"
