@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gemspec
 
 group :development do
-  gem 'bundler', '~> 2.4.22'
+  gem 'bundler', '~> 2.6.0'
   gem 'rake', '~> 13.0'
   gem 'rubocop', '~> 1.7'
 end
