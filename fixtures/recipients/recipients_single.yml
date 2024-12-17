@@ -46,6 +46,6 @@ http_interactions:
       - 8f3663c86d885b84-VIE
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"663cd8f984e4628b80b976a3","email":"39af28b9-edc8-4fd3-b4cb-9a7b49326d28@emailhook.site","created_at":"2024-05-09T14:08:57.000000Z","updated_at":"2024-05-09T14:08:57.000000Z","deleted_at":"","emails":[],"domain":{"id":"jpzkmgq7e5vl059v","name":"test-sdk.com","created_at":"2022-04-20T11:36:15.000000Z","updated_at":"2024-09-02T10:02:27.000000Z"}}}'
+      string: '{"data":{"id":"663cd8f984e4628b80b976a3","email":"39af28b9-edc8-4fd3-9a7b49326d28@emailhook.site","created_at":"2024-05-09T14:08:57.000000Z","updated_at":"2024-05-09T14:08:57.000000Z","deleted_at":"","emails":[],"domain":{"id":"jpzkmgq7e5vl059v","name":"test-sdk.com","created_at":"2022-04-20T11:36:15.000000Z","updated_at":"2024-09-02T10:02:27.000000Z"}}}'
   recorded_at: Tue, 17 Dec 2024 10:57:00 GMT
 recorded_with: VCR 6.3.1
