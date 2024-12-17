@@ -9,15 +9,15 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Set up Ruby
-      uses: actions/setup-ruby@v1
+      uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 3.0
+        ruby-version: 3.1
 
     - name: Install Bundler
-      run: gem install bundler -v 2.4.22
+      run: gem install bundler -v 2.5.23
 
     - name: Install dependencies
-      run: bundle _2.4.22_ install
+      run: bundle _2.5.23_ install
 
     - name: Run the default task
       run: bundle exec rake

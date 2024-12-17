@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.mailersend.com/v1/bulk-email/67618140bf85c862710f2c5a
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Authorization:
+      - "<AUTH>"
+      User-Agent:
+      - MailerSend-client-ruby/2.0.3
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.mailersend.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 17 Dec 2024 13:50:02 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cache-Control:
+      - no-cache, private
+      X-Apiquota-Remaining:
+      - "-1"
+      X-Apiquota-Reset:
+      - '2024-12-18T00:00:00Z'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8f37613bfc9f5b8a-VIE
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"67618140bf85c862710f2c5a","state":"completed","total_recipients_count":1,"suppressed_recipients_count":0,"suppressed_recipients":null,"validation_errors_count":1,"validation_errors":{"message.0":{"from.email":["The
+        from.email field is required. #MS42209"],"to.0.email":["The to.0.email field
+        is required. #MS42209"]}},"messages_id":null,"created_at":"2024-12-17T13:48:48.000000Z","updated_at":"2024-12-17T13:48:49.000000Z"}}'
+  recorded_at: Tue, 17 Dec 2024 13:50:02 GMT
+recorded_with: VCR 6.3.1

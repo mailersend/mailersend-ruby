@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.mailersend.com/v1/inbound
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Authorization:
+      - "<AUTH>"
+      User-Agent:
+      - MailerSend-client-ruby/2.0.3
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.mailersend.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 17 Dec 2024 13:15:07 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cache-Control:
+      - no-cache, private
+      X-Apiquota-Remaining:
+      - "-1"
+      X-Apiquota-Reset:
+      - '2024-12-18T00:00:00Z'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8f372e19a9655b49-VIE
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"pr9084zw584w63dn","name":"etyrty","address":"g9lz3bsjlnqde2vhvheh@inbound.mailersend.net","domain":null,"dns_checked_at":null,"enabled":true,"filters":[{"type":"match_all","key":null,"comparer":null,"value":null}],"forwards":[{"type":"email","value":"roc@mailerlite.com","secret":null}],"priority":0,"mxValues":{"priority":"10","target":"inbound.mailersend.net"},"catch_type":"all","match_type":"all"},{"id":"7dnvo4dkd6l5r86y","name":"test","address":"kugzeoo4ydoeuxpjn913@inbound.mailersend.net","domain":null,"dns_checked_at":null,"enabled":true,"filters":[{"type":"match_all","key":null,"comparer":null,"value":null}],"forwards":[{"type":"webhook","value":"https:\/\/google.com","secret":"T47PIxNnXJmPA9ZxB5PBbOkSLvKSsZNR"}],"priority":0,"mxValues":{"priority":"10","target":"inbound.mailersend.net"},"catch_type":"all","match_type":"all"}],"links":{"first":"https:\/\/api.mailersend.com\/v1\/inbound?page=1","last":"https:\/\/api.mailersend.com\/v1\/inbound?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":1,"last_page":1,"links":[{"url":null,"label":"&laquo;
+        Previous","active":false},{"url":"https:\/\/api.mailersend.com\/v1\/inbound?page=1","label":"1","active":true},{"url":null,"label":"Next
+        &raquo;","active":false}],"path":"https:\/\/api.mailersend.com\/v1\/inbound","per_page":10,"to":2,"total":2}}'
+  recorded_at: Tue, 17 Dec 2024 13:15:07 GMT
+recorded_with: VCR 6.3.1

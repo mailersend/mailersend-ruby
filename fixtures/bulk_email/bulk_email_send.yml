@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.mailersend.com/v1/bulk-email
+    body:
+      encoding: UTF-8
+      string: '[{"from":"sender@test-sdk.com","to":["test@mailerlite.com"],"subject":"Test
+        Bulk Email","text":"This is a test bulk email."}]'
+    headers:
+      Authorization:
+      - "<AUTH>"
+      User-Agent:
+      - MailerSend-client-ruby/2.0.3
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=utf-8
+      Host:
+      - api.mailersend.com
+  response:
+    status:
+      code: 202
+      message: Accepted
+    headers:
+      Date:
+      - Tue, 17 Dec 2024 13:48:48 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cache-Control:
+      - no-cache, private
+      X-Apiquota-Remaining:
+      - "-1"
+      X-Apiquota-Reset:
+      - '2024-12-18T00:00:00Z'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8f375f73dbfb5b5b-VIE
+    body:
+      encoding: UTF-8
+      string: '{"message":"The bulk email is being processed.","bulk_email_id":"67618140bf85c862710f2c5a"}'
+  recorded_at: Tue, 17 Dec 2024 13:48:48 GMT
+recorded_with: VCR 6.3.1

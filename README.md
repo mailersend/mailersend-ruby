@@ -1316,6 +1316,15 @@ ms_api_quota = Mailersend::APIQuota.new(ms_client)
 # Add parameters
 ms_api_quota.get_api_quota
 ```
+# Testing
+
+```bash
+bundle i
+bundle exec rspec spec/*rspec.rb
+```
+
+To run tests you would need to install gems using bundle and then run rspec via bundle to run all tests.
+The fixtures for the test have been recorded using vcr and are available in the ./fixtures directory.
 
 # Support and Feedback
 

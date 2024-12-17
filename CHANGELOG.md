@@ -1,5 +1,9 @@
 ## [Released]
 
+## [3.0.0] - 2024-12-17
+- *BREAKING CHANGE* - Updated the minimal required Ruby version from 2.5 to 3.1
+- Adding tests
+
 ## [2.0.3] - 2024-06-24
 
 - Advanced personalization is now personalization
