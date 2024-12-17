@@ -19,5 +19,5 @@ jobs:
     - name: Install dependencies
       run: bundle _2.5.23_ install
 
-    - name: Run the default task
-      run: bundle exec rake
+    - name: Run tests
+      run: export MAILERSEND_API_TOKEN=dummy_token && bundle exec rspec spec/*rspec.rb
