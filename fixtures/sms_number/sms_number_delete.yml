@@ -1,0 +1,26 @@
+---
+http_interactions:
+- request:
+    method: delete
+    uri: https://api.mailersend.com/v1/sms-numbers/example_sms_number_id
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Authorization:
+      - Bearer <AUTH>
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: '1.1'
+  recorded_at: Tue, 17 Dec 2024 23:17:50 GMT
+  recorded_with: VCR 6.1.0

@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.mailersend.com/v1/sms-recipients?limit=10&page=1
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Authorization:
+      - "<AUTH>"
+      User-Agent:
+      - MailerSend-client-ruby/3.0.0
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.mailersend.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 17 Dec 2024 23:27:04 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cache-Control:
+      - no-cache, private
+      X-Apiquota-Remaining:
+      - "-1"
+      X-Apiquota-Reset:
+      - '2024-12-18T00:00:00Z'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8f3aae823cbdec1e-ZAG
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"627e7503d30078fb2208cc83","number":"+18332500000","status":"opt_out","opted_out_at":null,"opt_out_source":null,"created_at":"2022-05-13T15:10:59.000000Z"},{"id":"627e756fd30078fb2208cc87","number":"+14132100000","status":"active","opted_out_at":null,"opt_out_source":null,"created_at":"2022-05-13T15:12:48.000000Z"},{"id":"62a8f3402c9a163d780cecc3","number":"+12513000000","status":"active","opted_out_at":null,"opt_out_source":null,"created_at":"2022-06-14T20:44:49.000000Z"},{"id":"62e7f2d02e29cb4b55050523","number":"+18474600000","status":"active","opted_out_at":null,"opt_out_source":null,"created_at":"2022-08-01T15:35:44.000000Z"},{"id":"62e7f44c2eda720e1d05e633","number":"+18332600000","status":"active","opted_out_at":null,"opt_out_source":null,"created_at":"2022-08-01T15:42:05.000000Z"},{"id":"62e7f4e8b59e9868630f52a3","number":"+16062100000","status":"active","opted_out_at":null,"opt_out_source":null,"created_at":"2022-08-01T15:44:41.000000Z"},{"id":"62e80347361532ed0001c423","number":"+16062100000","status":"active","opted_out_at":null,"opt_out_source":null,"created_at":"2022-08-01T16:45:59.000000Z"},{"id":"62ea3ea8ed10e863b2021793","number":"+18332600000","status":"active","opted_out_at":null,"opt_out_source":null,"created_at":"2022-08-03T09:23:53.000000Z"},{"id":"62ea40d51495ae44610e6a96","number":"+18332700000","status":"active","opted_out_at":null,"opt_out_source":null,"created_at":"2022-08-03T09:33:10.000000Z"},{"id":"6321a2d9fd07c623cf032c93","number":"+18133600000","status":"active","opted_out_at":null,"opt_out_source":null,"created_at":"2022-09-14T09:46:02.000000Z"}],"links":{"first":"https:\/\/api.mailersend.com\/v1\/sms-recipients?page=1","last":null,"prev":null,"next":"https:\/\/api.mailersend.com\/v1\/sms-recipients?page=2"},"meta":{"current_page":1,"from":1,"path":"https:\/\/api.mailersend.com\/v1\/sms-recipients","per_page":"10","to":10}}'
+  recorded_at: Tue, 17 Dec 2024 23:27:04 GMT
+recorded_with: VCR 6.1.0

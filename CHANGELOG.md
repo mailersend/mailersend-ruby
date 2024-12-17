@@ -1,6 +1,6 @@
 ## [Released]
 
-## [3.0.0] - 2024-12-17
+## [3.0.0] - 2024-12-18
 - *BREAKING CHANGE* - Updated the minimal required Ruby version from 2.5 to 3.1
 - Adding tests
 
