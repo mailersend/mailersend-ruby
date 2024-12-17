@@ -20,4 +20,4 @@ jobs:
       run: bundle _2.5.23_ install
 
     - name: Run tests
-      run: export MAILERSEND_API_TOKEN=dummy_token && bundle exec rspec spec/*rspec.rb
+      run: export MAILERSEND_API_TOKEN=dummy_token && bundle exec rspec spec/*_rspec.rb

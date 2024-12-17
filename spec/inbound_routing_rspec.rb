@@ -3,7 +3,7 @@ require 'vcr'
 require 'json'
 
 VCR.configure do |config|
-  config.cassette_library_dir = './fixtures/inbound_routing'
+  config.cassette_library_dir = './fixtures'
   config.hook_into :webmock
   config.filter_sensitive_data('<AUTH>') do |interaction|
     interaction.request.headers['Authorization'][0]
@@ -15,7 +15,7 @@ RSpec.describe Mailersend::InboundRouting do
   let(:inbound_routing) { Mailersend::InboundRouting.new(client) }
 
   it 'returns a list of inbound routes' do
-    VCR.use_cassette('inbound_routes_list') do
+    VCR.use_cassette('inbound_routing/inbound_routing_list') do
       response = inbound_routing.get_inbound_routes
       parsed_response = JSON.parse(response.body)
 
@@ -25,7 +25,7 @@ RSpec.describe Mailersend::InboundRouting do
   end
 
   it 'returns a single inbound route' do
-    VCR.use_cassette('inbound_route_single') do
+    VCR.use_cassette('inbound_routing/inbound_routing_single') do
       response = inbound_routing.get_single_route(inbound_id: 'pr9084zw584w63dn')
       parsed_response = JSON.parse(response.body)
 
@@ -35,7 +35,7 @@ RSpec.describe Mailersend::InboundRouting do
   end
 
   it 'deletes an inbound route' do
-    VCR.use_cassette('inbound_route_delete') do
+    VCR.use_cassette('inbound_routing/inbound_routing_delete') do
       response = inbound_routing.delete_route(inbound_id: '7dnvo4dkd6l5r86y')
 
       expect(response.status).to eq(204)

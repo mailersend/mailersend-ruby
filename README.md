@@ -1320,7 +1320,7 @@ ms_api_quota.get_api_quota
 
 ```bash
 bundle i
-bundle exec rspec spec/*rspec.rb
+bundle exec rspec spec/*_rspec.rb
 ```
 
 To run tests you would need to install gems using bundle and then run rspec via bundle to run all tests.

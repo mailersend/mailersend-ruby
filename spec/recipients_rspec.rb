@@ -3,7 +3,7 @@ require 'vcr'
 require 'json'
 
 VCR.configure do |config|
-  config.cassette_library_dir = './fixtures/recipients'
+  config.cassette_library_dir = './fixtures'
   config.hook_into :webmock
   config.filter_sensitive_data('<AUTH>') do |interaction|
     interaction.request.headers['Authorization'][0]
@@ -15,7 +15,7 @@ RSpec.describe Mailersend::Recipients do
   let(:recipients) { Mailersend::Recipients.new(client) }
 
   it 'returns a list of recipients' do
-    VCR.use_cassette('recipients_list') do
+    VCR.use_cassette('recipients/recipients_list') do
       response = recipients.list(page: 1, limit: 10)
       parsed_response = JSON.parse(response.body)
 
@@ -25,7 +25,7 @@ RSpec.describe Mailersend::Recipients do
   end
 
   it 'returns a single recipient' do
-    VCR.use_cassette('recipients_single') do
+    VCR.use_cassette('recipients/recipients_single') do
       response = recipients.single(recipient_id: '663cd8f984e4628b80b976a3')
       parsed_response = JSON.parse(response.body)
 
@@ -35,7 +35,7 @@ RSpec.describe Mailersend::Recipients do
   end
 
   it 'deletes a recipient' do
-    VCR.use_cassette('recipients_delete') do
+    VCR.use_cassette('recipients/recipients_delete') do
       response = recipients.delete(recipient_id: '663cd8f984e4628b80b976a3')
 
       expect(response.status).to eq(204)
