@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: delete
+    uri: https://api.mailersend.com/v1/suppressions/hard-bounces
+    body:
+      encoding: UTF-8
+      string: '{"domain_id":"jpzkmgq7e5vl059v","ids":["676457b042328d3c98db7600"]}'
+    headers:
+      Authorization:
+      - "<AUTH>"
+      User-Agent:
+      - MailerSend-client-ruby/3.0.0
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=utf-8
+      Host:
+      - api.mailersend.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 19 Dec 2024 18:00:58 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cache-Control:
+      - no-cache, private
+      X-Apiquota-Remaining:
+      - "-1"
+      X-Apiquota-Reset:
+      - '2024-12-20T00:00:00Z'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8f494b91cb13c1b9-BUD
+    body:
+      encoding: UTF-8
+      string: "[]"
+  recorded_at: Thu, 19 Dec 2024 18:00:57 GMT
+recorded_with: VCR 6.1.0

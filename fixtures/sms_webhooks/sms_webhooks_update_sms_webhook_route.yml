@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://api.mailersend.com/v1/sms-webhooks/0r83ql3pzvgzw1jm
+    body:
+      encoding: UTF-8
+      string: '{"url":"https://mailersend.net/updated_webhook","events":["sms.sent","sms.delivered"]}'
+    headers:
+      Authorization:
+      - "<AUTH>"
+      User-Agent:
+      - MailerSend-client-ruby/3.0.0
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=utf-8
+      Host:
+      - api.mailersend.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 19 Dec 2024 22:42:59 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cache-Control:
+      - no-cache, private
+      X-Apiquota-Remaining:
+      - "-1"
+      X-Apiquota-Reset:
+      - '2024-12-20T00:00:00Z'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8f4ae8b0ce4fec22-ZAG
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"0r83ql3pzvgzw1jm","url":"https:\/\/mailersend.net\/updated_webhook","events":["sms.sent","sms.delivered"],"name":"my-webook","enabled":true,"created_at":"2024-12-19T22:35:53.000000Z","updated_at":"2024-12-19T22:42:59.000000Z","sms_number":{"id":"0p7kx4xd7el9yjre","telephone_number":"+18121209150","paused":false,"created_at":"2024-02-19T14:52:31.000000Z"}}}'
+  recorded_at: Thu, 19 Dec 2024 22:42:59 GMT
+recorded_with: VCR 6.1.0

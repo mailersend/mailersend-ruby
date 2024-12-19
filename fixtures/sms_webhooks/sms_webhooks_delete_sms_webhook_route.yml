@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: delete
+    uri: https://api.mailersend.com/v1/sms-webhooks/0r83ql3pzvgzw1jm
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Authorization:
+      - "<AUTH>"
+      User-Agent:
+      - MailerSend-client-ruby/3.0.0
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.mailersend.com
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Thu, 19 Dec 2024 22:43:52 GMT
+      Connection:
+      - close
+      Cache-Control:
+      - no-cache, private
+      X-Apiquota-Remaining:
+      - "-1"
+      X-Apiquota-Reset:
+      - '2024-12-20T00:00:00Z'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8f4ae9fa1e59ec1c-ZAG
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+  recorded_at: Thu, 19 Dec 2024 22:43:52 GMT
+recorded_with: VCR 6.1.0
