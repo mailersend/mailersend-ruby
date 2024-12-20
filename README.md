@@ -679,7 +679,7 @@ require "mailersend-ruby"
 ms_client = Mailersend::Client.new('your_mailersend_token')
 
 ms_scheduled_messages = Mailersend::ScheduledMessages.new(ms_client)
-ms_scheduled_messages.get_signle(message_id: 'mess11454')
+ms_scheduled_messages.get_single(message_id: 'mess11454')
 ```
 
 ### Delete a scheduled message

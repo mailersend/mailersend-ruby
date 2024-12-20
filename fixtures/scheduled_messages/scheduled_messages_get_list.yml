@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.mailersend.com/v1/message-schedules
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Authorization:
+      - "<AUTH>"
+      User-Agent:
+      - MailerSend-client-ruby/3.0.0
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.mailersend.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 20 Dec 2024 00:08:56 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cache-Control:
+      - no-cache, private
+      X-Apiquota-Remaining:
+      - "-1"
+      X-Apiquota-Reset:
+      - '2024-12-21T00:00:00Z'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8f4b669a2911ec28-ZAG
+    body:
+      encoding: UTF-8
+      string: '{"data":[],"links":{"first":"https:\/\/api.mailersend.com\/v1\/message-schedules?page=1","last":"https:\/\/api.mailersend.com\/v1\/message-schedules?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":null,"last_page":1,"links":[{"url":null,"label":"&laquo;
+        Previous","active":false},{"url":"https:\/\/api.mailersend.com\/v1\/message-schedules?page=1","label":"1","active":true},{"url":null,"label":"Next
+        &raquo;","active":false}],"path":"https:\/\/api.mailersend.com\/v1\/message-schedules","per_page":25,"to":null,"total":0}}'
+  recorded_at: Fri, 20 Dec 2024 00:08:56 GMT
+recorded_with: VCR 6.1.0
