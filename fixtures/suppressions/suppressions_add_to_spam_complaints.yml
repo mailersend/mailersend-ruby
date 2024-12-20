@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.mailersend.com/v1/suppressions/spam-complaints
+    body:
+      encoding: UTF-8
+      string: '{"domain_id":"jpzkmgq7e5vl059v","recipients":["test@mailerlite.com"]}'
+    headers:
+      Authorization:
+      - "<AUTH>"
+      User-Agent:
+      - MailerSend-client-ruby/3.0.0
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=utf-8
+      Host:
+      - api.mailersend.com
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Thu, 19 Dec 2024 17:28:17 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cache-Control:
+      - no-cache, private
+      X-Apiquota-Remaining:
+      - "-1"
+      X-Apiquota-Reset:
+      - '2024-12-20T00:00:00Z'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8f491bb32c041ce6-BUD
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"676457b1ee359d18093fcb99","created_at":"2024-12-19T17:28:17.000000Z","recipient":{"id":"676457b08631db34e81673e8","email":"test@mailerlite.com","created_at":"2024-12-19T17:28:16.000000Z","updated_at":"2024-12-19T17:28:17.000000Z","deleted_at":"","domain":{"id":"jpzkmgq7e5vl059v","name":"test-sdk.com","created_at":"2022-04-20T11:36:15.000000Z","updated_at":"2024-09-02T10:02:27.000000Z"}}}]}'
+  recorded_at: Thu, 19 Dec 2024 17:28:17 GMT
+recorded_with: VCR 6.1.0

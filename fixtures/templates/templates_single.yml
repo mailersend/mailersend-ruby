@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.mailersend.com/v1/templates/pq3enl6v607g2vwr
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Authorization:
+      - "<AUTH>"
+      User-Agent:
+      - MailerSend-client-ruby/3.0.0
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.mailersend.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 17 Dec 2024 22:39:32 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cache-Control:
+      - no-cache, private
+      X-Apiquota-Remaining:
+      - "-1"
+      X-Apiquota-Reset:
+      - '2024-12-18T00:00:00Z'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8f3a68e15d93c1cd-BUD
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"pq3enl6v607g2vwr","name":"Template","type":"dd","image_path":"https:\/\/storage.googleapis.com\/mailersend-screenshots\/screenshots\/template_pq3enl6v607g2vwr.png","variables":{"variables":[],"personalization":{"account_name":"","support_email":""}},"created_at":"2024-08-09T13:33:27.000000Z","category":null,"categories":[],"domain":null,"template_stats":{"total":0,"queued":0,"sent":0,"rejected":0,"delivered":0,"opened":0,"open_rate":0,"clicked":0,"click_rate":0,"unsubscribed":0,"unsubscribe_rate":0,"complained":0,"complain_rate":0,"last_email_sent_at":null}}}'
+  recorded_at: Tue, 17 Dec 2024 22:39:32 GMT
+recorded_with: VCR 6.1.0

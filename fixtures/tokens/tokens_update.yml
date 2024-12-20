@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://api.mailersend.com/v1/token/1dd8e323b92f9953069f9647ca5929a24674e2f972d85734b27de16cd06360256054a070b783c272/settings
+    body:
+      encoding: UTF-8
+      string: '{"status":"pause"}'
+    headers:
+      Authorization:
+      - "<AUTH>"
+      User-Agent:
+      - MailerSend-client-ruby/2.0.3
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=utf-8
+      Host:
+      - api.mailersend.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 17 Dec 2024 02:40:57 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cache-Control:
+      - no-cache, private
+      X-Apiquota-Remaining:
+      - "-1"
+      X-Apiquota-Reset:
+      - '2024-12-18T00:00:00Z'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8f338d28a9ac6c86-ZAG
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"1dd8e323b92f9953069f9647ca5929a24674e2f972d85734b27de16cd06360256054a070b783c272","name":"Test
+        Token","status":"pause","created_at":"2024-12-17T02:36:31.000000Z","scopes":["email_full"],"domain":null}}'
+  recorded_at: Tue, 17 Dec 2024 02:40:57 GMT
+recorded_with: VCR 6.3.1

@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://api.mailersend.com/v1/domains/3yxj6lj1r05ldo2r/settings
+    body:
+      encoding: UTF-8
+      string: '{"send_paused":true}'
+    headers:
+      Authorization:
+      - "<AUTH>"
+      User-Agent:
+      - MailerSend-client-ruby/2.0.3
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=utf-8
+      Host:
+      - api.mailersend.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 17 Dec 2024 01:59:17 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cache-Control:
+      - no-cache, private
+      X-Apiquota-Remaining:
+      - "-1"
+      X-Apiquota-Reset:
+      - '2024-12-18T00:00:00Z'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8f33501a9cdeec24-ZAG
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"3yxj6lj1r05ldo2r","name":"ourdomain.com","dkim":false,"spf":false,"tracking":false,"is_verified":false,"is_cname_verified":false,"is_dns_active":false,"is_cname_active":false,"is_tracking_allowed":false,"domain_stats":{"total":0,"queued":0,"sent":0,"rejected":0,"delivered":0},"not_queued_messages_count":0,"domain_settings":{"send_paused":true,"track_clicks":true,"track_opens":true,"track_unsubscribe":true,"track_unsubscribe_html":"<p>Stisni
+        ovde <a href=''{$unsubscribe}''>unsubscribe<\/a><\/p>","track_unsubscribe_html_enabled":false,"track_unsubscribe_plain":"Stisni
+        ovde to unsubscribe: {$unsubscribe}","track_unsubscribe_plain_enabled":false,"track_content":true,"custom_tracking_enabled":true,"custom_tracking_subdomain":"email","return_path_subdomain":"rpsubdomain","inbound_routing_enabled":false,"inbound_routing_subdomain":"irsubdomain","precedence_bulk":false,"ignore_duplicated_recipients":false},"created_at":"2023-05-24T14:19:12.000000Z","updated_at":"2024-12-17T01:59:17.000000Z","totals":{"sent":0,"delivered":0,"hard_bounced":0,"soft_bounced":0}}}'
+  recorded_at: Tue, 17 Dec 2024 01:59:17 GMT
+recorded_with: VCR 6.3.1

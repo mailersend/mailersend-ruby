@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.mailersend.com/v1/inbound/pr9084zw584w63dn
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Authorization:
+      - "<AUTH>"
+      User-Agent:
+      - MailerSend-client-ruby/2.0.3
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.mailersend.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 17 Dec 2024 11:49:37 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cache-Control:
+      - no-cache, private
+      X-Apiquota-Remaining:
+      - "-1"
+      X-Apiquota-Reset:
+      - '2024-12-18T00:00:00Z'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8f36b0d8ab765b2b-VIE
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"pr9084zw584w63dn","name":"etyrty","address":"g9lz3bsjlnqde2vhvheh@inbound.mailersend.net","domain":null,"dns_checked_at":null,"enabled":true,"filters":[{"type":"match_all","key":null,"comparer":null,"value":null}],"forwards":[{"type":"email","value":"roc@mailerlite.com","secret":null}],"priority":0,"mxValues":{"priority":"10","target":"inbound.mailersend.net"},"catch_type":"all","match_type":"all"}}'
+  recorded_at: Tue, 17 Dec 2024 11:49:37 GMT
+recorded_with: VCR 6.3.1

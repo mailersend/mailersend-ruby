@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.mailersend.com/v1/sms-messages?limit=10&page=1
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Authorization:
+      - "<AUTH>"
+      User-Agent:
+      - MailerSend-client-ruby/3.0.0
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.mailersend.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 19 Dec 2024 23:51:19 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cache-Control:
+      - no-cache, private
+      X-Apiquota-Remaining:
+      - "-1"
+      X-Apiquota-Reset:
+      - '2024-12-20T00:00:00Z'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8f4b4ccbba06ec1a-ZAG
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"6764a963c5b6195e097987ca","from":"+1920473652","to":["+1920473652"],"text":"This
+        is a test SMS message.","paused":false,"created_at":"2024-12-19T23:16:51.000000Z"},{"id":"6764aac27b83f3b2cb2ecc99","from":"+1920473652","to":["+1920473652"],"text":"This
+        is a test SMS message.","paused":false,"created_at":"2024-12-19T23:22:42.000000Z"},{"id":"6764af1d36b27d1958fcb7b1","from":"+1920473652","to":["+1920473652"],"text":"This
+        is a test SMS message.","paused":false,"created_at":"2024-12-19T23:41:17.000000Z"}],"links":{"first":"https:\/\/api.mailersend.com\/v1\/sms-messages?page=1","last":"https:\/\/api.mailersend.com\/v1\/sms-messages?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":1,"last_page":1,"links":[{"url":null,"label":"&laquo;
+        Previous","active":false},{"url":"https:\/\/api.mailersend.com\/v1\/sms-messages?page=1","label":"1","active":true},{"url":null,"label":"Next
+        &raquo;","active":false}],"path":"https:\/\/api.mailersend.com\/v1\/sms-messages","per_page":10,"to":3,"total":3}}'
+  recorded_at: Thu, 19 Dec 2024 23:51:19 GMT
+recorded_with: VCR 6.1.0

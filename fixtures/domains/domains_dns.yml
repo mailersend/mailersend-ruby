@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.mailersend.com/v1/domains/jpzkmgq7e5vl059v/dns-records
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Authorization:
+      - "<AUTH>"
+      User-Agent:
+      - MailerSend-client-ruby/2.0.3
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.mailersend.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 17 Dec 2024 02:04:57 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cache-Control:
+      - no-cache, private
+      X-Apiquota-Remaining:
+      - "-1"
+      X-Apiquota-Reset:
+      - '2024-12-18T00:00:00Z'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8f335866d941ec28-ZAG
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"jpzkmgq7e5vl059v","spf":{"hostname":"test-sdk.com","type":"TXT","value":"v=spf1
+        include:_spf.mailersend.net ~all"},"dkim":{"hostname":"mlsend2._domainkey.test-sdk.com","type":"CNAME","value":"mlsend2._domainkey.mailersend.net"},"return_path":{"hostname":"mta.test-sdk.com","type":"CNAME","value":"mailersend.net"},"custom_tracking":{"hostname":"email.test-sdk.com","type":"CNAME","value":"links.mailersend.net"},"inbound_routing":{"hostname":"test-sdk.com","type":"MX","value":"inbound.mailersend.net","priority":"10"}}}'
+  recorded_at: Tue, 17 Dec 2024 02:04:56 GMT
+recorded_with: VCR 6.3.1

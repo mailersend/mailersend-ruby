@@ -23,7 +23,7 @@ module Mailersend
       client.http.get("#{MAILERSEND_API_URL}/message-schedules")
     end
 
-    def get_signle(message_id:)
+    def get_single(message_id:)
       client.http.get("#{MAILERSEND_API_URL}/message-schedules/#{message_id}")
     end
 

@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.mailersend.com/v1/sms-recipients/627e7503d30078fb2208cc83
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Authorization:
+      - "<AUTH>"
+      User-Agent:
+      - MailerSend-client-ruby/3.0.0
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.mailersend.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 17 Dec 2024 23:28:13 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cache-Control:
+      - no-cache, private
+      X-Apiquota-Remaining:
+      - "-1"
+      X-Apiquota-Reset:
+      - '2024-12-18T00:00:00Z'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8f3ab0313e896c86-ZAG
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"627e7503d30078fb2208cc83","number":"+18332500000","status":"opt_out","opted_out_at":null,"opt_out_source":null,"created_at":"2022-05-13T15:10:59.000000Z","sms_number":null,"sms":[]}}'
+  recorded_at: Tue, 17 Dec 2024 23:28:13 GMT
+recorded_with: VCR 6.1.0

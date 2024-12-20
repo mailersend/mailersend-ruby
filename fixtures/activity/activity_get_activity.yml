@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.mailersend.com/v1/activity/jpzkmgq7e5vl059v?date_from=1734115200&date_to=1734633600&limit=10&page=1
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Authorization:
+      - "<AUTH>"
+      User-Agent:
+      - MailerSend-client-ruby/3.0.0
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.mailersend.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 20 Dec 2024 00:41:01 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cache-Control:
+      - no-cache, private
+      X-Apiquota-Remaining:
+      - "-1"
+      X-Apiquota-Reset:
+      - '2024-12-21T00:00:00Z'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8f4b95952ed96c85-ZAG
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"676184f57c14148b126fb1a4","created_at":"2024-12-17T14:04:37.000000Z","updated_at":"2024-12-17T14:04:37.000000Z","type":"opened","email":{"id":"67618461e93d11b5cf7cb145","from":"sender@test-sdk.com","subject":"Test
+        Email","text":"This is a test email.","html":"<p>This is a test email.<\/p>","template_id":"","status":"delivered","tags":null,"created_at":"2024-12-17T14:02:09.000000Z","updated_at":"2024-12-17T14:04:39.000000Z","headers":null,"recipient":{"id":"6655e19fc7f63cea62ee560e","email":"test@mailerlite.com","created_at":"2024-05-28T13:52:31.000000Z","updated_at":"2024-05-28T13:52:31.000000Z","deleted_at":""}}},{"id":"676184f373db909f7ed68017","created_at":"2024-12-17T14:04:21.000000Z","updated_at":"2024-12-17T14:04:21.000000Z","type":"delivered","email":{"id":"676184e45958d4b8b0874611","from":"sender@test-sdk.com","subject":"Test
+        Email","text":"This is a test email.","html":"<p>This is a test email.<\/p>","template_id":"","status":"delivered","tags":null,"created_at":"2024-12-17T14:04:20.000000Z","updated_at":"2024-12-17T14:04:35.000000Z","headers":null,"recipient":{"id":"6655e19fc7f63cea62ee560e","email":"test@mailerlite.com","created_at":"2024-05-28T13:52:31.000000Z","updated_at":"2024-05-28T13:52:31.000000Z","deleted_at":""}}},{"id":"676184e41bc317ef8c474c1d","created_at":"2024-12-17T14:04:20.000000Z","updated_at":"2024-12-17T14:04:20.000000Z","type":"queued","email":{"id":"676184e45958d4b8b0874611","from":"sender@test-sdk.com","subject":"Test
+        Email","text":"This is a test email.","html":"<p>This is a test email.<\/p>","template_id":"","status":"delivered","tags":null,"created_at":"2024-12-17T14:04:20.000000Z","updated_at":"2024-12-17T14:04:35.000000Z","headers":null,"recipient":{"id":"6655e19fc7f63cea62ee560e","email":"test@mailerlite.com","created_at":"2024-05-28T13:52:31.000000Z","updated_at":"2024-05-28T13:52:31.000000Z","deleted_at":""}}},{"id":"676184e4026a72403d9dd102","created_at":"2024-12-17T14:04:20.000000Z","updated_at":"2024-12-17T14:04:20.000000Z","type":"sent","email":{"id":"676184e45958d4b8b0874611","from":"sender@test-sdk.com","subject":"Test
+        Email","text":"This is a test email.","html":"<p>This is a test email.<\/p>","template_id":"","status":"delivered","tags":null,"created_at":"2024-12-17T14:04:20.000000Z","updated_at":"2024-12-17T14:04:35.000000Z","headers":null,"recipient":{"id":"6655e19fc7f63cea62ee560e","email":"test@mailerlite.com","created_at":"2024-05-28T13:52:31.000000Z","updated_at":"2024-05-28T13:52:31.000000Z","deleted_at":""}}},{"id":"676184a9582046c3f3b447e9","created_at":"2024-12-17T14:03:15.000000Z","updated_at":"2024-12-17T14:03:15.000000Z","type":"delivered","email":{"id":"676184a19845543426e8c5f6","from":"sender@test-sdk.com","subject":"Test
+        Email","text":"This is a test email.","html":"<p>This is a test email.<\/p>","template_id":"","status":"delivered","tags":null,"created_at":"2024-12-17T14:03:13.000000Z","updated_at":"2024-12-17T14:03:21.000000Z","headers":null,"recipient":{"id":"6655e19fc7f63cea62ee560e","email":"test@mailerlite.com","created_at":"2024-05-28T13:52:31.000000Z","updated_at":"2024-05-28T13:52:31.000000Z","deleted_at":""}}},{"id":"676184a15b42b19771531b14","created_at":"2024-12-17T14:03:13.000000Z","updated_at":"2024-12-17T14:03:13.000000Z","type":"queued","email":{"id":"676184a19845543426e8c5f6","from":"sender@test-sdk.com","subject":"Test
+        Email","text":"This is a test email.","html":"<p>This is a test email.<\/p>","template_id":"","status":"delivered","tags":null,"created_at":"2024-12-17T14:03:13.000000Z","updated_at":"2024-12-17T14:03:21.000000Z","headers":null,"recipient":{"id":"6655e19fc7f63cea62ee560e","email":"test@mailerlite.com","created_at":"2024-05-28T13:52:31.000000Z","updated_at":"2024-05-28T13:52:31.000000Z","deleted_at":""}}},{"id":"676184a1f5a4c03213756a37","created_at":"2024-12-17T14:03:13.000000Z","updated_at":"2024-12-17T14:03:13.000000Z","type":"sent","email":{"id":"676184a19845543426e8c5f6","from":"sender@test-sdk.com","subject":"Test
+        Email","text":"This is a test email.","html":"<p>This is a test email.<\/p>","template_id":"","status":"delivered","tags":null,"created_at":"2024-12-17T14:03:13.000000Z","updated_at":"2024-12-17T14:03:21.000000Z","headers":null,"recipient":{"id":"6655e19fc7f63cea62ee560e","email":"test@mailerlite.com","created_at":"2024-05-28T13:52:31.000000Z","updated_at":"2024-05-28T13:52:31.000000Z","deleted_at":""}}},{"id":"67618471493abcc5d2cac3dd","created_at":"2024-12-17T14:02:15.000000Z","updated_at":"2024-12-17T14:02:15.000000Z","type":"delivered","email":{"id":"67618461e93d11b5cf7cb145","from":"sender@test-sdk.com","subject":"Test
+        Email","text":"This is a test email.","html":"<p>This is a test email.<\/p>","template_id":"","status":"delivered","tags":null,"created_at":"2024-12-17T14:02:09.000000Z","updated_at":"2024-12-17T14:04:39.000000Z","headers":null,"recipient":{"id":"6655e19fc7f63cea62ee560e","email":"test@mailerlite.com","created_at":"2024-05-28T13:52:31.000000Z","updated_at":"2024-05-28T13:52:31.000000Z","deleted_at":""}}},{"id":"67618461f05f2e941f424eb0","created_at":"2024-12-17T14:02:09.000000Z","updated_at":"2024-12-17T14:02:09.000000Z","type":"queued","email":{"id":"67618461e93d11b5cf7cb145","from":"sender@test-sdk.com","subject":"Test
+        Email","text":"This is a test email.","html":"<p>This is a test email.<\/p>","template_id":"","status":"delivered","tags":null,"created_at":"2024-12-17T14:02:09.000000Z","updated_at":"2024-12-17T14:04:39.000000Z","headers":null,"recipient":{"id":"6655e19fc7f63cea62ee560e","email":"test@mailerlite.com","created_at":"2024-05-28T13:52:31.000000Z","updated_at":"2024-05-28T13:52:31.000000Z","deleted_at":""}}},{"id":"676184615e8b002ef2153dc0","created_at":"2024-12-17T14:02:09.000000Z","updated_at":"2024-12-17T14:02:09.000000Z","type":"sent","email":{"id":"67618461e93d11b5cf7cb145","from":"sender@test-sdk.com","subject":"Test
+        Email","text":"This is a test email.","html":"<p>This is a test email.<\/p>","template_id":"","status":"delivered","tags":null,"created_at":"2024-12-17T14:02:09.000000Z","updated_at":"2024-12-17T14:04:39.000000Z","headers":null,"recipient":{"id":"6655e19fc7f63cea62ee560e","email":"test@mailerlite.com","created_at":"2024-05-28T13:52:31.000000Z","updated_at":"2024-05-28T13:52:31.000000Z","deleted_at":""}}}],"links":{"first":"https:\/\/api.mailersend.com\/v1\/activity\/jpzkmgq7e5vl059v?page=1","last":null,"prev":null,"next":"https:\/\/api.mailersend.com\/v1\/activity\/jpzkmgq7e5vl059v?page=2"},"meta":{"current_page":1,"from":1,"path":"https:\/\/api.mailersend.com\/v1\/activity\/jpzkmgq7e5vl059v","per_page":10,"to":10}}'
+  recorded_at: Fri, 20 Dec 2024 00:41:01 GMT
+recorded_with: VCR 6.1.0

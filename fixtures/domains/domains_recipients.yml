@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.mailersend.com/v1/domains/3yxj6lj1r05ldo2r/recipients
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Authorization:
+      - "<AUTH>"
+      User-Agent:
+      - MailerSend-client-ruby/2.0.3
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.mailersend.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 17 Dec 2024 01:59:16 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cache-Control:
+      - no-cache, private
+      X-Apiquota-Remaining:
+      - "-1"
+      X-Apiquota-Reset:
+      - '2024-12-18T00:00:00Z'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8f335018ca97ec1a-ZAG
+    body:
+      encoding: UTF-8
+      string: '{"data":[],"links":{"first":"https:\/\/api.mailersend.com\/v1\/domains\/3yxj6lj1r05ldo2r\/recipients?page=1","last":null,"prev":null,"next":null},"meta":{"current_page":1,"from":null,"path":"https:\/\/api.mailersend.com\/v1\/domains\/3yxj6lj1r05ldo2r\/recipients","per_page":25,"to":null}}'
+  recorded_at: Tue, 17 Dec 2024 01:59:16 GMT
+recorded_with: VCR 6.3.1

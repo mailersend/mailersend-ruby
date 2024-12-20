@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.mailersend.com/v1/email
+    body:
+      encoding: UTF-8
+      string: '{"from":{"email":"sender@test-sdk.com","name":"Sender"},"to":[{"email":"test@mailerlite.com","name":"Test"}],"subject":"Test
+        Email","text":"This is a test email.","html":"<p>This is a test email.</p>"}'
+    headers:
+      Authorization:
+      - "<AUTH>"
+      User-Agent:
+      - MailerSend-client-ruby/2.0.3
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=utf-8
+      Host:
+      - api.mailersend.com
+  response:
+    status:
+      code: 202
+      message: Accepted
+    headers:
+      Date:
+      - Tue, 17 Dec 2024 14:04:19 GMT
+      Content-Type:
+      - text/html; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      X-Message-Id:
+      - 676184e34aed90153c5efa6f
+      Cache-Control:
+      - no-cache, private
+      X-Apiquota-Remaining:
+      - "-1"
+      X-Apiquota-Reset:
+      - '2024-12-18T00:00:00Z'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8f37762bbd275b9a-VIE
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Tue, 17 Dec 2024 14:04:19 GMT
+recorded_with: VCR 6.3.1
