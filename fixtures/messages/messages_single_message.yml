@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.mailersend.com/v1/messages/676184e34aed90153c5efa6f
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Authorization:
+      - "<AUTH>"
+      User-Agent:
+      - MailerSend-client-ruby/3.0.0
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.mailersend.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 20 Dec 2024 00:30:12 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cache-Control:
+      - no-cache, private
+      X-Apiquota-Remaining:
+      - "-1"
+      X-Apiquota-Reset:
+      - '2024-12-21T00:00:00Z'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8f4b85be7b7cec1c-ZAG
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"676184e34aed90153c5efa6f","created_at":"2024-12-17T14:04:19.000000Z","updated_at":"2024-12-17T14:04:19.000000Z","emails":[{"id":"676184e45958d4b8b0874611","from":"sender@test-sdk.com","subject":"Test
+        Email","text":"This is a test email.","html":"<p>This is a test email.<\/p>","template_id":"","status":"delivered","tags":null,"created_at":"2024-12-17T14:04:20.000000Z","updated_at":"2024-12-17T14:04:35.000000Z","headers":null}],"domain":{"id":"jpzkmgq7e5vl059v","name":"test-sdk.com","dkim":false,"spf":false,"tracking":false,"is_verified":true,"is_cname_verified":false,"is_dns_active":false,"is_cname_active":false,"is_tracking_allowed":false,"has_not_queued_messages":false,"not_queued_messages_count":0,"domain_settings":{"send_paused":false,"track_clicks":true,"track_opens":true,"track_unsubscribe":false,"track_unsubscribe_html":"<p>Click
+        here to <a href=\"{{unsubscribe}}\">unsubscribe<\/a><\/p>","track_unsubscribe_html_enabled":false,"track_unsubscribe_plain":"Click
+        here to unsubscribe: {{unsubscribe}}","track_unsubscribe_plain_enabled":false,"track_content":true,"custom_tracking_enabled":true,"custom_tracking_subdomain":"email","return_path_subdomain":"mta","inbound_routing_enabled":false,"inbound_routing_subdomain":"","precedence_bulk":false,"ignore_duplicated_recipients":false},"created_at":"2022-04-20T11:36:15.000000Z","updated_at":"2024-09-02T10:02:27.000000Z","totals":{"sent":0,"delivered":119,"hard_bounced":0,"soft_bounced":5}}}}'
+  recorded_at: Fri, 20 Dec 2024 00:30:12 GMT
+recorded_with: VCR 6.1.0
