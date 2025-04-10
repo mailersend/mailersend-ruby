@@ -19,6 +19,8 @@ module Mailersend
                   :tags,
                   :variables,
                   :personalization,
+                  :headers,
+                  :list_unsubscribe,
                   :send_at
 
     def initialize(client = Mailersend::Client.new)
@@ -35,6 +37,8 @@ module Mailersend
       @personalization = []
       @attachments = []
       @tags = []
+      @headers = {}
+      @list_unsubscribe = nil
       @send_at = send_at
     end
 
@@ -102,6 +106,14 @@ module Mailersend
       @attachments << { 'content' => base64_encoded, 'filename' => filename, 'disposition' => disposition }
     end
 
+    def add_headers(headers)
+      @headers = headers
+    end
+
+    def add_list_unsubscribe(list_unsubscribe)
+      @list_unsubscribe = list_unsubscribe
+    end
+
     def add_send_at(send_at)
       @send_at = send_at
     end
@@ -120,6 +132,8 @@ module Mailersend
         'personalization' => @personalization,
         'template_id' => @template_id,
         'attachments' => @attachments,
+        'headers' => @headers,
+        'list_unsubscribe' => @list_unsubscribe,
         'send_at' => @send_at,
         'tags' => @tags
       }
