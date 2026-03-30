@@ -42,6 +42,16 @@ MailerSend Ruby SDK
     - [Update domain settings](#update-domain-settings)
     - [Get DNS Records](#get-dns-records)
     - [Get verification status](#get-verification-status)
+  - [DMARC Monitoring](#dmarc-monitoring)
+    - [Get a list of monitors](#get-a-list-of-monitors)
+    - [Create a monitor](#create-a-monitor)
+    - [Update a monitor](#update-a-monitor)
+    - [Delete a monitor](#delete-a-monitor)
+    - [Get aggregated reports](#get-aggregated-reports)
+    - [Get IP-specific reports](#get-ip-specific-reports)
+    - [Get report sources](#get-report-sources)
+    - [Mark IP as favorite](#mark-ip-as-favorite)
+    - [Remove IP from favorites](#remove-ip-from-favorites)
   - [Sender Identities](#sender-identities)
     - [Get a list of sender identities](#get-a-list-of-sender-identities)
     - [Get a single sender identity](#get-a-single-sender-identity)
@@ -542,6 +552,107 @@ ms_client = Mailersend::Client.new('your_mailersend_token')
 
 ms_domains = Mailersend::Domains.new(ms_client)
 ms_domains.verify(domain_id: "idofdomain12412")
+```
+
+## DMARC Monitoring
+
+### Get a list of monitors
+
+```ruby
+require "mailersend-ruby"
+
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_dmarc = Mailersend::DmarcMonitoring.new(ms_client)
+ms_dmarc.list
+```
+
+### Create a monitor
+
+```ruby
+require "mailersend-ruby"
+
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_dmarc = Mailersend::DmarcMonitoring.new(ms_client)
+ms_dmarc.create(domain_id: "idofdomain12412")
+```
+
+### Update a monitor
+
+```ruby
+require "mailersend-ruby"
+
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_dmarc = Mailersend::DmarcMonitoring.new(ms_client)
+ms_dmarc.update(monitor_id: "idofmonitor12412", wanted_dmarc_record: "v=DMARC1; p=reject;")
+```
+
+### Delete a monitor
+
+```ruby
+require "mailersend-ruby"
+
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_dmarc = Mailersend::DmarcMonitoring.new(ms_client)
+ms_dmarc.delete(monitor_id: "idofmonitor12412")
+```
+
+### Get aggregated reports
+
+```ruby
+require "mailersend-ruby"
+
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_dmarc = Mailersend::DmarcMonitoring.new(ms_client)
+ms_dmarc.report(monitor_id: "idofmonitor12412")
+```
+
+### Get IP-specific reports
+
+```ruby
+require "mailersend-ruby"
+
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_dmarc = Mailersend::DmarcMonitoring.new(ms_client)
+ms_dmarc.report_by_ip(monitor_id: "idofmonitor12412", ip: "1.2.3.4")
+```
+
+### Get report sources
+
+```ruby
+require "mailersend-ruby"
+
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_dmarc = Mailersend::DmarcMonitoring.new(ms_client)
+ms_dmarc.report_sources(monitor_id: "idofmonitor12412")
+```
+
+### Mark IP as favorite
+
+```ruby
+require "mailersend-ruby"
+
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_dmarc = Mailersend::DmarcMonitoring.new(ms_client)
+ms_dmarc.add_favorite(monitor_id: "idofmonitor12412", ip: "1.2.3.4")
+```
+
+### Remove IP from favorites
+
+```ruby
+require "mailersend-ruby"
+
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_dmarc = Mailersend::DmarcMonitoring.new(ms_client)
+ms_dmarc.remove_favorite(monitor_id: "idofmonitor12412", ip: "1.2.3.4")
 ```
 
 ## Sender Identities
