@@ -83,6 +83,9 @@ MailerSend Ruby SDK
     - [Create an email verification list](#create-an-email-verification-list)
     - [Verify an email list](#verify-an-email-list)
     - [Get email verification list results](#get-email-verification-list-results)
+  - [WhatsApp](#whatsapp)
+    - [Send a WhatsApp message](#send-a-whatsapp-message)
+    - [Send a WhatsApp message with personalization](#send-a-whatsapp-message-with-personalization)
   - [SMS](#sms)
   - [SMS Messages](#sms-messages)
     - [Get a list of SMS messages](#get-a-list-of-sms-messages)
@@ -1299,6 +1302,52 @@ ms_sms_webhooks = Mailersend::SMSWebhooks.new(ms_client)
 
 # Add parameters
 ms_sms_webhooks.delete_sms_webhook_route(sms_webhook_id: 'your-sms-webhook-id')
+```
+
+## WhatsApp
+
+### Send a WhatsApp message
+
+```ruby
+require "mailersend-ruby"
+
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+# Initialize the WhatsApp class
+ms_whatsapp = Mailersend::WhatsApp.new(ms_client)
+
+ms_whatsapp.add_from('your-number')
+ms_whatsapp.add_to('recipient-number')
+ms_whatsapp.add_template_id('your-template-id')
+
+ms_whatsapp.send
+```
+
+### Send a WhatsApp message with personalization
+
+```ruby
+require "mailersend-ruby"
+
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+# Initialize the WhatsApp class
+ms_whatsapp = Mailersend::WhatsApp.new(ms_client)
+
+ms_whatsapp.add_from('your-number')
+ms_whatsapp.add_to('recipient-number')
+ms_whatsapp.add_template_id('your-template-id')
+
+personalization = {
+  to: 'recipient-number',
+  data: {
+    header: ['John'],
+    body: ['order #1234', 'tomorrow'],
+    buttons: ['https://example.com/track/1234']
+  }
+}
+ms_whatsapp.add_personalization(personalization)
+
+ms_whatsapp.send
 ```
 
 ## Other endpoints
