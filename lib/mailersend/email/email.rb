@@ -16,6 +16,7 @@ module Mailersend
                   :reply_to,
                   :attachments,
                   :template_id,
+                  :language,
                   :tags,
                   :variables,
                   :personalization,
@@ -40,6 +41,7 @@ module Mailersend
       @headers = {}
       @list_unsubscribe = nil
       @send_at = send_at
+      @language = nil
     end
 
     def add_recipients(recipients)
@@ -84,6 +86,13 @@ module Mailersend
 
     def add_template_id(template_id)
       @template_id = template_id
+    end
+
+    # Language code (e.g. 'de', 'fr', 'pt-BR'). Only meaningful when a
+    # template_id is set; ignored for raw html/text sends. Max length 10.
+    # Supported: de, en, es, fr, it, lt, nl, pl, pt-BR
+    def add_language(language)
+      @language = language
     end
 
     def add_tags(tags)
@@ -131,6 +140,7 @@ module Mailersend
         'variables' => @variables,
         'personalization' => @personalization,
         'template_id' => @template_id,
+        'language' => @language,
         'attachments' => @attachments,
         'headers' => @headers,
         'list_unsubscribe' => @list_unsubscribe,

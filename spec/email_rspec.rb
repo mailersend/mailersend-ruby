@@ -26,4 +26,19 @@ RSpec.describe Mailersend::Email do
       expect(response.status).to eq(202)
     end
   end
+
+  it 'includes the language in the request body when set' do
+    # Cassette is matched on the request body, so this passes only when
+    # the serialized payload contains the language field.
+    VCR.use_cassette('email/email_send_template_language', match_requests_on: %i[method uri body]) do
+      email.from = { 'email' => 'sender@test-sdk.com', 'name' => 'Sender' }
+      email.recipients = [{ 'email' => 'test@mailerlite.com', 'name' => 'Test' }]
+      email.subject = 'Test Email'
+      email.add_template_id('123abc')
+      email.add_language('de')
+
+      response = email.send
+      expect(response.status).to eq(202)
+    end
+  end
 end

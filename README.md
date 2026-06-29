@@ -200,6 +200,11 @@ ms_email.add_from("email" => "april@parksandrec.com", "name" => "April")
 ms_email.add_subject("Time")
 ms_email.add_template_id(12415125)
 
+# Optional: send the template in a specific language (language code).
+# Only applies to template-based emails; ignored for raw html/text sends.
+# Supported: de, en, es, fr, it, lt, nl, pl, pt-BR
+ms_email.add_language("de")
+
 # Send the email
 ms_email.send
 ```
