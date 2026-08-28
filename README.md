@@ -399,11 +399,11 @@ Each row in `data` describes one email. `text` and `html` are always `null` in l
       "message_id": "5ee0b174ac2b8a35e407c9210",
       "status": "delivered",
       "tags": ["orders"],
-      "interaction": "opened",
+      "interaction": ["opened"],
       "suppression_reason": null,
       "created_at": "2021-05-10T10:06:14.482000Z",
       "updated_at": "2021-05-10T10:06:18.114000Z",
-      "headers": {}
+      "headers": [{ "name": "X-Custom", "value": "foo" }]
     }
   ],
   "links": {
