@@ -1,5 +1,8 @@
 ## [Released]
 
+## [3.3.0] - 2026-09-01
+- WhatsApp support (send template-based WhatsApp messages)
+
 ## [3.2.0] - 2026-07-09
 - Add optional language field to email send
 

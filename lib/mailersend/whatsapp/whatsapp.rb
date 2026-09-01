@@ -41,8 +41,7 @@ module Mailersend
         'personalization' => @personalization
       }
 
-      response = client.http.post("#{MAILERSEND_API_URL}/whatsapp/send", json: message.delete_if { |_, value| value.to_s.strip == '' || value == [] || value == {} })
-      puts response
+      client.http.post("#{MAILERSEND_API_URL}/whatsapp/send", json: message.delete_if { |_, value| value.to_s.strip == '' || value == [] || value == {} })
     end
   end
 end

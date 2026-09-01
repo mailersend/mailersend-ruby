@@ -1458,7 +1458,7 @@ personalization = {
   data: {
     header: ['John'],
     body: ['order #1234', 'tomorrow'],
-    buttons: ['https://example.com/track/1234']
+    buttons: ['orders/1234']
   }
 }
 ms_whatsapp.add_personalization(personalization)
