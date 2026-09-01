@@ -1,5 +1,11 @@
 ## [Released]
 
+## [3.2.0] - 2026-07-09
+- Add optional language field to email send
+
+## [3.1.0] - 2026-04-24
+- DMARC Monitoring support (list, create, update, delete monitors; aggregated reports, IP-specific reports, report sources, mark/remove IP favorites)
+
 ## [3.0.1] - 2025-04-10
 - Adding missing parameters
 
