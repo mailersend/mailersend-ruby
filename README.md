@@ -20,6 +20,10 @@ MailerSend Ruby SDK
     - [Update a token](#update-a-token)
     - [Delete a token](#delete-a-token)
     - [Send email with attachment](#send-email-with-attachment)
+  - [Emails](#emails)
+    - [Get a list of emails](#get-a-list-of-emails)
+    - [Pagination](#pagination)
+    - [Get a single email](#get-a-single-email)
   - [Activity](#activity)
     - [Get a list of activities](#get-a-list-of-activities)
   - [Analytics](#analytics)
@@ -339,6 +343,145 @@ ms.add_attachment(content: "/Users/Jerry/Desktop/pic.png", filename: "pic.png", 
 
 ms_email.send
 ```
+
+## Emails
+
+An email is the record of a message delivered to one recipient. Use these endpoints to build a searchable sending log,
+and to retrieve a single email together with its activity events.
+
+### Get a list of emails
+
+```ruby
+require "mailersend-ruby"
+
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_emails = Mailersend::Emails.new(ms_client)
+ms_emails.list(domain_id: "xxx2241ll", date_from: 1620643567, date_to: 1623321967, page: 1, limit: 50, status: %w[sent delivered], interaction: %w[opened])
+```
+
+`domain_id`, `date_from` and `date_to` are required. Emails are returned newest first.
+
+| Keyword argument   | Type            | Required | Details                                                                                                          |
+|--------------------|-----------------|----------|------------------------------------------------------------------------------------------------------------------|
+| `domain_id`        | `String`        | yes      | A domain that belongs to your account. An unknown domain returns `404`.                                            |
+| `date_from`        | `Integer\|String` | yes    | Unix timestamp (`1620643567`) or datetime (`"2015-10-01 00:00:00"`), assumed `UTC`. Must be lower than `date_to`.   |
+| `date_to`          | `Integer\|String` | yes    | Unix timestamp or datetime. Must be higher than `date_from` and must not be in the future.                          |
+| `limit`            | `Integer`       | no       | Min: `10`, Max: `1000`, Default: `25`.                                                                            |
+| `page`             | `Integer`       | no       | Min: `1`, Max: `100`. See [Pagination](#pagination).                                                               |
+| `status`           | `Array<String>` | no       | Any of `queued`, `sent`, `rejected`, `delivered`. Sent as `status[]`.                                              |
+| `interaction`      | `Array<String>` | no       | Any of `opened`, `clicked`, `unsubscribed`, `complained`, `no_interaction`. Sent as `interaction[]`.                |
+| `recipient_email`  | `String`        | no       | Exact, case-insensitive match. An unknown address returns `200` with an empty `data` array.                         |
+| `message_id`       | `String`        | no       | Exact match.                                                                                                      |
+| `template_id`      | `String`        | no       | Exact match.                                                                                                      |
+| `subject`          | `String`        | no       | Min: `3` characters. Partial, case-insensitive match.                                                              |
+| `tag`              | `String`        | no       | Exact match against a value in the email's `tags` array.                                                           |
+
+Values inside `status` are combined with `OR`, values inside `interaction` are combined with `OR`, and the two filters
+are combined with `AND`. Pass them as arrays (`%w[sent delivered]`) — the API rejects a scalar value with `422`.
+
+> **Note:** This endpoint requires a token with one of the `activity_read` or `activity_full` scopes, and is limited to
+> 10 requests/minute shared with [`GET` /v1/activity](#get-a-list-of-activities). Requests to either endpoint count
+> against the same budget.
+
+Each row in `data` describes one email. `text` and `html` are always `null` in list rows — retrieve the content with
+[`single`](#get-a-single-email):
+
+```json
+{
+  "data": [
+    {
+      "id": "5ee0b166b251345e407c9201",
+      "from": "no-reply@your-domain.com",
+      "to": "recipient@example.com",
+      "subject": "Your order has shipped",
+      "text": null,
+      "html": null,
+      "template_id": null,
+      "domain_id": "xxx2241ll",
+      "message_id": "5ee0b174ac2b8a35e407c9210",
+      "status": "delivered",
+      "tags": ["orders"],
+      "interaction": ["opened"],
+      "suppression_reason": null,
+      "created_at": "2021-05-10T10:06:14.482000Z",
+      "updated_at": "2021-05-10T10:06:18.114000Z",
+      "headers": [{ "name": "X-Custom", "value": "foo" }]
+    }
+  ],
+  "links": {
+    "first": "https://api.mailersend.com/v1/emails?page=1",
+    "last": null,
+    "prev": null,
+    "next": "https://api.mailersend.com/v1/emails?page=2"
+  },
+  "meta": {
+    "current_page": 1,
+    "current_page_url": "https://api.mailersend.com/v1/emails?page=1",
+    "from": 1,
+    "path": "https://api.mailersend.com/v1/emails",
+    "per_page": 10,
+    "to": 3
+  }
+}
+```
+
+### Pagination
+
+`Mailersend::Emails#list` paginates by page number, the same way as
+[`Mailersend::Activity#get`](#get-a-list-of-activities). Pass `page:` to request a page, and read `meta.current_page`
+to see which page you received.
+
+The response carries no `total` and no `last_page`, and `links.last` is always `null`, so the number of pages is not
+known up front. Walk the result set by requesting the next page until `links.next` is `null`:
+
+```ruby
+require "mailersend-ruby"
+require "json"
+
+ms_client = Mailersend::Client.new('your_mailersend_token')
+ms_emails = Mailersend::Emails.new(ms_client)
+
+page = 1
+
+loop do
+  response = ms_emails.list(domain_id: "xxx2241ll", date_from: 1620643567, date_to: 1623321967, limit: 100, page: page)
+  parsed_response = JSON.parse(response.body)
+
+  parsed_response['data'].each do |email|
+    puts email['id']
+  end
+
+  break if parsed_response['links']['next'].nil?
+
+  page += 1
+end
+```
+
+Pass the same required parameters and filters on every page — changing them mid-walk restarts the result set. `page`
+accepts values from `1` to `100` and `limit` from `10` to `1000`; a value outside those ranges returns `422`. To
+retrieve a longer history, split it into several `date_from`/`date_to` windows instead of paging deeper.
+
+### Get a single email
+
+```ruby
+require "mailersend-ruby"
+
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+ms_emails = Mailersend::Emails.new(ms_client)
+ms_emails.single(email_id: "5ee0b166b251345e407c9201")
+```
+
+Pass an `id` returned by [`list`](#get-a-list-of-emails). The response contains everything a list row carries — plus
+the `text` and `html` content, the `recipient` object, and an `activity` array of the events recorded for the email.
+`template_id` is `null` when the email was not sent from a template.
+
+> **Note:** `activity` events are returned newest first and capped at 200 per email — use
+> [`Mailersend::Activity#get`](#get-a-list-of-activities) if you need the complete event history for a domain.
+> `deferred` and `suppressed` events are only included if your plan has those features enabled, and `suppressed` events
+> also carry a `suppression_reason`. The `junk` event type is reported as `soft_bounced`. The array is returned even when
+> content tracking is disabled for the domain, in which case `html` and `text` are `null`.
 
 ## Activity
 
