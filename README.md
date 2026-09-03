@@ -364,8 +364,8 @@ ms_emails.list(domain_id: "xxx2241ll", date_from: 1620643567, date_to: 162332196
 | `domain_id`        | `String`        | yes      | A domain that belongs to your account. An unknown domain returns `404`.                                            |
 | `date_from`        | `Integer\|String` | yes    | Unix timestamp (`1620643567`) or datetime (`"2015-10-01 00:00:00"`), assumed `UTC`. Must be lower than `date_to`.   |
 | `date_to`          | `Integer\|String` | yes    | Unix timestamp or datetime. Must be higher than `date_from` and must not be in the future.                          |
-| `limit`            | `Integer`       | no       | Min: `10`, Max: `100`, Default: `25`.                                                                             |
-| `page`             | `Integer`       | no       | Min: `1`, Max: `1000`. See [Pagination](#pagination).                                                              |
+| `limit`            | `Integer`       | no       | Min: `10`, Max: `1000`, Default: `25`.                                                                            |
+| `page`             | `Integer`       | no       | Min: `1`, Max: `100`. See [Pagination](#pagination).                                                               |
 | `status`           | `Array<String>` | no       | Any of `queued`, `sent`, `rejected`, `delivered`. Sent as `status[]`.                                              |
 | `interaction`      | `Array<String>` | no       | Any of `opened`, `clicked`, `unsubscribed`, `complained`, `no_interaction`. Sent as `interaction[]`.                |
 | `recipient_email`  | `String`        | no       | Exact, case-insensitive match. An unknown address returns `200` with an empty `data` array.                         |
@@ -456,7 +456,8 @@ end
 ```
 
 Pass the same required parameters and filters on every page — changing them mid-walk restarts the result set. `page`
-accepts values from `1` to `1000`; a value outside that range returns `422`.
+accepts values from `1` to `100` and `limit` from `10` to `1000`; a value outside those ranges returns `422`. To
+retrieve a longer history, split it into several `date_from`/`date_to` windows instead of paging deeper.
 
 ### Get a single email
 
