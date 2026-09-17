@@ -10,3 +10,4 @@
 .idea
 Gemfile.lock
 .DS_Store
+.direnv
