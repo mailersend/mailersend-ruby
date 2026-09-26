@@ -1,0 +1,35 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.mailersend.com/v1/email/6a8fa9b1902fab56e0ce50dd
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Authorization:
+      - "<AUTH>"
+      User-Agent:
+      - MailerSend-client-ruby/3.2.0
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.mailersend.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Cache-Control:
+      - no-cache, private
+      X-Apiquota-Remaining:
+      - "-1"
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"6a8fa9b1902fab56e0ce50dd","from":"sender@example.com","to":"rcpt@example.org","subject":"Welcome","text":"Welcome aboard.","html":"<p>Welcome aboard.</p>","template_id":"7nxe3yjmeq28vp0k","domain_id":"7nxe3yjmeq28vp0k","message_id":"6a8fa9b1902fab56e0ce50aa","status":"sent","tags":["newsletter"],"interaction":["opened"],"suppression_reason":null,"created_at":"2026-08-27T16:48:42.000000Z","updated_at":"2026-08-27T16:48:42.000000Z","headers":[{"name":"X-Custom","value":"foo"}],"recipient":{"id":"6a8fa9b1902fab56e0ce50ee","email":"rcpt@example.org","created_at":"2026-08-27T16:48:42.000000Z","updated_at":"2026-08-27T16:48:42.000000Z","deleted_at":null},"activity":[{"id":"6a8fa9b1902fab56e0ce50f3","type":"opened","created_at":"2026-08-27T16:48:57.000000Z"},{"id":"6a8fa9b1902fab56e0ce50f2","type":"delivered","created_at":"2026-08-27T16:48:47.000000Z"},{"id":"6a8fa9b1902fab56e0ce50f1","type":"sent","created_at":"2026-08-27T16:48:42.000000Z"}]}}'
+  recorded_at: Thu, 27 Aug 2026 16:48:42 GMT
+recorded_with: VCR 6.3.1
