@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.mailersend.com/v1/whatsapp/inbound-messages?date_from=1790000000&date_to=1790086400&limit=25&page=1&type%5B%5D=text&type%5B%5D=image&whatsapp_account_id=3enl6x27wmrxrl2v
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Authorization:
+      - "<AUTH>"
+      User-Agent:
+      - MailerSend-client-ruby/3.3.0
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.mailersend.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 01 Oct 2026 08:00:00 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cache-Control:
+      - no-cache, private
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Server:
+      - cloudflare
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"62f114f7165fe0d8db0288e2","whatsapp_account_id":"3enl6x27wmrxrl2v","from":"48600000001","to":"15550001234","type":"text","received_at":"2026-10-01T07:24:19.000000Z","text":{"body":"Hello, I would like to check my order status."},"context":{"message_id":"wamid.HBgLMzcwNjMzMjI3OTcVAgARGBIwREE3N0EwN0EyNjhENjEwOEMA"}},{"id":"62f114c1165fe0d8db0288d9","whatsapp_account_id":"3enl6x27wmrxrl2v","from":"US.13491208655302741918","to":"15550001234","type":"image","received_at":"2026-10-01T07:20:03.000000Z","attachment":{"url":"https://app.mailersend.com/whatsapp/inbound-message-attachment/62f114c1165fe0d8db0288d9?account=3enl6x27wmrxrl2v&expires=1790000000&signature=...","status":"stored","mime_type":"image/jpeg","size":102400,"caption":"Here is the damaged item"}}],"links":{"first":"https://api.mailersend.com/v1/whatsapp/inbound-messages?page=1","last":"https://api.mailersend.com/v1/whatsapp/inbound-messages?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":1,"last_page":1,"path":"https://api.mailersend.com/v1/whatsapp/inbound-messages","per_page":25,"to":2,"total":2}}'
+  recorded_at: Thu, 01 Oct 2026 08:00:00 GMT
+recorded_with: VCR 6.3.1

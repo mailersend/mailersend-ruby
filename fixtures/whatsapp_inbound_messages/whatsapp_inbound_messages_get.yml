@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.mailersend.com/v1/whatsapp/inbound-messages/62f114a3165fe0d8db0288d1
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Authorization:
+      - "<AUTH>"
+      User-Agent:
+      - MailerSend-client-ruby/3.3.0
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.mailersend.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 01 Oct 2026 08:00:00 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cache-Control:
+      - no-cache, private
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Server:
+      - cloudflare
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"62f114a3165fe0d8db0288d1","whatsapp_account_id":"3enl6x27wmrxrl2v","from":"48600000001","to":"15550001234","type":"interactive","received_at":"2026-10-01T07:18:44.000000Z","list_reply":{"id":"delivery_today","title":"Deliver today","description":"Between 4 PM and 8 PM"},"context":{"message_id":"wamid.HBgLMzcwNjMzMjI3OTcVAgARGBIwREE3N0EwN0EyNjhENjEwOEMA"}}}'
+  recorded_at: Thu, 01 Oct 2026 08:00:00 GMT
+recorded_with: VCR 6.3.1
