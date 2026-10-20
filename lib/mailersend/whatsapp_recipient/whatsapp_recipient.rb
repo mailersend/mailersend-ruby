@@ -5,6 +5,7 @@ module Mailersend
   class WhatsAppRecipient
     attr_accessor :client,
                   :status,
+                  :phone_number,
                   :page,
                   :limit,
                   :whatsapp_recipient_id
@@ -12,14 +13,16 @@ module Mailersend
     def initialize(client = Mailersend::Client.new)
       @client = client
       @status = status
+      @phone_number = phone_number
       @page = page
       @limit = limit
       @whatsapp_recipient_id = whatsapp_recipient_id
     end
 
-    def list(status: nil, page: nil, limit: nil)
+    def list(status: nil, phone_number: nil, page: nil, limit: nil)
       hash = {
         'status' => status,
+        'phone_number' => phone_number,
         'page' => page,
         'limit' => limit
       }

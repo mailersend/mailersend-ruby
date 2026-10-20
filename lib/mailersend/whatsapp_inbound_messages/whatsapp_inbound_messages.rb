@@ -5,6 +5,7 @@ module Mailersend
   class WhatsAppInboundMessages
     attr_accessor :client,
                   :whatsapp_account_id,
+                  :from,
                   :type,
                   :date_from,
                   :date_to,
@@ -15,6 +16,7 @@ module Mailersend
     def initialize(client = Mailersend::Client.new)
       @client = client
       @whatsapp_account_id = whatsapp_account_id
+      @from = from
       @type = type
       @date_from = date_from
       @date_to = date_to
@@ -23,9 +25,10 @@ module Mailersend
       @whatsapp_inbound_message_id = whatsapp_inbound_message_id
     end
 
-    def list(whatsapp_account_id: nil, type: nil, date_from: nil, date_to: nil, page: nil, limit: nil)
+    def list(whatsapp_account_id: nil, from: nil, type: nil, date_from: nil, date_to: nil, page: nil, limit: nil)
       hash = {
         'whatsapp_account_id' => whatsapp_account_id,
+        'from' => from,
         'type[]' => type,
         'date_from' => date_from,
         'date_to' => date_to,

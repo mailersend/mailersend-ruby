@@ -18,6 +18,7 @@ RSpec.describe Mailersend::WhatsAppInboundMessages do
     VCR.use_cassette('whatsapp_inbound_messages/whatsapp_inbound_messages_list', match_requests_on: %i[method host path query]) do
       response = whatsapp_inbound_messages.list(
         whatsapp_account_id: '3enl6x27wmrxrl2v',
+        from: '48600000001',
         type: %w[text image],
         date_from: 1_790_000_000,
         date_to: 1_790_086_400,
@@ -28,6 +29,10 @@ RSpec.describe Mailersend::WhatsAppInboundMessages do
 
       expect(response.status).to eq(200)
       expect(parsed_response['data']).to be_an(Array)
+      expect(parsed_response['data'][0]['meta']['body']).to eq('Hello, I would like to check my order status.')
+      expect(parsed_response['data'][1]).not_to have_key('context')
+      expect(parsed_response['links']['last']).to be_nil
+      expect(parsed_response['meta']).not_to have_key('total')
     end
   end
 
@@ -37,7 +42,8 @@ RSpec.describe Mailersend::WhatsAppInboundMessages do
       parsed_response = JSON.parse(response.body)
 
       expect(response.status).to eq(200)
-      expect(parsed_response['data']).to be_a(Hash)
+      expect(parsed_response['data']['meta']['reply_type']).to eq('list_reply')
+      expect(parsed_response['data']['context']['message_id']).to start_with('wamid.')
     end
   end
 end

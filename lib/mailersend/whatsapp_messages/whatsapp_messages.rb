@@ -4,19 +4,34 @@ module Mailersend
   # WhatsApp Messages endpoint from MailerSend API.
   class WhatsAppMessages
     attr_accessor :client,
+                  :whatsapp_account_id,
+                  :from,
+                  :template_id,
+                  :date_from,
+                  :date_to,
                   :page,
                   :limit,
                   :whatsapp_message_id
 
     def initialize(client = Mailersend::Client.new)
       @client = client
+      @whatsapp_account_id = whatsapp_account_id
+      @from = from
+      @template_id = template_id
+      @date_from = date_from
+      @date_to = date_to
       @page = page
       @limit = limit
       @whatsapp_message_id = whatsapp_message_id
     end
 
-    def list(page: nil, limit: nil)
+    def list(whatsapp_account_id: nil, from: nil, template_id: nil, date_from: nil, date_to: nil, page: nil, limit: nil)
       hash = {
+        'whatsapp_account_id' => whatsapp_account_id,
+        'from' => from,
+        'template_id' => template_id,
+        'date_from' => date_from,
+        'date_to' => date_to,
         'page' => page,
         'limit' => limit
       }

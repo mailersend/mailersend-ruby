@@ -99,12 +99,20 @@ MailerSend Ruby SDK
   - [WhatsApp Messages](#whatsapp-messages)
     - [Get a list of WhatsApp messages](#get-a-list-of-whatsapp-messages)
     - [Get a WhatsApp message](#get-a-whatsapp-message)
+  - [WhatsApp Items](#whatsapp-items)
+    - [Get a list of WhatsApp items](#get-a-list-of-whatsapp-items)
+    - [Get a WhatsApp item](#get-a-whatsapp-item)
+  - [WhatsApp Activities](#whatsapp-activities)
+    - [Get a list of WhatsApp activities](#get-a-list-of-whatsapp-activities)
   - [WhatsApp Inbound Messages](#whatsapp-inbound-messages)
     - [Get a list of WhatsApp inbound messages](#get-a-list-of-whatsapp-inbound-messages)
     - [Get a WhatsApp inbound message](#get-a-whatsapp-inbound-message)
   - [WhatsApp Recipients](#whatsapp-recipients)
     - [Get a list of WhatsApp recipients](#get-a-list-of-whatsapp-recipients)
     - [Get a WhatsApp recipient](#get-a-whatsapp-recipient)
+  - [WhatsApp Templates](#whatsapp-templates)
+    - [Get a list of WhatsApp templates](#get-a-list-of-whatsapp-templates)
+    - [Get a WhatsApp template](#get-a-whatsapp-template)
   - [SMS](#sms)
   - [SMS Messages](#sms-messages)
     - [Get a list of SMS messages](#get-a-list-of-sms-messages)
@@ -1488,7 +1496,15 @@ ms_client = Mailersend::Client.new('your_mailersend_token')
 ms_whatsapp_messages = Mailersend::WhatsAppMessages.new(ms_client)
 
 # Add parameters
-ms_whatsapp_messages.list(page: 1, limit: 25)
+ms_whatsapp_messages.list(
+  whatsapp_account_id: 'your-whatsapp-account-id',
+  from: '15550001234',
+  template_id: 'your-template-id',
+  date_from: 1791936000,
+  date_to: 1792022400,
+  page: 1,
+  limit: 25
+)
 ```
 
 ### Get a WhatsApp message
@@ -1503,6 +1519,72 @@ ms_whatsapp_messages = Mailersend::WhatsAppMessages.new(ms_client)
 
 # Add parameters
 ms_whatsapp_messages.get(whatsapp_message_id: 'your-whatsapp-message-id')
+```
+
+## WhatsApp Items
+
+### Get a list of WhatsApp items
+
+```ruby
+require "mailersend-ruby"
+
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+# Intialize the WhatsApp Items class
+ms_whatsapp_items = Mailersend::WhatsAppItems.new(ms_client)
+
+# Add parameters
+ms_whatsapp_items.list(
+  recipient: '48600000002',
+  whatsapp_message_id: 'your-whatsapp-message-id',
+  status: %w[delivered read],
+  whatsapp_account_id: 'your-whatsapp-account-id',
+  from: '15550001234',
+  template_id: 'your-template-id',
+  date_from: 1791936000,
+  date_to: 1792022400,
+  page: 1,
+  limit: 25
+)
+```
+
+### Get a WhatsApp item
+
+```ruby
+require "mailersend-ruby"
+
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+# Intialize the WhatsApp Items class
+ms_whatsapp_items = Mailersend::WhatsAppItems.new(ms_client)
+
+# Add parameters
+ms_whatsapp_items.get(whatsapp_item_id: 'your-whatsapp-item-id')
+```
+
+## WhatsApp Activities
+
+### Get a list of WhatsApp activities
+
+```ruby
+require "mailersend-ruby"
+
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+# Intialize the WhatsApp Activities class
+ms_whatsapp_activities = Mailersend::WhatsAppActivities.new(ms_client)
+
+# Add parameters
+ms_whatsapp_activities.list(
+  whatsapp_item_id: 'your-whatsapp-item-id',
+  whatsapp_message_id: 'your-whatsapp-message-id',
+  recipient: '48600000001',
+  type: %w[delivered read],
+  date_from: 1791936000,
+  date_to: 1792022400,
+  page: 1,
+  limit: 25
+)
 ```
 
 ## WhatsApp Inbound Messages
@@ -1520,9 +1602,10 @@ ms_whatsapp_inbound_messages = Mailersend::WhatsAppInboundMessages.new(ms_client
 # Add parameters
 ms_whatsapp_inbound_messages.list(
   whatsapp_account_id: 'your-whatsapp-account-id',
+  from: '48600000001',
   type: %w[text image],
-  date_from: 1790000000,
-  date_to: 1790086400,
+  date_from: 1791936000,
+  date_to: 1792022400,
   page: 1,
   limit: 25
 )
@@ -1555,7 +1638,7 @@ ms_client = Mailersend::Client.new('your_mailersend_token')
 ms_whatsapp_recipient = Mailersend::WhatsAppRecipient.new(ms_client)
 
 # Add parameters
-ms_whatsapp_recipient.list(status: 'active', page: 1, limit: 25)
+ms_whatsapp_recipient.list(status: 'active', phone_number: '48600000001', page: 1, limit: 25)
 ```
 
 ### Get a WhatsApp recipient
@@ -1570,6 +1653,43 @@ ms_whatsapp_recipient = Mailersend::WhatsAppRecipient.new(ms_client)
 
 # Add parameters
 ms_whatsapp_recipient.get(whatsapp_recipient_id: 'your-whatsapp-recipient-id')
+```
+
+## WhatsApp Templates
+
+### Get a list of WhatsApp templates
+
+```ruby
+require "mailersend-ruby"
+
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+# Intialize the WhatsApp Templates class
+ms_whatsapp_templates = Mailersend::WhatsAppTemplates.new(ms_client)
+
+# Add parameters
+ms_whatsapp_templates.list(
+  whatsapp_account_id: 'your-whatsapp-account-id',
+  status: 'approved',
+  category: 'UTILITY',
+  language: 'en_US',
+  page: 1,
+  limit: 25
+)
+```
+
+### Get a WhatsApp template
+
+```ruby
+require "mailersend-ruby"
+
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+# Intialize the WhatsApp Templates class
+ms_whatsapp_templates = Mailersend::WhatsAppTemplates.new(ms_client)
+
+# Add parameters
+ms_whatsapp_templates.get(whatsapp_template_id: 'your-whatsapp-template-id')
 ```
 
 ## Other endpoints
