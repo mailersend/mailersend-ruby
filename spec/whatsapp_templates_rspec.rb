@@ -41,6 +41,7 @@ RSpec.describe Mailersend::WhatsAppTemplates do
 
       expect(response.status).to eq(200)
       expect(parsed_response['data']['name']).to eq('order_confirmation')
+      expect(parsed_response['data']['components']['header']).to eq({ 'format' => 'TEXT', 'text' => '{{1}}' })
       expect(parsed_response['data']['components']['buttons'][0]['url']).to eq('https://shop.example.com/{{1}}')
     end
   end
