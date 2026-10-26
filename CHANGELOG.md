@@ -1,6 +1,6 @@
 ## [Released]
 
-## [3.4.0] - 2026-10-20
+## [3.4.0] - 2026-10-26
 - WhatsApp read endpoints: messages, items, activities, inbound messages, recipients and templates (list with filters, and get by ID)
 
 ## [3.3.0] - 2026-09-01
