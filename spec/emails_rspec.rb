@@ -115,7 +115,7 @@ RSpec.describe Mailersend::Emails do
                   status: %w[sent delivered], interaction: %w[opened clicked])
 
       expect(requested_urls.last).to eq(
-        'https://api.mailersend.com/v1/emails' \
+        'https://api.mailersend.com/2026-10/emails' \
         '?domain_id=jpzkmgq7e5vl059v&date_from=1756252800&date_to=1756339200&limit=10&page=1' \
         '&status%5B%5D=sent&status%5B%5D=delivered' \
         '&interaction%5B%5D=opened&interaction%5B%5D=clicked'
@@ -132,7 +132,7 @@ RSpec.describe Mailersend::Emails do
                   status: 'sent', interaction: 'opened')
 
       expect(requested_urls.last).to eq(
-        'https://api.mailersend.com/v1/emails' \
+        'https://api.mailersend.com/2026-10/emails' \
         '?domain_id=jpzkmgq7e5vl059v&date_from=1756252800&date_to=1756339200' \
         '&status%5B%5D=sent&interaction%5B%5D=opened'
       )
@@ -145,7 +145,7 @@ RSpec.describe Mailersend::Emails do
                   subject: 'Welcome', tag: 'newsletter')
 
       expect(requested_urls.last).to eq(
-        'https://api.mailersend.com/v1/emails' \
+        'https://api.mailersend.com/2026-10/emails' \
         '?domain_id=jpzkmgq7e5vl059v&date_from=1756252800&date_to=1756339200&limit=25&page=2' \
         '&status%5B%5D=sent&interaction%5B%5D=opened' \
         '&recipient_email=rcpt%40example.org&message_id=6a8fa9b1902fab56e0ce50aa' \
@@ -157,7 +157,7 @@ RSpec.describe Mailersend::Emails do
       emails.list(domain_id: domain_id, date_from: date_from, date_to: date_to)
 
       expect(requested_urls.last).to eq(
-        'https://api.mailersend.com/v1/emails?domain_id=jpzkmgq7e5vl059v&date_from=1756252800&date_to=1756339200'
+        'https://api.mailersend.com/2026-10/emails?domain_id=jpzkmgq7e5vl059v&date_from=1756252800&date_to=1756339200'
       )
 
       %w[limit page status interaction recipient_email message_id template_id subject tag].each do |param|
@@ -165,11 +165,11 @@ RSpec.describe Mailersend::Emails do
       end
     end
 
-    it 'requests the singular v1/email/{id} path for a single email' do
+    it 'requests the singular email/{id} path for a single email' do
       emails.single(email_id: '6a8fa9b1902fab56e0ce50dd')
 
-      expect(requested_urls.last).to eq('https://api.mailersend.com/v1/email/6a8fa9b1902fab56e0ce50dd')
-      expect(requested_urls.last).not_to include('/v1/emails/')
+      expect(requested_urls.last).to eq('https://api.mailersend.com/2026-10/email/6a8fa9b1902fab56e0ce50dd')
+      expect(requested_urls.last).not_to include('/2026-10/emails/')
     end
   end
 end

@@ -27,12 +27,12 @@ module Mailersend
         'limit' => limit
       }
 
-      client.http.get(URI::HTTPS.build(host: MAILERSEND_API_BASE_HOST, path: '/v1/whatsapp/recipients',
+      client.http.get(URI::HTTPS.build(host: MAILERSEND_API_BASE_HOST, path: "#{client.api_path}/whatsapp/recipients",
                                        query: URI.encode_www_form(hash.compact)))
     end
 
     def get(whatsapp_recipient_id:)
-      client.http.get("#{MAILERSEND_API_URL}/whatsapp/recipients/#{whatsapp_recipient_id}")
+      client.http.get("#{client.api_base_url}/whatsapp/recipients/#{whatsapp_recipient_id}")
     end
   end
 end

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: delete
-    uri: https://api.mailersend.com/v1/suppressions/spam-complaints
+    uri: https://api.mailersend.com/2026-10/suppressions/spam-complaints
     body:
       encoding: UTF-8
       string: '{"domain_id":"jpzkmgq7e5vl059v","ids":["676457b1ee359d18093fcb99"]}'

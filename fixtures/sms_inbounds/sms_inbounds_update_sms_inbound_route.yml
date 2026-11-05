@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: put
-    uri: https://api.mailersend.com/v1/sms-inbounds/0p7kx4xw0eg9yjre
+    uri: https://api.mailersend.com/2026-10/sms-inbounds/0p7kx4xw0eg9yjre
     body:
       encoding: UTF-8
       string: '{"sms_number_id":"0p7kx4xd7el9yjre","forward_url":"https://mailersend.com","name":"my-inbound-route","events":["sms.sent","sms.delivered"]}'

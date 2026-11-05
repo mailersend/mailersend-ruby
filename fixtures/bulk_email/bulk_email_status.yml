@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.mailersend.com/v1/bulk-email/67618140bf85c862710f2c5a
+    uri: https://api.mailersend.com/2026-10/bulk-email/67618140bf85c862710f2c5a
     body:
       encoding: ASCII-8BIT
       string: ''
