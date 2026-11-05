@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.mailersend.com/v1/whatsapp/items/67f91abe2202f3705540234a
+    uri: https://api.mailersend.com/2026-10/whatsapp/items/67f91abe2202f3705540234a
     body:
       encoding: ASCII-8BIT
       string: ''

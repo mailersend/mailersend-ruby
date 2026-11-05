@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: delete
-    uri: https://api.mailersend.com/v1/webhooks/3vz9dlej514kj50y
+    uri: https://api.mailersend.com/2026-10/webhooks/3vz9dlej514kj50y
     body:
       encoding: ASCII-8BIT
       string: ''

@@ -148,7 +148,7 @@ module Mailersend
         'tags' => @tags
       }
 
-      client.http.post("#{MAILERSEND_API_URL}/email", json: message.delete_if { |_, value| value.to_s.strip == '' || value == [] || value == {} })
+      client.http.post("#{client.api_base_url}/email", json: message.delete_if { |_, value| value.to_s.strip == '' || value == [] || value == {} })
     end
   end
 end

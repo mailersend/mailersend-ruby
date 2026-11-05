@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.mailersend.com/v1/domains
+    uri: https://api.mailersend.com/2026-10/domains
     body:
       encoding: UTF-8
       string: '{"name":"ourdomain.com"}'

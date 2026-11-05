@@ -6,6 +6,7 @@ MailerSend Ruby SDK
 
 - [Installation](#installation)
   - [Setup](#setup)
+    - [API version](#api-version)
 - [Usage](#usage)
   - [Email](#email)
     - [Send an email](#send-an-email)
@@ -158,6 +159,16 @@ gem install mailersend-ruby
 ```
 
 You will have to initalize it in your Ruby file with `require "mailersend-ruby"`.
+
+### API version
+
+The client calls the dated API version `2026-10` by default, which returns the same responses as `v1`. Pass `api_version` to pin a different version, or `'v1'` to stay on `v1`:
+
+```ruby
+ms_client = Mailersend::Client.new('your_mailersend_token', api_version: 'v1')
+```
+
+See the [API changelog](https://developers.mailersend.com/api/changelog) for the available versions.
 
 ## Email
 

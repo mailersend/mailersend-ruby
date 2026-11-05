@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.mailersend.com/v1/sms-webhooks/0r83ql3pzvgzw1jm
+    uri: https://api.mailersend.com/2026-10/sms-webhooks/0r83ql3pzvgzw1jm
     body:
       encoding: ASCII-8BIT
       string: ''

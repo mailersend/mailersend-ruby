@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.mailersend.com/v1/activity/jpzkmgq7e5vl059v?date_from=1734115200&date_to=1734633600&limit=10&page=1
+    uri: https://api.mailersend.com/2026-10/activity/jpzkmgq7e5vl059v?date_from=1734115200&date_to=1734633600&limit=10&page=1
     body:
       encoding: ASCII-8BIT
       string: ''

@@ -33,12 +33,12 @@ module Mailersend
         'tag' => tag
       }
 
-      client.http.get(URI::HTTPS.build(host: MAILERSEND_API_BASE_HOST, path: '/v1/emails',
+      client.http.get(URI::HTTPS.build(host: MAILERSEND_API_BASE_HOST, path: "#{client.api_path}/emails",
                                        query: URI.encode_www_form(hash.compact)))
     end
 
     def single(email_id:)
-      client.http.get("#{MAILERSEND_API_URL}/email/#{email_id}")
+      client.http.get("#{client.api_base_url}/email/#{email_id}")
     end
   end
 end

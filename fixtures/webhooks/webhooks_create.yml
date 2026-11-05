@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.mailersend.com/v1/webhooks
+    uri: https://api.mailersend.com/2026-10/webhooks
     body:
       encoding: UTF-8
       string: '{"url":"https://example.com/webhook","name":"Test Webhook","events":["activity.sent","activity.delivered"],"domain_id":"jpzkmgq7e5vl059v","enabled":true}'

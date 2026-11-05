@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.mailersend.com/v1/whatsapp/send
+    uri: https://api.mailersend.com/2026-10/whatsapp/send
     body:
       encoding: UTF-8
       string: '{"from":"15550001234","to":["+48600000001","+48600000002"],"template_id":"23zxk54v6gjy6v7m"}'
