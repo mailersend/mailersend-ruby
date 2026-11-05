@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       Authorization:
-      - Bearer <AUTH>
+      - "<AUTH>"
       Content-Type:
       - application/json
   response:
