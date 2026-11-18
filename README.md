@@ -170,6 +170,8 @@ ms_client = Mailersend::Client.new('your_mailersend_token', api_version: 'v1')
 
 See the [API changelog](https://developers.mailersend.com/api/changelog) for the available versions.
 
+Later releases of the SDK only change this default in a major version. Pass `api_version` to choose when you move.
+
 ## Email
 
 ### Send an email
