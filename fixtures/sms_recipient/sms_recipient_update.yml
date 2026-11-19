@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: put
-    uri: https://api.mailersend.com/v1/sms-recipients/627e7503d30078fb2208cc83
+    uri: https://api.mailersend.com/2026-10/sms-recipients/627e7503d30078fb2208cc83
     body:
       encoding: UTF-8
       string: '{"status":"active"}'

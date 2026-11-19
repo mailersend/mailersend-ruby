@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.mailersend.com/v1/dmarc-monitoring
+    uri: https://api.mailersend.com/2026-10/dmarc-monitoring
     body:
       encoding: UTF-8
       string: '{"domain_id":"example_domain_id"}'

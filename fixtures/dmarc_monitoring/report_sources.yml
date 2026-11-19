@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.mailersend.com/v1/dmarc-monitoring/example_monitor_id/report-sources
+    uri: https://api.mailersend.com/2026-10/dmarc-monitoring/example_monitor_id/report-sources
     body:
       encoding: UTF-8
       string: ''

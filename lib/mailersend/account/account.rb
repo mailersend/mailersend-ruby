@@ -10,7 +10,7 @@ module Mailersend
     end
 
     def get_account(*)
-      client.http.get("#{MAILERSEND_API_URL}/account")
+      client.http.get("#{client.api_base_url}/account")
     end
   end
 end

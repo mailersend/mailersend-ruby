@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.mailersend.com/v1/suppressions/unsubscribes
+    uri: https://api.mailersend.com/2026-10/suppressions/unsubscribes
     body:
       encoding: ASCII-8BIT
       string: ''

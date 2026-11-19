@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.mailersend.com/v1/whatsapp/recipients?limit=25&page=1&phone_number=48600000001&status=active
+    uri: https://api.mailersend.com/2026-10/whatsapp/recipients?limit=25&page=1&phone_number=48600000001&status=active
     body:
       encoding: ASCII-8BIT
       string: ''

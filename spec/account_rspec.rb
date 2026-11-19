@@ -22,7 +22,7 @@ RSpec.describe Mailersend::Account do
       data = JSON.parse(response.body)['data']
 
       expect(response.status).to eq(200)
-      expect(response.uri.to_s).to eq('https://api.mailersend.com/v1/account')
+      expect(response.uri.to_s).to eq('https://api.mailersend.com/2026-10/account')
       expect(data).to include('name' => 'Acme Inc', 'status' => 'approved', 'plan_type' => 'starter', 'data_retention_days' => 7)
       expect(data['emails']).to eq('sent' => 12_000, 'received' => 430, 'limit' => -1)
       expect(data['rate_limits']).to eq('general' => 60, 'email' => 120, 'bulk_email' => 10, 'activity' => 10)

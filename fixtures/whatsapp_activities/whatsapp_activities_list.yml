@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.mailersend.com/v1/whatsapp/activities?date_from=1791936000&date_to=1792022400&limit=25&page=1&recipient=48600000001&type%5B%5D=delivered&type%5B%5D=read&whatsapp_item_id=67f91abe2202f3705540234a&whatsapp_message_id=67f91abd69f79df391e9d78d
+    uri: https://api.mailersend.com/2026-10/whatsapp/activities?date_from=1791936000&date_to=1792022400&limit=25&page=1&recipient=48600000001&type%5B%5D=delivered&type%5B%5D=read&whatsapp_item_id=67f91abe2202f3705540234a&whatsapp_message_id=67f91abd69f79df391e9d78d
     body:
       encoding: ASCII-8BIT
       string: ''

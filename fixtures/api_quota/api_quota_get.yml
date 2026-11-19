@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.mailersend.com/v1/api-quota
+    uri: https://api.mailersend.com/2026-10/api-quota
     body:
       encoding: ASCII-8BIT
       string: ''

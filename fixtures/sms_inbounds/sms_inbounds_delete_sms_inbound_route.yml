@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: delete
-    uri: https://api.mailersend.com/v1/sms-inbounds/0p7kx4xw0eg9yjre
+    uri: https://api.mailersend.com/2026-10/sms-inbounds/0p7kx4xw0eg9yjre
     body:
       encoding: ASCII-8BIT
       string: ''

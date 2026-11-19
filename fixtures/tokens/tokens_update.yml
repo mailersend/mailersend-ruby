@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: put
-    uri: https://api.mailersend.com/v1/token/1dd8e323b92f9953069f9647ca5929a24674e2f972d85734b27de16cd06360256054a070b783c272/settings
+    uri: https://api.mailersend.com/2026-10/token/1dd8e323b92f9953069f9647ca5929a24674e2f972d85734b27de16cd06360256054a070b783c272/settings
     body:
       encoding: UTF-8
       string: '{"status":"pause"}'

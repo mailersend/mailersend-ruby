@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.mailersend.com/v1/suppressions/hard-bounces
+    uri: https://api.mailersend.com/2026-10/suppressions/hard-bounces
     body:
       encoding: UTF-8
       string: '{"domain_id":"jpzkmgq7e5vl059v","recipients":["test@mailerlite.com"]}'
