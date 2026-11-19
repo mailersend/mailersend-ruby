@@ -3,30 +3,33 @@ name: Publish Gem
 on:
   push:
     tags:
-      - v*
+      - "v*"
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.1
 
-      - name: Install Bundler
-        run: gem install bundler -v 2.5.23
+      # The tag is the only source of the version; version.rb holds a placeholder.
+      - name: Set the version from the tag
+        run: |
+          if ! [[ "$GITHUB_REF_NAME" =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.]+)?$ ]]; then
+            echo "::error::$GITHUB_REF_NAME is not a version tag such as v1.2.3"
+            exit 1
+          fi
+          VERSION="${GITHUB_REF_NAME#v}"
+          sed -i "s/VERSION = '.*'/VERSION = '${VERSION}'/" lib/mailersend/version.rb
+          ruby -Ilib -e 'require "mailersend/version"; abort "version.rb was not updated" unless Mailersend::VERSION == ARGV[0]' "$VERSION"
 
-      - name: Install dependencies
-        run: bundle _2.5.23_ install
-
-      - name: Release Gem
-        if: contains(github.ref, 'refs/tags/v')
-        uses: cadwallion/publish-rubygems-action@master
+      - name: Publish to RubyGems
+        run: |
+          gem build mailersend-ruby.gemspec
+          gem push mailersend-ruby-*.gem
         env:
-          GITHUB_TOKEN: ${{secrets.GITHUBTOKEN}}
-          RUBYGEMS_API_KEY: ${{secrets.RUBYGEMS_API_KEY}}
-          RELEASE_COMMAND: rake release
-          
+          GEM_HOST_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
