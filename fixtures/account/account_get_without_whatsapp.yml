@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.mailersend.com/v1/account
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Authorization:
+      - "<AUTH>"
+      User-Agent:
+      - MailerSend-client-ruby/3.4.0
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.mailersend.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 05 Nov 2026 08:00:00 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cache-Control:
+      - no-cache, private
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Server:
+      - cloudflare
+    body:
+      encoding: UTF-8
+      string: '{"data":{"name":"Acme Inc","status":"approved","plan_type":"starter","data_retention_days":7,"emails":{"sent":12000,"received":430,"limit":-1},"rate_limits":{"general":60,"email":120,"bulk_email":10,"activity":10},"resources":{"domains":{"used":3,"limit":10},"users":{"used":2,"limit":5},"free_accountant_seat":{"used":1,"limit":1},"templates":{"used":41,"limit":250},"smtp_users":{"used":1,"limit":50},"api_tokens":{"used":4,"limit":50},"webhooks":{"used":0,"limit":null}},"addons":{"sms":{"sent":120,"received":30,"limit":-1},"whatsapp":null,"phone_numbers":1,"domain_spaces":2,"data_retention_days":30,"dedicated_ips":0}}}'
+  recorded_at: Thu, 05 Nov 2026 08:00:00 GMT
+recorded_with: VCR 6.3.1

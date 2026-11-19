@@ -145,6 +145,7 @@ MailerSend Ruby SDK
     - [Update an SMS webhook](#update-an-sms-webhook)
     - [Delete an SMS webhook](#delete-an-sms-webhook)
   - [Other endpoints](#other-endpoints)
+    - [Get account](#get-account)
     - [Get API quota](#get-api-quota)
 - [Support and Feedback](#support-and-feedback)
 - [License](#license)
@@ -1836,6 +1837,19 @@ ms_whatsapp_templates.get(whatsapp_template_id: 'your-whatsapp-template-id')
 ```
 
 ## Other endpoints
+
+### Get account
+
+```ruby
+require "mailersend-ruby"
+
+ms_client = Mailersend::Client.new('your_mailersend_token')
+
+# Intialize the Account class
+ms_account = Mailersend::Account.new(ms_client)
+
+ms_account.get_account
+```
 
 ### Get API quota
 
